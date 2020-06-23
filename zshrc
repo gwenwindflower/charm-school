@@ -2,12 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/grant/.oh-my-zsh"
+export ZSH="/Users/grant/.oh-my-zsh"
+
+ZSH_CUSTOM="/Users/grant/.dotfiles/oh-my-zsh/custom"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
 ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
@@ -60,15 +63,12 @@ ZSH_THEME="spaceship"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/.dotfiles/oh-my-zsh/custom
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting vi-mode poetry)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
