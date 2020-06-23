@@ -98,10 +98,6 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vi ~/.zshrc"
 alias zshrefresh="source ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
-alias wthr="curl wttr.in/Chicago"
-alias clndr="remind ~/.reminders"
-now=$(date +"%m_%d_%Y_%T") 
-alias jrnl="vi ~/writing/journal/$now"
 alias vimconfig="vi ~/.vim-config"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -113,3 +109,5 @@ eval "$(pyenv virtualenv-init -)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
