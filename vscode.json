@@ -1,0 +1,48 @@
+{
+    "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Seoul Dark",
+    "extensions.ignoreRecommendations": false,
+    "dbt-formatter.upper": false,
+    "files.associations": {
+        "*.sql": "jinja-sql"
+    },
+    "workbench.preferredDarkColorTheme": "Seoul Dark",
+    "workbench.preferredLightColorTheme": "Seoul Light",
+    "python.dataScience.askForKernelRestart": false,
+    "window.zoomLevel": 0,
+    "githubIssues.queries": [
+        {
+            "label": "My Issues",
+            "query": "default"
+        },
+        {
+            "label": "Created Issues",
+            "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+        },
+        {
+            "label": "My Issues - All Repos",
+            "query": "assignee:${user} state:open sort:created-desc"
+        }
+    ],
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "python.venvPath": "~/Library/caches/pypoetry/virtualenvs",
+    "[markdown]": {
+        "editor.quickSuggestions": true
+    },
+    "markdown-checkbox.checkmark": "x",
+    "markdown-checkbox.typeOfBulletPoint": "-",
+}
