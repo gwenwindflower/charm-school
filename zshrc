@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/grant/.oh-my-zsh"
 
-ZSH_CUSTOM="/Users/grant/.dotfiles/oh-my-zsh/custom"
+ZSH_CUSTOM="/Users/grant/.dotfiles/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,6 +99,9 @@ alias zshconfig="vi ~/.zshrc"
 alias zshrefresh="source ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
 alias vimconfig="vi ~/.vim-config"
+alias dbtprof="vi ~/.dbt/profiles.yml"
+alias dbtdoc="dbt docs generate && dbt docs serve"
+function dbtmrt () { dbt run -m $1 && dbt test -m $1 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -5,5 +5,9 @@
     ~/.vimrc: vimrc
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
+    ~/.oh-my-zsh/custom:
+      force: true
+      path: oh-my-zsh
+
 
 
