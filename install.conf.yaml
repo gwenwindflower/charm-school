@@ -8,6 +8,7 @@
     ~/.oh-my-zsh/custom:
       force: true
       path: oh-my-zsh
+    ~/.oh-my-zsh/completions: oh-my-zsh/completions
 
 
 
