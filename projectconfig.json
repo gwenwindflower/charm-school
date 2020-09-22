@@ -1,0 +1,62 @@
+{
+  "groups": [
+    {
+      "name": "clients",
+      "icon": "organization",
+      "projects": [
+        {
+          "name": "donors-choose",
+          "path": "~/dev/client/data-transformations"
+        },
+        {
+          "name": "grailed_dbt",
+          "path": "~/dev/client/grailed_dbt"
+        }
+      ]
+    },
+    {
+      "name": "personal",
+      "icon": "smiley",
+      "projects": [
+        {
+          "name": "grantwinship.github.io",
+          "path": "~/dev/grantwinship.github.io"
+        },
+        {
+          "name": "journal",
+          "path": "~/dev/journal"
+        },
+        {
+          "name": "notebooks",
+          "path": "~/dev/notebooks"
+        }
+      ]
+    },
+    {
+      "name": "fishtown-internal",
+      "icon": "telescope",
+      "projects": [
+        {
+          "name": "internal-analytics",
+          "path": "~/dev/internal-analytics"
+        },
+        {
+          "name": "mrr-playbook",
+          "path": "~/dev/mrr-playbook"
+        },
+        {
+          "name": "attribution-playbook",
+          "path": "~/dev/attribution-playbook"
+        },
+        {
+          "name": "dbt-completion.bash",
+          "path": "~/dev/dbt-completion.bash"
+        },
+        {
+          "name": "training_project",
+          "path": "~/dev/training/training_project"
+        }
+      ]
+    }
+  ]
+}
