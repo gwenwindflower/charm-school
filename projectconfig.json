@@ -5,30 +5,26 @@
       "icon": "organization",
       "projects": [
         {
-          "name": "donors-choose",
-          "path": "~/dev/client/data-transformations"
-        },
-        {
-          "name": "grailed_dbt",
-          "path": "~/dev/client/grailed_dbt"
+          "name": "airlabs",
+          "path": "~/dev/client/airlabs/dbt-analytics"
         }
       ]
     },
     {
       "name": "personal",
-      "icon": "smiley",
+      "icon": "octoface",
       "projects": [
         {
-          "name": "grantwinship.github.io",
-          "path": "~/dev/grantwinship.github.io"
-        },
-        {
-          "name": "journal",
-          "path": "~/dev/journal"
+          "name": "blog",
+          "path": "~/dev/personal/blog"
         },
         {
           "name": "notebooks",
-          "path": "~/dev/notebooks"
+          "path": "~/dev/personal/notebooks"
+        },
+        {
+          "name": "raycast",
+          "path": "~/dev/script-commands"
         }
       ]
     },
@@ -38,25 +34,41 @@
       "projects": [
         {
           "name": "internal-analytics",
-          "path": "~/dev/internal-analytics"
+          "path": "~/dev/internal/internal-analytics"
         },
         {
+          "name": "granjana-beauty",
+          "path": "~/dev/internal/granjana-beauty/granjana-beauty"
+        }
+      ]
+    },
+    {
+      "name": "learning",
+      "icon": "rocket",
+      "projects": [
+        {
           "name": "mrr-playbook",
-          "path": "~/dev/mrr-playbook"
+          "path": "~/dev/personal/learning/mrr-playbook"
         },
         {
           "name": "attribution-playbook",
-          "path": "~/dev/attribution-playbook"
+          "path": "~/dev/personal/learning/attribution-playbook"
         },
         {
-          "name": "dbt-completion.bash",
-          "path": "~/dev/dbt-completion.bash"
-        },
-        {
-          "name": "training_project",
-          "path": "~/dev/training/training_project"
+          "name": "incubator-superset",
+          "path": "~/dev/personal/learning/incubator-superset"
         }
       ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "grailed_dbt",
+      "path": "~/dev/client/grailed/grailed_dbt"
+    },
+    {
+      "name": "quasar",
+      "path": "~/dev/client/do-something/quasar"
     }
   ]
 }

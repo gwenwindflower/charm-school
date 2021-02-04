@@ -68,7 +68,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,11 +95,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vi ~/.zshrc"
+alias zshconfig="code ~/.zshrc"
 alias zshrefresh="source ~/.zshrc"
-alias ohmyzsh="vi ~/.oh-my-zsh"
-alias vimconfig="vi ~/.vim-config"
-alias dbtprof="vi ~/.dbt/profiles.yml"
+alias ohmyzsh="code ~/.oh-my-zsh"
+alias vimconfig="code ~/.vim-config"
+alias dbtprof="code ~/.dbt/profiles.yml"
 alias dbtdoc="dbt docs generate && dbt docs serve"
 function dbtmrt () { dbt run -m $1 && dbt test -m $1 }
 
@@ -114,3 +114,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/grant/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/completion.zsh.inc'; fi
