@@ -4,10 +4,6 @@
       "name": "clients",
       "icon": "organization",
       "projects": [
-        {
-          "name": "airlabs",
-          "path": "~/dev/client/airlabs/dbt-analytics"
-        }
       ]
     },
     {
@@ -59,16 +55,6 @@
           "path": "~/dev/personal/learning/incubator-superset"
         }
       ]
-    }
-  ],
-  "projects": [
-    {
-      "name": "grailed_dbt",
-      "path": "~/dev/client/grailed/grailed_dbt"
-    },
-    {
-      "name": "quasar",
-      "path": "~/dev/client/do-something/quasar"
     }
   ]
 }
