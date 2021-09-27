@@ -11,7 +11,7 @@ ZSH_CUSTOM="/Users/grant/.dotfiles/oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="spaceship"
+# ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,12 +68,15 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colored-man-pages sudo python pip pyenv zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+autoload -U zmv
+
+setopt extendedglob
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -95,15 +98,80 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="code ~/.zshrc"
-alias zshrefresh="source ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias vimconfig="code ~/.vim-config"
-alias dbtprof="code ~/.dbt/profiles.yml"
+
+alias vi="nvim"
+alias vim="nvim"
+alias zc="vi ~/.zshrc"
+alias zr="source ~/.zshrc"
+alias ohmyzsh="cd ~/.oh-my-zsh && vi"
+alias vimconfig="vi ~/.vim-config"
+alias dbtprof="vi ~/.dbt/profiles.yml"
 alias dbtdoc="dbt docs generate && dbt docs serve"
+# alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
+alias sc="sc-im"
+alias wthr="curl wttr.in/chicago"
+alias dotz="cd ~/.dotfiles && vi"
+alias cl="gcalcli"
+alias cla="gcalcli agenda"
+alias ob="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/main && vi"
+alias pu="cmus-remote --pause"
+source ~/dev/client/*/aliases.sh
+
+export EDITOR=nvim
+export TERM="xterm-256color"
+
+export EDITOR=nvim
+
+# run and test dbt selection
 function dbtmrt () { dbt run -m $1 && dbt test -m $1 }
 
+#wrapper functions around dbt codegen for scaffolding boiler plate dbt models 
+function dbtsrc() {
+    database_name=$1
+    schema_name=$2
+    echo 'building source yaml for '"$database_name"''
+    mkdir -p ./models/staging/"$schema_name"
+    touch ./models/staging/"$schema_name"/_source.yml 
+    dbt --log-format json \
+    run-operation generate_source \
+    --args '{"schema_name": '"$schema_name"', "database_name": '"$database_name"'}' \
+    | jq -r 'select(.message | contains ("version") ) | .message' \
+    > ./models/staging/"$schema_name"/_source.yml
+}
+
+function dbtstg() {
+    source_name=$1
+    table_name=$2
+    echo 'building staging model for '"$table_name"' in source '"$source_name"''
+    mkdir -p ./models/staging/"$source_name"
+    touch ./models/staging/"$source_name"/stg_"$source_name"_"$table_name".sql
+    dbt --log-format json \
+    run-operation generate_base_model \
+    --args '{"source_name": '"$source_name"', "table_name": '"$table_name"'}' \
+    | jq -r 'select(.message | startswith ("with") ) | .message' \
+    > ./models/staging/"$source_name"/stg_"$source_name"_"$table_name".sql
+}
+
+function dbtstb() {
+    database_name=$1
+    schema_name=$2
+    dbtsrc "$database_name" "$schema_name"
+    length=$(cat ./models/staging/"$schema_name"/_source.yml | shyaml get-length sources.0.tables)
+    length=$((length-1))
+    for i in {0.."$length"}
+    do
+        table_name=$(cat ./models/staging/"$schema_name"/_source.yml | shyaml get-value sources.0.tables."$i".name)
+        dbtstg "$schema_name" "$table_name"
+    done
+}  
+
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# z
+. /usr/local/etc/profile.d/z.sh
+
+export BAT_THEME="ansi-dark"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -120,3 +188,15 @@ if [ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/grant/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/grant/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+
+# The next line updates PATH for Postgres.app CLI
+PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+
+
+#### FIG ENV VARIABLES ####
+# [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
+
+## enable starship theme
+eval "$(starship init zsh)"

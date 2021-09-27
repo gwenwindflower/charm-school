@@ -3,6 +3,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
+    ~/.config/nvim/init.vim: vimrc
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
     ~/.oh-my-zsh/completions: oh-my-zsh/completions

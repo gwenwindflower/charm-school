@@ -1,3 +1,7 @@
 [user]
 	name = Grant Winship
 	email = grantwinship@hey.com
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
