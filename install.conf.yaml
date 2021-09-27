@@ -5,7 +5,9 @@
     ~/.vimrc: vimrc
     ~/.config/nvim/init.vim: vimrc
     ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
+    ~/.zshrc: 
+      path: zshrc
+      force: true
     ~/.oh-my-zsh/completions: oh-my-zsh/completions
     "~/Library/Application\ Support/Code/User/settings.json":
       force: true
