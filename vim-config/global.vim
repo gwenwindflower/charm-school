@@ -19,6 +19,9 @@ set splitbelow                             " More natural splits
 set splitright                             " More natural splits
 set bs=2                                   " Allow backspace to eat up EOL and indent
 set clipboard=unnamed                      " Use system clipboard
+set ignorecase                             " Required for smartcase to work
+set smartcase                              " Case insensitve search on all lowercase strings
+
 " Backups
 set backupdir=$HOME/.dotfiles/vim-config/backups
 
@@ -30,6 +33,11 @@ set undoreload=10000
 
 " Theme
 colorscheme rigel
+" colo seoul256
+" let g:material_terminal_italics = 1
+" let g:material_theme_style = 'default'
+" colorscheme material
+" colorscheme nord
 
 " enable 24bit true color
 set termguicolors

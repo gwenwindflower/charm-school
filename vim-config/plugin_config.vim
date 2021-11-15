@@ -22,8 +22,98 @@ autocmd! User GoyoLeave Limelight!
 " todo-comments
 lua << EOF
   require("todo-comments").setup {
-
 }
+EOF
+
+" lualine
+" lua << END
+" require'lualine'.setup {
+    " options = {theme = 'seoul256'},
+    " extensions = {'nerdtree'}
+" }
+" END
+
+" Neuron
+lua << EOF
+require'neuron'.setup {
+    virtual_titles = true,
+    mappings = true,
+    run = nil, -- function to run when in neuron dir
+    neuron_dir = "~/dev/personal/blog", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
+    leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
+}
+EOF
+
+" orgmode.nvim
+lua << EOF
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.org = {
+    install_info = {
+    url = 'https://github.com/milisims/tree-sitter-org',
+    revision = 'main',
+    files = {'src/parser.c', 'src/scanner.cc'},
+    },
+    filetype = 'org',
+}
+
+require'nvim-treesitter.configs'.setup {
+  -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
+  highlight = {
+    enable = true,
+    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
+    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
+  },
+  ensure_installed = {'org'}, -- Or run :TSUpdate org
+}
+
+require('orgmode').setup({
+  org_agenda_files = {'~/dev/personal/org-test/*'},
+  org_default_notes_file = '~/dev/personal/org-test/refile.org',
+})
+EOF
+
+lua << EOF
+    vim.cmd [[highlight Headline1 guibg=#1e2718]]
+    vim.cmd [[highlight Headline2 guibg=#21262d]]
+    vim.cmd [[highlight CodeBlock guibg=#1c1c1c]]
+    vim.cmd [[highlight Dash guibg=#D19A66 gui=bold]]
+    vim.fn.sign_define("Headline1", { linehl = "Headline1" })
+    vim.fn.sign_define("Headline2",  { linehl = "Headline2" })
+    
+    require("headlines").setup {
+        markdown = {
+            source_pattern_start = "^```",
+            source_pattern_end = "^```$",
+            dash_pattern = "^---+$",
+            headline_pattern = "^#+",
+            headline_signs = { "Headline" },
+            codeblock_sign = "CodeBlock",
+            dash_highlight = "Dash",
+        },
+        org = {
+            source_pattern_start = "#%+[bB][eE][gG][iI][nN]_[sS][rR][cC]",
+            source_pattern_end = "#%+[eE][nN][dD]_[sS][rR][cC]",
+            dash_pattern = "^-----+$",
+            headline_pattern = "^%*+",
+            headline_signs = { "Headline" },
+            codeblock_sign = "CodeBlock",
+            dash_highlight = "Dash",
+        },
+    }
+EOF
+
+
+" lua << EOF
+    " require("org-bullets").setup {
+        " symbols = {"🌸","🌱","💧","✨","💗" },
+        " -- indent = true,
+    " }
+" EOF
+
+lua << EOF
+    require'sniprun'.setup {
+        repl_enable = {Python3_original},
+  }
 EOF
 
 " airline

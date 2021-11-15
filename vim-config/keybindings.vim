@@ -79,6 +79,8 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ft :TodoTelescope<CR>
+nnoremap <leader>fr :TodoTrouble<CR>
 
 " Reload vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -94,3 +96,11 @@ inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
+
+" Delete all buffers but current
+command! BufOnly execute '%bdelete|edit #|normal `"'
+
+" SnipRun
+nmap <leader>fs <Plug>SnipRun
+nmap <leader>f <Plug>SnipRunOperator
+vmap f <Plug>SnipRun

@@ -68,7 +68,7 @@ ZSH_CUSTOM="/Users/grant/.dotfiles/oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages sudo python pip pyenv zsh_reload)
+plugins=(git colored-man-pages sudo python pip pyenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,8 +101,8 @@ setopt extendedglob
 
 alias vi="nvim"
 alias vim="nvim"
-alias zc="vi ~/.zshrc"
-alias zr="source ~/.zshrc"
+alias zc="vi ~/.dotfiles/zshrc"
+alias zr="exec $SHELL"
 alias ohmyzsh="cd ~/.oh-my-zsh && vi"
 alias vimconfig="vi ~/.vim-config"
 alias dbtprof="vi ~/.dbt/profiles.yml"
@@ -119,8 +119,6 @@ source ~/dev/client/*/aliases.sh
 
 export EDITOR=nvim
 export TERM="xterm-256color"
-
-export EDITOR=nvim
 
 # run and test dbt selection
 function dbtmrt () { dbt run -m $1 && dbt test -m $1 }
@@ -163,7 +161,19 @@ function dbtstb() {
         table_name=$(cat ./models/staging/"$schema_name"/_source.yml | shyaml get-value sources.0.tables."$i".name)
         dbtstg "$schema_name" "$table_name"
     done
-}  
+}
+
+# Bookmark note in journal and edit
+function ne() {
+    URL=$(osascript -e 'tell application "Google Chrome" to get URL of active tab of first window')
+    TITLE=$(osascript -e 'tell application "Google Chrome" to get Title of active tab of first window')
+    cd ~/dev/personal/blog
+    FILE=$(neuron new)
+    echo "# $TITLE
+    [$TITLE]($URL)" > "$FILE"
+    echo "Bookmarked $FILE in journal"
+    vi $FILE
+}
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -193,6 +203,9 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 # The next line updates PATH for Postgres.app CLI
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
+
+
+if [ -e /Users/grant/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/grant/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 #### FIG ENV VARIABLES ####
 # [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
