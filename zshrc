@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -68,7 +69,7 @@ ZSH_CUSTOM="/Users/grant/.dotfiles/oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages sudo python pip pyenv)
+plugins=(git colored-man-pages sudo python pip)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,12 +93,7 @@ setopt extendedglob
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
 
 alias vi="nvim"
 alias vim="nvim"
@@ -107,14 +103,18 @@ alias ohmyzsh="cd ~/.oh-my-zsh && vi"
 alias vimconfig="vi ~/.vim-config"
 alias dbtprof="vi ~/.dbt/profiles.yml"
 alias dbtdoc="dbt docs generate && dbt docs serve"
-# alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 alias sc="sc-im"
 alias wthr="curl wttr.in/chicago"
 alias dotz="cd ~/.dotfiles && vi"
 alias cl="gcalcli"
 alias cla="gcalcli agenda"
+alias gch="omz plugin info git"
+export ORGDIR="~/Library/Mobile\ Documents/iCloud~com~appsonthemove~beorg/Documents/org"
 alias ob="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/main && vi"
+alias org="cd ${ORGDIR}&& vi"
+alias orgdir="cd ${ORGDIR}"
 alias pu="cmus-remote --pause"
+alias el="npx @11ty/eleventy"
 source ~/dev/client/*/aliases.sh
 
 export EDITOR=nvim
@@ -183,15 +183,16 @@ function ne() {
 
 export BAT_THEME="ansi-dark"
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Not currently doing much JS work and nvm is very slow -- look into lazy loading if you need to add it back -> https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
@@ -203,13 +204,10 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 # The next line updates PATH for Postgres.app CLI
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-
-
-if [ -e /Users/grant/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/grant/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
 #### FIG ENV VARIABLES ####
 # [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
 #### END FIG ENV VARIABLES ####
 
 ## enable starship theme
 eval "$(starship init zsh)"
+[ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env

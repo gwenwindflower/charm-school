@@ -11,6 +11,7 @@ set smarttab                               " Use shiftwidth and softtabstop to i
 set cindent                                " Recommended seting for automatic C-style indentation
 set autoindent                             " Automatic indentation in non-C files
 set nowrap                                 " Dont wrap lines
+set linebreak                              " Keep words together when wrapping
 set wildmenu                               " Make tab completion act more like bash
 set wildmode=longest,list,full             " Tab complete to longest common string, like bash
 set completeopt+=longest                   " Tab complete type to search
@@ -31,13 +32,28 @@ set undofile
 set undolevels=10000
 set undoreload=10000
 
-" Theme
-colorscheme rigel
-" colo seoul256
-" let g:material_terminal_italics = 1
-" let g:material_theme_style = 'default'
-" colorscheme material
-" colorscheme nord
-
 " enable 24bit true color
 set termguicolors
+
+" Theme
+let g:rigel_italic=1
+colorscheme rigel
+
+" Wrap org, markdown and, text
+augroup Markdown
+  autocmd!
+  autocmd FileType markdown set wrap
+augroup END
+
+augroup Text
+  autocmd!
+  autocmd FileType text set wrap
+augroup END
+
+augroup Org
+  autocmd!
+  autocmd FileType org set wrap
+augroup END
+
+" Close vim if NERDTree is only buffer left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

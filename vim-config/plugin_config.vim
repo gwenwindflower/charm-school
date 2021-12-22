@@ -26,22 +26,39 @@ lua << EOF
 EOF
 
 " lualine
-" lua << END
-" require'lualine'.setup {
-    " options = {theme = 'seoul256'},
-    " extensions = {'nerdtree'}
-" }
-" END
-
-" Neuron
-lua << EOF
-require'neuron'.setup {
-    virtual_titles = true,
-    mappings = true,
-    run = nil, -- function to run when in neuron dir
-    neuron_dir = "~/dev/personal/blog", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
-    leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
+lua << END
+require'lualine'.setup {
+    options = {theme = 'rigel'},
+    component_separators = {left = '', right = ''},
+    tabline = {
+      lualine_a = {'buffers'},
+      lualine_b = {'branch'},
+      lualine_c = {'filename'},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {'tabs'}
+    },
 }
+END
+
+" Specs
+lua << EOF
+    require('specs').setup{ 
+        show_jumps  = true,
+        popup = {
+            delay_ms = 0, -- delay before popup displays
+            inc_ms = 10, -- time increments used for fade/resize effects 
+            blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
+            width = 20,
+            winhl = "PMenu",
+            fader = require('specs').linear_fader,
+            resizer = require('specs').shrink_resizer
+        },
+        ignore_filetypes = {},
+        ignore_buftypes = {
+            nofile = true,
+        },
+    }
 EOF
 
 " orgmode.nvim
@@ -67,41 +84,24 @@ require'nvim-treesitter.configs'.setup {
 }
 
 require('orgmode').setup({
-  org_agenda_files = {'~/dev/personal/org-test/*'},
-  org_default_notes_file = '~/dev/personal/org-test/refile.org',
+  org_agenda_files = { "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/*" },
+  org_default_notes_file = "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/refile.org",
+  org_agenda_templates = { 
+    t = { description = 'task', template = '* TODO %?\n %u', target = "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/todos.org" },
+    j = { description = 'journal', template ='* princess diary ~ stardate %U\n %?', target = "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journal.org" },
+    r = { description = 'reading list', template = '* %^ [[%x]]', target = "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/reading_list.org" },
+  },
+  org_todo_keyword_faces = {
+    TODO = ':background #c694ff :foreground #002635',
+    DONE = ':background #7fc06e :slant italic :foreground #002635',
+  },
+  mappings = {
+    org = {
+      org_toggle_checkbox = '<Leader>we'
+    }
+  }
 })
 EOF
-
-lua << EOF
-    vim.cmd [[highlight Headline1 guibg=#1e2718]]
-    vim.cmd [[highlight Headline2 guibg=#21262d]]
-    vim.cmd [[highlight CodeBlock guibg=#1c1c1c]]
-    vim.cmd [[highlight Dash guibg=#D19A66 gui=bold]]
-    vim.fn.sign_define("Headline1", { linehl = "Headline1" })
-    vim.fn.sign_define("Headline2",  { linehl = "Headline2" })
-    
-    require("headlines").setup {
-        markdown = {
-            source_pattern_start = "^```",
-            source_pattern_end = "^```$",
-            dash_pattern = "^---+$",
-            headline_pattern = "^#+",
-            headline_signs = { "Headline" },
-            codeblock_sign = "CodeBlock",
-            dash_highlight = "Dash",
-        },
-        org = {
-            source_pattern_start = "#%+[bB][eE][gG][iI][nN]_[sS][rR][cC]",
-            source_pattern_end = "#%+[eE][nN][dD]_[sS][rR][cC]",
-            dash_pattern = "^-----+$",
-            headline_pattern = "^%*+",
-            headline_signs = { "Headline" },
-            codeblock_sign = "CodeBlock",
-            dash_highlight = "Dash",
-        },
-    }
-EOF
-
 
 " lua << EOF
     " require("org-bullets").setup {
@@ -109,20 +109,6 @@ EOF
         " -- indent = true,
     " }
 " EOF
-
-lua << EOF
-    require'sniprun'.setup {
-        repl_enable = {Python3_original},
-  }
-EOF
-
-" airline
-let g:rigel_airline = 1
-let g:airline_theme = 'rigel'
-let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_powerline_fonts = 1
-
 
 " vim-markdown
 let g:vim_markdown_conceal = 2

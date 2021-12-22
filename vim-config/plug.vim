@@ -8,23 +8,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-Plug 'neomake/neomake'
-
 Plug 'tpope/vim-fugitive'
 
 "Colors
 Plug 'Rigellute/rigel'
-" Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-" Plug 'junegunn/seoul256.vim'
-" Plug 'arcticicestudio/nord-vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'folke/todo-comments.nvim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 
@@ -50,6 +43,12 @@ Plug 'raimondi/delimitmate'
 Plug 'andymass/vim-matchup'
 
 Plug 'dhruvasagar/vim-table-mode'
+
+Plug 'tidalcycles/vim-tidal'
+
+" Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
+
+Plug 'edluffy/specs.nvim'
 
 "blogging and markdown
 Plug 'plasticboy/vim-markdown'
