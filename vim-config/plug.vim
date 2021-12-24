@@ -27,6 +27,7 @@ Plug 'tpope/vim-surround'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+Plug 'justinmk/vim-sneak'
 " Plug 'kristijanhusak/vim-dadbod-ui'
 
 Plug 'nvim-lua/popup.nvim'

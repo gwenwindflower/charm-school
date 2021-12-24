@@ -21,6 +21,9 @@ nnoremap <leader>j :Goyo<CR>
 nnoremap <Leader>bp :bp<CR>
 nnoremap <Leader>bn :bn<CR>
 
+"remove highlights from search
+nnoremap <Leader>h :noh<CR>
+
 " Terminal
 noremap <leader>s :term<CR>
 
@@ -73,8 +76,11 @@ nmap ga <Plug>(EasyAlign)
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fd <cmd>Telescope file_browser<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <M-k> <cmd>Telescope commands<cr>
+nnoremap <leader>fc <cmd>Telescope command_history<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>ft :TodoTelescope<CR>
 nnoremap <leader>fr :TodoTrouble<CR>
