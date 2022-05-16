@@ -12,6 +12,8 @@ Plug 'tpope/vim-fugitive'
 
 "Colors
 Plug 'Rigellute/rigel'
+Plug 'Mofiqul/dracula.nvim'
+Plug 'rose-pine/neovim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 

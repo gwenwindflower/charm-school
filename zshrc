@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -69,7 +71,7 @@ ZSH_CUSTOM="/Users/grant/.dotfiles/oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages sudo python pip)
+plugins=(git colored-man-pages sudo python pip brew zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,8 +116,12 @@ alias ob="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/main && vi
 alias org="cd ${ORGDIR}&& vi"
 alias orgdir="cd ${ORGDIR}"
 alias pu="cmus-remote --pause"
-alias el="npx @11ty/eleventy"
-source ~/dev/client/*/aliases.sh
+alias l="colorls --dark"
+alias ll="colorls -l --dark"
+alias la="colorls -a --dark"
+alias lla="colorls -la --dark"
+alias kb="cd /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
+alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
 
 export EDITOR=nvim
 export TERM="xterm-256color"
@@ -183,16 +189,12 @@ function ne() {
 
 export BAT_THEME="ansi-dark"
 
-# export PATH="$HOME/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
 # Not currently doing much JS work and nvm is very slow -- look into lazy loading if you need to add it back -> https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
@@ -204,10 +206,18 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 # The next line updates PATH for Postgres.app CLI
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-#### FIG ENV VARIABLES ####
-# [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
-
-## enable starship theme
-eval "$(starship init zsh)"
+# 
+# crazy haskell stuff for tidalcycles
 [ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
+
+# initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
+eval "$(pyenv init -)"
+
+# initialize rbenv
+eval "$(rbenv init - zsh)"
+
+# enable starship theme
+eval "$(starship init zsh)"
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"

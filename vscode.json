@@ -1,177 +1,139 @@
 {
-  "workbench.editorAssociations" : {
-    "*.ipynb" : "jupyter.notebook.ipynb"
-  },
-  "workbench.sideBar.location" : "left",
-  "workbench.welcomePage.hiddenCategories" : [
-    "Setup",
-    "Beginner"
-  ],
-  "markdown-checkbox.checkmark" : "x",
-  "python.venvPath" : "~\/Library\/caches\/pypoetry\/virtualenvs",
-  "vim.insertModeKeyBindings" : [
+  "workbench.sideBar.location": "left",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "markdown-checkbox.checkmark": "x",
+  "python.venvPath": "~\/Library\/caches\/pypoetry\/virtualenvs",
+  "vim.insertModeKeyBindings": [
     {
-      "after" : [
+      "after": [
         "<Esc>"
       ],
-      "before" : [
+      "before": [
         "j",
         "j"
       ]
     }
   ],
-  "editor.accessibilitySupport" : "off",
-  "editor.fontFamily" : "'Fira Code Nerd Font', 'Fira Code', Menlo, Monaco, 'Courier New', monospace",
-  "redhat.telemetry.enabled" : false,
-  "journal.tpl-task" : "- [ ] TODO: ${input}",
-  "todo.file.name" : "project_tasks.todo",
-  "journal.base" : "\/Users\/grant\/dev\/journal",
-  "workbench.activityBar.visible" : true,
-  "projects.refreshRoots" : [
+  "editor.accessibilitySupport": "off",
+  "redhat.telemetry.enabled": false,
+  "workbench.activityBar.visible": true,
+  "projects.refreshRoots": [
     "~\/dev\/"
   ],
-  "window.autoDetectColorScheme" : true,
-  "workbench.startupEditor" : "none",
-  "[markdown]" : {
-    "editor.rulers" : [
+  "workbench.startupEditor": "none",
+  "[markdown]": {
+    "editor.rulers": [
       80
     ],
-    "editor.quickSuggestions" : true,
-    "editor.wordWrap" : "on"
+    "editor.quickSuggestions": true,
+    "editor.wordWrap": "on"
   },
-  "projects.configPath" : "~\/.dotfiles\/projectconfig.json",
-  "workbench.preferredDarkColorTheme" : "GitHub Dark Dimmed",
-  "editor.fontLigatures" : true,
-  "dbt.listModelsDisabled" : true,
-  "files.associations" : {
-    "*.sql" : "jinja-sql"
+  "projects.configPath": "~\/.dotfiles\/projectconfig.json",
+  "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
+  "editor.fontLigatures": true,
+  "dbt.listModelsDisabled": true,
+  "files.associations": {
+    "*.sql": "jinja-sql"
   },
-  "terminal.external.osxExec" : "iTerm.app",
-  "editor.tokenColorCustomizations" : {
-    "textMateRules" : [
+  "terminal.external.osxExec": "kitty.app",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
       {
-        "scope" : "text.html.markdown.journal.task.open.bullet",
-        "settings" : {
-          "foreground" : "#CC3300"
+        "scope": [
+          "comment",
+          "constant", //String, Number, Boolean…, this, super
+          "keyword", //import, export, return…
+          "markup.italic",
+          "meta.selector",
+          "storage.modifier", //static keyword
+          "storage.type",
+          "storage.type.class.js", //class keyword
+          "variable.language",
+        ],
+        "settings": {
+          "fontStyle": "italic",
         }
       },
       {
-        "scope" : "text.html.markdown.journal.task.open.marker",
-        "settings" : {
-          "foreground" : "#CC3300"
+        "scope": [
+          //following will be excluded from italics
+          "invalid",
+          "keyword.operator",
+          "constant.numeric.css",
+          "keyword.other.unit.px.css",
+          "constant.numeric.decimal.js",
+          "constant.numeric.json",
+          "constant.numeric.sql",
+          "variable.other",
+        ],
+        "settings": {
+          "fontStyle": ""
         }
       },
       {
-        "scope" : "text.html.markdown.journal.task.open.keyword",
-        "settings" : {
-          "fontStyle" : "italic"
+        "scope": [
+          "constant.other.database-name.sql",
+        ],
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#ea9a97",
         }
       },
       {
-        "scope" : "text.html.markdown.journal.task.open.text",
-        "settings" : {
-
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.task.completed.keyword",
-        "settings" : {
-          "fontStyle" : "italic"
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.task.completed.marker",
-        "settings" : {
-          "foreground" : "#AAAAAA"
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.task.completed.text",
-        "settings" : {
-          "foreground" : "#AAAAAA"
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.task.completed.bullet",
-        "settings" : {
-          "foreground" : "#CC3300"
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.memo.keyword",
-        "settings" : {
-          "fontStyle" : "italic"
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.memo.bullet",
-        "settings" : {
-          "foreground" : "#CC3300"
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.scope",
-        "settings" : {
-          "foreground" : "#CC3300"
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.link.keyword",
-        "settings" : {
-          "fontStyle" : "italic"
-        }
-      },
-      {
-        "scope" : "text.html.markdown.journal.link.bullet",
-        "settings" : {
-          "foreground" : "#CC3300"
+        "scope": [
+          "constant.other.table-name.sql",
+          "support.function.security.sql",
+        ],
+        "settings": {
+          "fontStyle": "",
+          "foreground": "#fff",
         }
       }
     ]
   },
-  "githubIssues.useBranchForIssues" : "prompt",
-  "dbt-formatter.upper" : false,
-  "projectsTodo.hideArchives" : false,
-  "workbench.colorTheme" : "GitHub Dark Dimmed",
-  "markdown-checkbox.typeOfBulletPoint" : "-",
-  "workbench.iconTheme" : "vs-seti",
-  "vim.useSystemClipboard" : true,
-  "explorer.confirmDragAndDrop" : false,
-  "jupyter.askForKernelRestart" : false,
-  "markdown.extension.print.theme" : "dark",
-  "githubIssues.queries" : [
+  "githubIssues.useBranchForIssues": "prompt",
+  "dbt-formatter.upper": false,
+  "workbench.colorTheme": "Rosé Pine Moon",
+  "markdown-checkbox.typeOfBulletPoint": "-",
+  "vim.useSystemClipboard": true,
+  "explorer.confirmDragAndDrop": false,
+  "jupyter.askForKernelRestart": false,
+  "markdown.extension.print.theme": "dark",
+  "githubIssues.queries": [
     {
-      "label" : "My Issues",
-      "query" : "default"
+      "label": "My Issues",
+      "query": "default"
     }
   ],
-  "git.ignoreMissingGitWarning" : true,
-  "terminal.integrated.tabs.enabled" : true,
-  "extensions.ignoreRecommendations" : false,
-  "workbench.preferredLightColorTheme" : "GitHub Light Default",
-  "todo.embedded.exclude" : [
-    "**\/dbt_modules\/**",
-    "**\/logs\/**",
-    "**\/.*",
-    "**\/.*\/**",
-    "**\/_output\/**",
-    "**\/bower_components\/**",
-    "**\/build\/**",
-    "**\/dist\/**",
-    "**\/venv\/**",
-    "**\/node_modules\/**",
-    "**\/out\/**",
-    "**\/output\/**",
-    "**\/release\/**",
-    "**\/releases\/**",
-    "**\/static\/**",
-    "**\/target\/**",
-    "**\/third_party\/**",
-    "**\/vendor\/**",
-    "**\/CHANGELOG",
-    "**\/CHANGELOG.*",
-    "**\/*.min.*",
-    "**\/*.map",
-    "**\/*.{3ds,3g2,3gp,7z,a,aac,adp,ai,aif,aiff,alz,ape,apk,ar,arj,asf,au,avi,bak,baml,bh,bin,bk,bmp,btif,bz2,bzip2,cab,caf,cgm,class,cmx,cpio,cr2,csv,cur,dat,dcm,deb,dex,djvu,dll,dmg,dng,doc,docm,docx,dot,dotm,dra,DS_Store,dsk,dts,dtshd,dvb,dwg,dxf,ecelp4800,ecelp7470,ecelp9600,egg,eol,eot,epub,exe,f4v,fbs,fh,fla,flac,fli,flv,fpx,fst,fvt,g3,gif,graffle,gz,gzip,h261,h263,h264,icns,ico,ief,img,ipa,iso,jar,jpeg,jpg,jpgv,jpm,jxr,key,ktx,lha,lib,lvp,lz,lzh,lzma,lzo,m3u,m4a,m4v,mar,mdi,mht,mid,midi,mj2,mka,mkv,mmr,mng,mobi,mov,movie,mp3,mp4,mp4a,mpeg,mpg,mpga,mxu,nef,npx,numbers,o,oga,ogg,ogv,otf,pages,pbm,pcx,pdb,pdf,pea,pgm,pic,png,pnm,pot,potm,potx,ppa,ppam,ppm,pps,ppsm,ppsx,ppt,pptm,pptx,psd,pya,pyc,pyo,pyv,qt,rar,ras,raw,resources,rgb,rip,rlc,rmf,rmvb,rtf,rz,s3m,s7z,scpt,sgi,shar,sil,sketch,slk,smv,so,sub,swf,tar,tbz,tbz2,tga,tgz,thmx,tif,tiff,tlz,ttc,ttf,txz,udf,uvh,uvi,uvm,uvp,uvs,uvu,viv,vob,war,wav,wax,wbmp,wdp,weba,webm,webp,whl,wim,wm,wma,wmv,wmx,woff,woff2,wvx,xbm,xif,xla,xlam,xls,xlsb,xlsm,xlsx,xlt,xltm,xltx,xm,xmind,xpi,xpm,xwd,xz,z,zip,zipx}"
-  ]
+  "git.ignoreMissingGitWarning": true,
+  "terminal.integrated.tabs.enabled": true,
+  "extensions.ignoreRecommendations": false,
+  "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
+  "editor.fontFamily": "'MonoLisa winnie1', 'FiraCode Nerd Font'",
+  "editor.fontWeight": "100",
+  "editor.fontSize": 14,
+  "terminal.integrated.fontFamily": "'MonoLisa winnie1', 'FiraCode Nerd Font'",
+  "terminal.integrated.fontWeight": 100,
+  "terminal.integrated.fontWeightBold": 400,
+  "terminal.integrated.fontSize": 14,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorStyle": "line",
+  "workbench.colorCustomizations": {
+    "[Dracula]": {
+      "editorCursor.foreground": "#ff79c6",
+      "editor.selectionBackground": "#ff79c677"
+    },
+  },
+  "editor.formatOnSave": true,
+  "workbench.preferredHighContrastColorTheme": "GitHub Dark High Contrast",
+  "workbench.preferredHighContrastLightColorTheme": "GitHub Light High Contrast",
+  "jupyter.themeMatplotlibPlots": true,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "window.autoDetectHighContrast": false,
+  "projectManager.git.baseFolders": [
+    "~/dev/"
+  ],
 }

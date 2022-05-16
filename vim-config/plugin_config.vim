@@ -28,7 +28,7 @@ EOF
 " lualine
 lua << END
 require'lualine'.setup {
-    options = {theme = 'rigel'},
+    options = {theme = 'rose-pine'},
     component_separators = {left = '', right = ''},
     tabline = {
       lualine_a = {'buffers'},

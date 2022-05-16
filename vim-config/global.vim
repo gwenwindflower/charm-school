@@ -36,8 +36,19 @@ set undoreload=10000
 set termguicolors
 
 " Theme
-let g:rigel_italic=1
-colorscheme rigel
+" let g:rigel_italic=1
+" colorscheme rigel
+" colorscheme dracula
+" let g:dracula_italic_comment = 1
+
+" config for rose-pine
+lua << EOF
+    require('rose-pine').setup{
+      dark_variant = 'moon'
+    }
+EOF
+
+colorscheme rose-pine
 
 " Wrap org, markdown and, text
 augroup Markdown

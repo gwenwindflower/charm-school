@@ -1,24 +1,20 @@
 {
   "groups": [
     {
-      "name": "clients",
-      "icon": "organization",
+      "name": "work",
+      "icon": "squirrel",
       "projects": [
         {
-          "name": "comoto",
-          "path": "~/dev/client/comoto/"
+          "name": "devhub",
+          "path": "~/dev/docs.getdbt.com"
         },
         {
-          "name": "quip",
-          "path": "~/dev/client/quip/data"
+          "name": "jaffle_gaggle",
+          "path": "~/dev/jaffle_gaggle"
         },
         {
-          "name": "sv academy",
-          "path": "~/dev/client/castillo-dbt"
-        },
-        {
-          "name": "getupside",
-          "path": "~/dev/client/getupside/datax-core"
+          "name": "dbt",
+          "path": "~/dev/dbt"
         }
       ]
     },
@@ -35,30 +31,12 @@
           "path": "~/dev/script-commands"
         },
         {
-          "name": "sunrise-dbt",
-          "path": "~/dev/personal/sunrise/sunrise-dbt"
+          "name": "gwenwindflower.github.io",
+          "path": "~/dev/gwenwindflower.github.io"
         },
         {
-          "name": "grantwinship.github.io",
-          "path": "~/dev/personal/grantwinship.github.io"
-        }
-      ]
-    },
-    {
-      "name": "fishtown-internal",
-      "icon": "telescope",
-      "projects": [
-        {
-          "name": "internal-analytics",
-          "path": "~/dev/internal/internal-analytics"
-        },
-        {
-          "name": "granjana-beauty",
-          "path": "~/dev/internal/granjana-beauty/granjana-beauty"
-        },
-        {
-          "name": "dbt",
-          "path": "~/dev/dbt"
+          "name": "gwenwindflower",
+          "path": "~/dev/gwenwindflower"
         }
       ]
     },
@@ -67,26 +45,17 @@
       "icon": "rocket",
       "projects": [
         {
-          "name": "mrr-playbook",
-          "path": "~/dev/personal/learning/mrr-playbook"
-        },
-        {
-          "name": "attribution-playbook",
-          "path": "~/dev/personal/learning/attribution-playbook"
-        },
-        {
-          "name": "incubator-superset",
-          "path": "~/dev/personal/learning/incubator-superset"
-        },
-        {
           "name": "materialize",
           "path": "~/dev/materialize/materialize"
-        },
-        {
-          "name": "microblog",
-          "path": "~/dev/personal/microblog"
         }
       ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "vscode-dbt-power-user",
+      "path": "~/dev/vscode-dbt-power-user",
+      "description": "This extension makes vscode seamlessly work with dbt"
     }
   ]
 }
