@@ -23,11 +23,17 @@
   ],
   "workbench.startupEditor": "none",
   "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
     "editor.rulers": [
       80
     ],
-    "editor.quickSuggestions": true,
-    "editor.wordWrap": "on"
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "projects.configPath": "~\/.dotfiles\/projectconfig.json",
   "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
@@ -110,10 +116,10 @@
   "terminal.integrated.tabs.enabled": true,
   "extensions.ignoreRecommendations": false,
   "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
-  "editor.fontFamily": "'MonoLisa winnie1', 'FiraCode Nerd Font'",
+  "editor.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
   "editor.fontWeight": "100",
   "editor.fontSize": 14,
-  "terminal.integrated.fontFamily": "'MonoLisa winnie1', 'FiraCode Nerd Font'",
+  "terminal.integrated.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
   "terminal.integrated.fontWeight": 100,
   "terminal.integrated.fontWeightBold": 400,
   "terminal.integrated.fontSize": 14,
@@ -126,8 +132,6 @@
     },
   },
   "editor.formatOnSave": true,
-  "workbench.preferredHighContrastColorTheme": "GitHub Dark High Contrast",
-  "workbench.preferredHighContrastLightColorTheme": "GitHub Light High Contrast",
   "jupyter.themeMatplotlibPlots": true,
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
@@ -136,4 +140,13 @@
   "projectManager.git.baseFolders": [
     "~/dev/"
   ],
+  "gitlens.plusFeatures.enabled": false,
+  "githubPullRequests.pullBranch": "never",
+  "vim.easymotion": true,
+  "vim.leader": ",",
+  "window.autoDetectColorScheme": true,
+  "editor.minimap.enabled": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 }

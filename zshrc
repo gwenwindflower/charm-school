@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -99,21 +99,20 @@ setopt extendedglob
 
 alias vi="nvim"
 alias vim="nvim"
-alias zc="vi ~/.dotfiles/zshrc"
+alias zc="code ~/.dotfiles/zshrc"
 alias zr="exec $SHELL"
-alias ohmyzsh="cd ~/.oh-my-zsh && vi"
-alias vimconfig="vi ~/.vim-config"
-alias dbtprof="vi ~/.dbt/profiles.yml"
+alias ohmyzsh="cd ~/.oh-my-zsh && code ."
+alias vimconfig="code ~/.vim-config"
+alias dbtprof="code ~/.dbt/profiles.yml"
 alias dbtdoc="dbt docs generate && dbt docs serve"
 alias sc="sc-im"
 alias wthr="curl wttr.in/chicago"
-alias dotz="cd ~/.dotfiles && vi"
+alias dotz="cd ~/.dotfiles && code ."
 alias cl="gcalcli"
 alias cla="gcalcli agenda"
 alias gch="omz plugin info git"
 export ORGDIR="~/Documents/orgfiles"
-alias ob="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/main && vi"
-alias org="cd ${ORGDIR}&& vi"
+alias org="cd ${ORGDIR}&& code"
 alias orgdir="cd ${ORGDIR}"
 alias pu="cmus-remote --pause"
 alias l="colorls --dark"
@@ -123,7 +122,7 @@ alias lla="colorls -la --dark"
 alias kb="cd /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
 alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
 
-export EDITOR=nvim
+export EDITOR=code
 export TERM="xterm-256color"
 
 # run and test dbt selection
@@ -169,18 +168,6 @@ function dbtstb() {
     done
 }
 
-# Bookmark note in journal and edit
-function ne() {
-    URL=$(osascript -e 'tell application "Google Chrome" to get URL of active tab of first window')
-    TITLE=$(osascript -e 'tell application "Google Chrome" to get Title of active tab of first window')
-    cd ~/dev/personal/blog
-    FILE=$(neuron new)
-    echo "# $TITLE
-    [$TITLE]($URL)" > "$FILE"
-    echo "Bookmarked $FILE in journal"
-    vi $FILE
-}
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -220,4 +207,4 @@ eval "$(rbenv init - zsh)"
 eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
