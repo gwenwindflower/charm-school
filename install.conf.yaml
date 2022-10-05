@@ -12,3 +12,6 @@
     "~/Library/Application\ Support/Code/User/settings.json":
       force: true
       path: vscode.json
+    ~/.config/starship.toml:
+      path: starship.toml
+      force: true
