@@ -121,6 +121,8 @@ alias la="colorls -a --dark"
 alias lla="colorls -la --dark"
 alias kb="cd /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
 alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
+alias journal="cd ~/dev/princess-winnies-starlog && code ."
+alias notes="cd ~/dev/the-star-elf-guidebook && code ."
 
 export EDITOR=code
 export TERM="xterm-256color"

@@ -196,7 +196,7 @@
         ],
         "description": "Source"
     },
-    "Incremental DBT block": {
+    "Incremental dbt block": {
         "prefix": "is_incremental",
         "body": [
             "{% if is_incremental() %}",
@@ -205,6 +205,6 @@
             "  ${3:optional_cond}",
             "{% endif %}"
         ],
-        "description": "Incremental DBT Block"
+        "description": "Incremental dbt Block"
     }
 }

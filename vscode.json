@@ -100,7 +100,7 @@
   },
   "githubIssues.useBranchForIssues": "prompt",
   "dbt-formatter.upper": false,
-  "workbench.colorTheme": "Rosé Pine Moon",
+  "workbench.colorTheme": "Rosé Pine Dawn",
   "markdown-checkbox.typeOfBulletPoint": "-",
   "vim.useSystemClipboard": true,
   "explorer.confirmDragAndDrop": false,
@@ -149,4 +149,11 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gistpad.wikis.daily.directoryName": "journal",
+  "gistpad.wikis.daily.titleFormat": "YYYY-MM-DD",
+  "foam.openDailyNote.directory": "journal",
+  "foam.openDailyNote.filenameFormat": "yyyy-mm-dd",
 }
