@@ -140,7 +140,6 @@
   "projectManager.git.baseFolders": [
     "~/dev/"
   ],
-  "gitlens.plusFeatures.enabled": false,
   "githubPullRequests.pullBranch": "never",
   "vim.easymotion": true,
   "vim.leader": ",",

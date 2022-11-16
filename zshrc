@@ -123,6 +123,7 @@ alias kb="cd /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindf
 alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
 alias journal="cd ~/dev/princess-winnies-starlog && code ."
 alias notes="cd ~/dev/the-star-elf-guidebook && code ."
+alias va="source venv/bin/activate"
 
 export EDITOR=code
 export TERM="xterm-256color"
@@ -205,7 +206,7 @@ eval "$(pyenv init -)"
 # initialize rbenv
 eval "$(rbenv init - zsh)"
 
-# enable starship theme
+# enable starship prompt
 eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
