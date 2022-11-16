@@ -6,13 +6,12 @@ Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Currently throwing an error, non-essential so disabling for now
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'tpope/vim-fugitive'
 
 "Colors
-Plug 'Rigellute/rigel'
-Plug 'Mofiqul/dracula.nvim'
 Plug 'rose-pine/neovim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -43,6 +42,8 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'raimondi/delimitmate'
 
+Plug 'easymotion/vim-easymotion'
+
 Plug 'andymass/vim-matchup'
 
 Plug 'dhruvasagar/vim-table-mode'
@@ -57,7 +58,6 @@ Plug 'edluffy/specs.nvim'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'oberblastmeister/neuron.nvim', { 'branch': 'unstable' }
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'kristijanhusak/orgmode.nvim'
