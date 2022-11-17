@@ -126,7 +126,7 @@ alias notes="cd ~/dev/the-star-elf-guidebook && code ."
 alias va="source venv/bin/activate"
 
 export EDITOR=code
-export TERM="xterm-256color"
+export TERM=alacritty
 
 # run and test dbt selection
 function dbtmrt () { dbt run -m $1 && dbt test -m $1 }
