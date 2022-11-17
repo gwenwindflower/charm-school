@@ -155,4 +155,8 @@
   "gistpad.wikis.daily.titleFormat": "YYYY-MM-DD",
   "foam.openDailyNote.directory": "journal",
   "foam.openDailyNote.filenameFormat": "yyyy-mm-dd",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
 }

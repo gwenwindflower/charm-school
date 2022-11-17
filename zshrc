@@ -123,7 +123,8 @@ alias kb="cd /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindf
 alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
 alias journal="cd ~/dev/princess-winnies-starlog && code ."
 alias notes="cd ~/dev/the-star-elf-guidebook && code ."
-alias va="source venv/bin/activate"
+alias va="source .venv/bin/activate"
+alias pyr="python -m pip install -r requirements.txt"
 
 export EDITOR=code
 export TERM=xterm-256color
