@@ -42,65 +42,66 @@
   "files.associations": {
     "*.sql": "jinja-sql"
   },
-  "terminal.external.osxExec": "kitty.app",
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": [
-          "comment",
-          "constant", //String, Number, Boolean…, this, super
-          "keyword", //import, export, return…
-          "markup.italic",
-          "meta.selector",
-          "storage.modifier", //static keyword
-          "storage.type",
-          "storage.type.class.js", //class keyword
-          "variable.language",
-        ],
-        "settings": {
-          "fontStyle": "italic",
+  "terminal.external.osxExec": "alacritty.app",
+  "[sql]": {
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": [
+            "comment",
+            "constant", //String, Number, Boolean…, this, super
+            "keyword", //import, export, return…
+            "markup.italic",
+            "meta.selector",
+            "storage.modifier", //static keyword
+            "storage.type",
+            "storage.type.class.js", //class keyword
+            "variable.language",
+          ],
+          "settings": {
+            "fontStyle": "italic",
+          }
+        },
+        {
+          "scope": [
+            //following will be excluded from italics
+            "invalid",
+            "keyword.operator",
+            "constant.numeric.css",
+            "keyword.other.unit.px.css",
+            "constant.numeric.decimal.js",
+            "constant.numeric.json",
+            "constant.numeric.sql",
+            "variable.other",
+          ],
+          "settings": {
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": [
+            "constant.other.database-name.sql",
+          ],
+          "settings": {
+            "fontStyle": "italic",
+            "foreground": "#ea9a97",
+          }
+        },
+        {
+          "scope": [
+            "constant.other.table-name.sql",
+            "support.function.security.sql",
+          ],
+          "settings": {
+            "fontStyle": "",
+            "foreground": "#fff",
+          }
         }
-      },
-      {
-        "scope": [
-          //following will be excluded from italics
-          "invalid",
-          "keyword.operator",
-          "constant.numeric.css",
-          "keyword.other.unit.px.css",
-          "constant.numeric.decimal.js",
-          "constant.numeric.json",
-          "constant.numeric.sql",
-          "variable.other",
-        ],
-        "settings": {
-          "fontStyle": ""
-        }
-      },
-      {
-        "scope": [
-          "constant.other.database-name.sql",
-        ],
-        "settings": {
-          "fontStyle": "italic",
-          "foreground": "#ea9a97",
-        }
-      },
-      {
-        "scope": [
-          "constant.other.table-name.sql",
-          "support.function.security.sql",
-        ],
-        "settings": {
-          "fontStyle": "",
-          "foreground": "#fff",
-        }
-      }
-    ]
+      ]
+    }
   },
   "githubIssues.useBranchForIssues": "prompt",
   "dbt-formatter.upper": false,
-  "workbench.colorTheme": "Rosé Pine Moon",
   "markdown-checkbox.typeOfBulletPoint": "-",
   "vim.useSystemClipboard": true,
   "explorer.confirmDragAndDrop": false,
@@ -159,4 +160,15 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true
   },
+  "markdown-checkbox.dateFormat": "YYYY.MM.DD HH:mm",
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "bujo.scheduler.plannerPrefix": "daily.log",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "workbench.colorTheme": "Rosé Pine Moon",
 }

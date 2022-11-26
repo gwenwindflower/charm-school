@@ -1,0 +1,8 @@
+#!/bin/sh
+# IFS means internal field separator, this determines what counts as a separate entry
+# to iterate over in the loop below
+IFS=$(printf '\n\t')
+for i in $(timew today status:pending export); do
+    task=$(jq '.[].task' --raw-output)
+    printf -- "- [ ] %s\n" "$task"
+done

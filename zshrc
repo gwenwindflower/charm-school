@@ -5,9 +5,9 @@ zmodload zsh/zprof
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/grant/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 
-ZSH_CUSTOM="/Users/grant/.dotfiles/oh-my-zsh"
+ZSH_CUSTOM=~/.dotfiles/oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -125,6 +125,7 @@ alias journal="cd ~/dev/princess-winnies-starlog && code ."
 alias notes="cd ~/dev/the-star-elf-guidebook && code ."
 alias va="source .venv/bin/activate"
 alias pyr="python -m pip install -r requirements.txt"
+alias tt="taskwarrior-tui"
 
 export EDITOR=code
 export TERM=xterm-256color
@@ -132,13 +133,13 @@ export TERM=xterm-256color
 # run and test dbt selection
 function dbtmrt () { dbt run -m $1 && dbt test -m $1 }
 
-#wrapper functions around dbt codegen for scaffolding boiler plate dbt models 
+#wrapper functions around dbt codegen for scaffolding boiler plate dbt models
 function dbtsrc() {
     database_name=$1
     schema_name=$2
     echo 'building source yaml for '"$database_name"''
     mkdir -p ./models/staging/"$schema_name"
-    touch ./models/staging/"$schema_name"/_source.yml 
+    touch ./models/staging/"$schema_name"/_source.yml
     dbt --log-format json \
     run-operation generate_source \
     --args '{"schema_name": '"$schema_name"', "database_name": '"$database_name"'}' \
@@ -197,7 +198,7 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 # The next line updates PATH for Postgres.app CLI
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-# 
+#
 # crazy haskell stuff for tidalcycles
 [ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
 

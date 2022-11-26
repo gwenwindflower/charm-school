@@ -1,11 +1,18 @@
-- clean: ['~']
+- clean: ["~"]
+
+- shell:
+    # install Starship prompt
+    - curl -sS https://starship.rs/install.sh | zsh
+    # install pyenv
+    - curl https://pyenv.run | zsh
+    - git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 - link:
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
     ~/.config/nvim/init.vim: vimrc
     ~/.zprofile: zprofile
-    ~/.zshrc: 
+    ~/.zshrc:
       path: zshrc
       force: true
     ~/.oh-my-zsh/completions: oh-my-zsh/completions
@@ -15,6 +22,12 @@
     ~/.config/starship.toml:
       path: starship.toml
       force: true
-    ~/.config/alacritty/alacritty.yml: 
+    ~/.config/alacritty/alacritty.yml:
       path: alacritty.yml
+      force: true
+    /usr/local/bin/completedtoday:
+      path: shell_scripts/completedtoday
+      force: true
+    /usr/local/bin/todotoday:
+      path: shell_scripts/todotoday
       force: true
