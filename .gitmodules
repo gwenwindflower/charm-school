@@ -3,3 +3,6 @@
   url = https://github.com/denysdovhan/spaceship-prompt.git
 
 
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
