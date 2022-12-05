@@ -126,6 +126,11 @@ alias notes="cd ~/dev/the-star-elf-guidebook && code ."
 alias va="source .venv/bin/activate"
 alias pyr="python -m pip install -r requirements.txt"
 alias tt="taskwarrior-tui"
+alias pypi="python -m pip"
+
+function pydir() {
+    mkdir $1 && touch $1/__init__.py
+}
 
 export EDITOR=code
 export TERM=xterm-256color
@@ -175,6 +180,9 @@ function dbtstb() {
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# snowflake env vars
+[ -f ~/.dotfiles/snowflake_env_vars ] && source ~/.dotfiles/snowflake_env_vars
 
 # z
 . /usr/local/etc/profile.d/z.sh
