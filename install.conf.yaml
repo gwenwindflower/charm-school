@@ -6,7 +6,7 @@
 - clean: ["~"]
 
 - shell:
-    - command: if [[ -v $CODESPACES ]]; then echo "Installing starship prompt..."; curl -sS https://starship.rs/install.sh | zsh; else echo "Already installed starship prompt"; fi
+    - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; curl -sS https://starship.rs/install.sh | zsh; else echo "Already installed starship prompt"; fi
       stdout: true
       description: Checking starship prompt install
       quiet: true

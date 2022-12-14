@@ -208,17 +208,15 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 # The next line updates PATH for Postgres.app CLI
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-#
 # crazy haskell stuff for tidalcycles
 [ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
 
 if ! [[ -v $CODESPACES ]]; then
     # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
     eval "$(pyenv init -)";
+    # initialize rbenv
+    eval "$(rbenv init - zsh)"
 fi
-
-# initialize rbenv
-eval "$(rbenv init - zsh)"
 
 # enable starship prompt
 eval "$(starship init zsh)"
