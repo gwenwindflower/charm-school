@@ -1,8 +1,0 @@
-#!/bin/sh
-# IFS means internal field separator, this determines what counts as a separate entry
-# to iterate over in the loop below
-IFS=$(printf '\n\t')
-for i in $(task status:completed end:today export | jq '.[].description' --raw-output); do
-    printf -- "- [x] %s\n" "$i"
-done
-# task status:completed end:today export | jq '.[].description' --raw-output

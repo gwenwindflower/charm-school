@@ -1,3 +1,8 @@
+- defaults:
+    link:
+      force: true
+      create: true
+
 - clean: ["~"]
 
 - shell:
@@ -11,25 +16,6 @@
     ~/.vimrc: vimrc
     ~/.config/nvim/init.vim: vimrc
     ~/.zprofile: zprofile
-    ~/.zshrc:
-      path: zshrc
-      force: true
-    ~/.oh-my-zsh/completions: oh-my-zsh/completions
-    # TODO: plugins glob
-    ~/.oh-my-zsh/: oh-my-zsh/completions
-    # TODO figure out how to load vscode settings correctly
-    # "~/Library/Application\ Support/Code/User/settings.json":
-    #   force: true
-    #   path: vscode.json
-    ~/.config/starship.toml:
-      path: starship.toml
-      force: true
-    ~/.config/alacritty/alacritty.yml:
-      path: alacritty.yml
-      force: true
-    /usr/local/bin/completedtoday:
-      path: shell_scripts/completedtoday
-      force: true
-    /usr/local/bin/todotoday:
-      path: shell_scripts/todotoday
-      force: true
+    ~/.zshrc: zshrc
+    ~/.config/starship.toml: starship.toml
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
