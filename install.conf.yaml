@@ -2,14 +2,17 @@
     link:
       force: true
       create: true
+    shell:
+      quiet: true
+      stdout: true
 
 - clean: ["~"]
 
 - shell:
     - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
-      stdout: true
-      description: Checking starship prompt install
-      quiet: false
+      description: Checking starship prompt install...
+    - command: git submodule update --init --recursive
+      description: Installing submodules...
 
 - link:
     ~/.gitconfig: gitconfig
