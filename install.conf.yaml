@@ -2,10 +2,11 @@
 
 - shell:
     # install Starship prompt
-    - if ! starship -V &> /dev/null; then curl -sS https://starship.rs/install.sh | zsh; fi
-    # install pyenv
-    - if ! pyenv -v &> /dev/null; then curl https://pyenv.run | zsh; fi
+    # - if ! starship -V &> /dev/null; then curl -sS https://starship.rs/install.sh | zsh; fi
+    # # install pyenv
+    # - if ! pyenv -v &> /dev/null; then curl https://pyenv.run | zsh; fi
     - git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    - zsh install-external-deps.sh
 
 - link:
     ~/.gitconfig: gitconfig

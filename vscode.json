@@ -43,6 +43,9 @@
     "*.sql": "jinja-sql"
   },
   "terminal.external.osxExec": "alacritty.app",
+  "[jinja-sql]": {
+    "editor.formatOnSave": false
+  },
   "[sql]": {
     "editor.tokenColorCustomizations": {
       "textMateRules": [

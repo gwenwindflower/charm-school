@@ -127,6 +127,8 @@ alias va="source .venv/bin/activate"
 alias pyr="python -m pip install -r requirements.txt"
 alias tt="taskwarrior-tui"
 alias pypi="python -m pip"
+alias bv="PYTHONPATH=~/dev/buenavista python3 ~/dev/buenavista/examples/duckdb_server.py ../jaffle-shop-guides/jaffle_shop_database.duckdb"
+alias pipu="pip install --upgrade pip"
 
 function pydir() {
     mkdir $1 && touch $1/__init__.py
@@ -210,8 +212,10 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # crazy haskell stuff for tidalcycles
 [ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
 
-# initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
-eval "$(pyenv init -)"
+if ! [[ -v $CODESPACES ]]; then
+    # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
+    eval "$(pyenv init -)";
+fi
 
 # initialize rbenv
 eval "$(rbenv init - zsh)"
