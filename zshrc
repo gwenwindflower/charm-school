@@ -1,4 +1,4 @@
-# Fig pre block. Keep at the top of this file.
+. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
@@ -211,15 +211,15 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # crazy haskell stuff for tidalcycles
 [ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
 
-if ! [[ -v $CODESPACES ]]; then
+if ! $CODESPACES || [[ -v $CODESPACES ]]; then
     # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
     eval "$(pyenv init -)";
     # initialize rbenv
-    eval "$(rbenv init - zsh)"
+    eval "$(rbenv init - zsh)";
 fi
 
 # enable starship prompt
 eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/
