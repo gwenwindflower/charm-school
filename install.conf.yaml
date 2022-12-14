@@ -6,7 +6,7 @@
 - clean: ["~"]
 
 - shell:
-    - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; curl -sS https://starship.rs/install.sh | sh; else echo "Already installed starship prompt"; fi
+    - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
       stdout: true
       description: Checking starship prompt install
       quiet: false
