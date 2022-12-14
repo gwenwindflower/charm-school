@@ -1,4 +1,4 @@
-. Keep at the top of this file.
+# Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
@@ -6,8 +6,8 @@ zmodload zsh/zprof
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-
-ZSH_CUSTOM=~/.dotfiles/oh-my-zsh
+export SHELL=zsh
+export ZSH_CUSTOM=~/.dotfiles/oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -211,15 +211,14 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # crazy haskell stuff for tidalcycles
 [ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
 
+# no need for pyenv in codespaces
 if ! $CODESPACES || [[ -v $CODESPACES ]]; then
     # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
     eval "$(pyenv init -)";
-    # initialize rbenv
-    eval "$(rbenv init - zsh)";
 fi
 
 # enable starship prompt
 eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/"
