@@ -1,52 +1,36 @@
 {
-  "workbench.sideBar.location": "left",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active",
-  "markdown-checkbox.checkmark": "x",
-  "python.venvPath": "~\/Library\/caches\/pypoetry\/virtualenvs",
-  "vim.insertModeKeyBindings": [
-    {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "j",
-        "j"
-      ]
-    }
-  ],
-  "editor.accessibilitySupport": "off",
-  "redhat.telemetry.enabled": false,
-  "workbench.activityBar.visible": true,
-  "projects.refreshRoots": [
-    "~\/dev\/"
-  ],
-  "workbench.startupEditor": "none",
-  "[markdown]": {
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 80,
-    "editor.rulers": [
-      80
-    ],
-    "editor.quickSuggestions": {
-      "comments": "on",
-      "strings": "on",
-      "other": "on"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // language-specific settings
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "projects.configPath": "~\/.dotfiles\/projectconfig.json",
-  "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
-  "editor.fontLigatures": true,
-  "dbt.listModelsDisabled": true,
-  "files.associations": {
-    "*.sql": "jinja-sql"
-  },
-  "terminal.external.osxExec": "alacritty.app",
   "[jinja-sql]": {
     "editor.formatOnSave": false
   },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "other": "on",
+      "strings": "on"
+    },
+    "editor.rulers": [
+      80
+    ],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
   "[sql]": {
+    // these are my custom syntax highligting rules to add italics in SQL
     "editor.tokenColorCustomizations": {
       "textMateRules": [
         {
@@ -59,10 +43,10 @@
             "storage.modifier", //static keyword
             "storage.type",
             "storage.type.class.js", //class keyword
-            "variable.language",
+            "variable.language"
           ],
           "settings": {
-            "fontStyle": "italic",
+            "fontStyle": "italic"
           }
         },
         {
@@ -75,7 +59,7 @@
             "constant.numeric.decimal.js",
             "constant.numeric.json",
             "constant.numeric.sql",
-            "variable.other",
+            "variable.other"
           ],
           "settings": {
             "fontStyle": ""
@@ -83,98 +67,30 @@
         },
         {
           "scope": [
-            "constant.other.database-name.sql",
+            "constant.other.database-name.sql"
           ],
           "settings": {
             "fontStyle": "italic",
-            "foreground": "#ea9a97",
+            "foreground": "#ea9a97"
           }
         },
         {
           "scope": [
             "constant.other.table-name.sql",
-            "support.function.security.sql",
+            "support.function.security.sql"
           ],
           "settings": {
             "fontStyle": "",
-            "foreground": "#fff",
+            "foreground": "#fff"
           }
         }
       ]
     }
   },
-  "githubIssues.useBranchForIssues": "prompt",
-  "dbt-formatter.upper": false,
-  "markdown-checkbox.typeOfBulletPoint": "-",
-  "vim.useSystemClipboard": true,
-  "explorer.confirmDragAndDrop": false,
-  "jupyter.askForKernelRestart": false,
-  "markdown.extension.print.theme": "dark",
-  "githubIssues.queries": [
-    {
-      "label": "My Issues",
-      "query": "default"
-    }
-  ],
-  "git.ignoreMissingGitWarning": true,
-  "terminal.integrated.tabs.enabled": true,
-  "extensions.ignoreRecommendations": false,
-  "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
-  "editor.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
-  "editor.fontWeight": "100",
-  "editor.fontSize": 14,
-  "terminal.integrated.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
-  "terminal.integrated.fontWeight": 100,
-  "terminal.integrated.fontWeightBold": 400,
-  "terminal.integrated.fontSize": 14,
-  "editor.cursorBlinking": "phase",
-  "editor.cursorStyle": "line",
-  "workbench.colorCustomizations": {
-    "[Dracula]": {
-      "editorCursor.foreground": "#ff79c6",
-      "editor.selectionBackground": "#ff79c677"
-    },
-  },
-  "editor.formatOnSave": true,
-  "jupyter.themeMatplotlibPlots": true,
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
-  "window.autoDetectHighContrast": false,
-  "projectManager.git.baseFolders": [
-    "~/dev/"
-  ],
-  "githubPullRequests.pullBranch": "never",
-  "vim.easymotion": true,
-  "vim.leader": ",",
-  "window.autoDetectColorScheme": true,
-  "editor.minimap.enabled": false,
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "gistpad.wikis.daily.directoryName": "journal",
-  "gistpad.wikis.daily.titleFormat": "YYYY-MM-DD",
-  "foam.openDailyNote.directory": "journal",
-  "foam.openDailyNote.filenameFormat": "yyyy-mm-dd",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
-  },
-  "markdown-checkbox.dateFormat": "YYYY.MM.DD HH:mm",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "bujo.scheduler.plannerPrefix": "daily.log",
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "python.analysis.inlayHints.functionReturnTypes": true,
-  "python.analysis.inlayHints.variableTypes": true,
+  // tags i want autoclose on, primiarly templating language files
   "auto-close-tag.activationOnLanguage": [
     "xml",
     "php",
@@ -195,5 +111,91 @@
     "HTML (Eex)",
     "python"
   ],
-  "workbench.colorTheme": "Rosé Pine Moon"
+  // bujo can automatically make a time log, I don't really use this
+  "bujo.scheduler.plannerPrefix": "daily.log",
+  // dbt - we don't uppercase keywords in this house
+  "dbt-formatter.upper": false,
+  "dbt.listModelsDisabled": true,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorStyle": "line",
+  "editor.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.fontWeight": "100",
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.minimap.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": false,
+  // dbt - this lets Jinja work in SQL files
+  "files.associations": {
+    "*.sql": "jinja-sql"
+  },
+  "git.ignoreMissingGitWarning": true,
+  "githubIssues.queries": [
+    {
+      "label": "My Issues",
+      "query": "default"
+    }
+  ],
+  "githubIssues.useBranchForIssues": "prompt",
+  "githubPullRequests.pullBranch": "never",
+  "jupyter.askForKernelRestart": false,
+  "jupyter.themeMatplotlibPlots": true,
+  "markdown-checkbox.checkmark": "x",
+  "markdown-checkbox.dateFormat": "YYYY.MM.DD HH:mm",
+  "markdown-checkbox.typeOfBulletPoint": "-",
+  "markdown.extension.print.theme": "dark",
+  "projectManager.git.baseFolders": [
+    "~/dev/"
+  ],
+  "projects.configPath": "~/.dotfiles/projectconfig.json",
+  "projects.refreshRoots": [
+    "~/dev/"
+  ],
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.venvPath": "~/Library/caches/pypoetry/virtualenvs",
+  "redhat.telemetry.enabled": false,
+  "terminal.external.osxExec": "alacritty.app",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "terminal.integrated.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": 100,
+  "terminal.integrated.fontWeightBold": 400,
+  "terminal.integrated.tabs.enabled": true,
+  "vim.easymotion": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "j"
+      ]
+    }
+  ],
+  "vim.leader": ",",
+  "vim.useSystemClipboard": true,
+  "window.autoDetectColorScheme": true,
+  "window.autoDetectHighContrast": false,
+  "workbench.activityBar.visible": true,
+  "workbench.colorCustomizations": {
+    "[Dracula]": {
+      "editor.selectionBackground": "#ff79c677",
+      "editorCursor.foreground": "#ff79c6"
+    }
+  },
+  "workbench.colorTheme": "Rosé Pine Moon",
+  "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
+  "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
+  "workbench.startupEditor": "readme",
+  "terminal.integrated.defaultLocation": "editor"
 }

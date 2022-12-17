@@ -1,7 +1,8 @@
 # TODOs
 
 - [ ] Sort out zsh custom folder plugins
-- [ ] Clean up and comment zshrc
+- [x] ~~_Clean up and comment zshrc_~~ [2022.12.16 18:29]
+- [ ] Write up README
 - [ ] Make a proper Brewfile
 - [ ] Get rbenv back into zshrc
-- [ ] Write up README
+- [ ] Clean up and comment vim configs

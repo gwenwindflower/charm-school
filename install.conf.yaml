@@ -12,7 +12,8 @@
     - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
       description: Checking starship prompt install...
     - command: git submodule update --init --recursive
-      description: Installing submodules...
+      description: Installing git submodules...
+    # - command: TODO: install pyenv
 
 - link:
     ~/.gitconfig: gitconfig

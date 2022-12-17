@@ -2,9 +2,8 @@
 
 command_timeout = 750
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character] # The name of the module we are configuring is "character"
-success_symbol = "[🦋](bold_green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+[character]
+success_symbol = "[🦋](bold_green)"
 error_symbol = "[🐛](bold_red)"
 
 [gcloud]

@@ -1,101 +1,109 @@
+# ███████╗████████╗ █████╗ ██████╗     ███████╗██╗     ███████╗    ███████╗██╗     ███████╗███████╗████████╗
+# ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗    ██╔════╝██║     ██╔════╝    ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝
+# ███████╗   ██║   ███████║██████╔╝    █████╗  ██║     █████╗      █████╗  ██║     █████╗  █████╗     ██║
+# ╚════██║   ██║   ██╔══██║██╔══██╗    ██╔══╝  ██║     ██╔══╝      ██╔══╝  ██║     ██╔══╝  ██╔══╝     ██║
+# ███████║   ██║   ██║  ██║██║  ██║    ███████╗███████╗██║         ██║     ███████╗███████╗███████╗   ██║
+# ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚══════╝╚═╝         ╚═╝     ╚══════╝╚══════╝╚══════╝   ╚═╝
+# *•.¸♡ *•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡ extra special zsh config ♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*
+
+
+
+
+
+# The next line enables Fig autocomplete, has a corresponding post hook at the bottom.
 # Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
+# Module that lets you profile your shell and find slow processes
 zmodload zsh/zprof
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+
+
+
+
+#  __  __     __     _ __   ____
+# /\ \/\ \  /'__`\  /\`'__\/',__\
+# \ \ \_/ |/\ \L\.\_\ \ \//\__, `\
+#  \ \___/ \ \__/.\_\\ \_\\/\____/
+#   \/__/   \/__/\/_/ \/_/ \/___/
+
+# Path to oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export SHELL=zsh
+# Changes OMZ
 export ZSH_CUSTOM=~/.dotfiles/oh-my-zsh
+# Set $SHELL because it gets overriden with Bash in Codespaces
+export SHELL=zsh
+# Terminal color stuff I don't understand
+# TODO: research terminal colors one day
+export TERM=xterm-256color
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='nvim'
+else
+    export EDITOR='code'
+fi
+# Color theme for `bat` which I always forget to use
+export BAT_THEME="ansi-dark"
+# use extended glob patterning
+setopt extendedglob
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# ZSH_THEME="spaceship"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Which plugins would you like to load?
+#        ___
+#       /\_ \                    __
+#  _____\//\ \    __  __     __ /\_\    ___     ____
+# /\ '__`\\ \ \  /\ \/\ \  /'_ `\/\ \ /' _ `\  /',__\
+# \ \ \L\ \\_\ \_\ \ \_\ \/\ \L\ \ \ \/\ \/\ \/\__, `\
+#  \ \ ,__//\____\\ \____/\ \____ \ \_\ \_\ \_\/\____/
+#   \ \ \/ \/____/ \/___/  \/___L\ \/_/\/_/\/_/\/___/
+#    \ \_\                   /\____/
+#     \/_/                   \_/__/
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colored-man-pages sudo python pip brew zsh-autosuggestions)
-
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
+# load z move
 autoload -U zmv
 
-setopt extendedglob
-# export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
-# For a full list of active aliases, run `alias`.
+
+
+#    ___                         __
+#  /'___\                       /\ \__  __
+# /\ \__/  __  __    ___     ___\ \ ,_\/\_\    ___     ___     ____
+# \ \ ,__\/\ \/\ \ /' _ `\  /'___\ \ \/\/\ \  / __`\ /' _ `\  /',__\
+#  \ \ \_/\ \ \_\ \/\ \/\ \/\ \__/\ \ \_\ \ \/\ \L\ \/\ \/\ \/\__, `\
+#   \ \_\  \ \____/\ \_\ \_\ \____\\ \__\\ \_\ \____/\ \_\ \_\/\____/
+#    \/_/   \/___/  \/_/\/_/\/____/ \/__/ \/_/\/___/  \/_/\/_/\/___/
+# make a subdirectory in a python project
+function pydir() {
+    mkdir $1 && touch $1/__init__.py
+}
+
+# functions that scaffold out a dbt project with codegen
+source dbt-scaffolding.sh
+
+
+
+
+
+
+#         ___
+#        /\_ \    __
+#    __  \//\ \  /\_\     __      ____     __    ____
+#  /'__`\  \ \ \ \/\ \  /'__`\   /',__\  /'__`\ /',__\
+# /\ \L\.\_ \_\ \_\ \ \/\ \L\.\_/\__, `\/\  __//\__, `\
+# \ \__/.\_\/\____\\ \_\ \__/.\_\/\____/\ \____\/\____/
+#  \/__/\/_/\/____/ \/_/\/__/\/_/\/___/  \/____/\/___/
 
 alias vi="nvim"
 alias vim="nvim"
@@ -111,92 +119,43 @@ alias dotz="cd ~/.dotfiles && code ."
 alias cl="gcalcli"
 alias cla="gcalcli agenda"
 alias gch="omz plugin info git"
-export ORGDIR="~/Documents/orgfiles"
-alias org="cd ${ORGDIR}&& code"
-alias orgdir="cd ${ORGDIR}"
 alias pu="cmus-remote --pause"
-alias l="colorls --dark"
-alias ll="colorls -l --dark"
-alias la="colorls -a --dark"
-alias lla="colorls -la --dark"
 alias kb="cd /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
 alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
-alias journal="cd ~/dev/princess-winnies-starlog && code ."
-alias notes="cd ~/dev/the-star-elf-guidebook && code ."
+alias notes="cd ~/dev/star-elf-guide && code ."
 alias va="source .venv/bin/activate"
 alias pyr="python -m pip install -r requirements.txt"
-alias tt="taskwarrior-tui"
 alias pypi="python -m pip"
 alias bv="PYTHONPATH=~/dev/buenavista python3 ~/dev/buenavista/examples/duckdb_server.py ../jaffle-shop-guides/jaffle_shop_database.duckdb"
 alias pipu="pip install --upgrade pip"
+alias ll="ls -l"
+alias la="ls -a"
 
-function pydir() {
-    mkdir $1 && touch $1/__init__.py
-}
 
-export EDITOR=code
-export TERM=xterm-256color
 
-# run and test dbt selection
-function dbtmrt () { dbt run -m $1 && dbt test -m $1 }
 
-#wrapper functions around dbt codegen for scaffolding boiler plate dbt models
-function dbtsrc() {
-    database_name=$1
-    schema_name=$2
-    echo 'building source yaml for '"$database_name"''
-    mkdir -p ./models/staging/"$schema_name"
-    touch ./models/staging/"$schema_name"/_source.yml
-    dbt --log-format json \
-    run-operation generate_source \
-    --args '{"schema_name": '"$schema_name"', "database_name": '"$database_name"'}' \
-    | jq -r 'select(.message | contains ("version") ) | .message' \
-    > ./models/staging/"$schema_name"/_source.yml
-}
 
-function dbtstg() {
-    source_name=$1
-    table_name=$2
-    echo 'building staging model for '"$table_name"' in source '"$source_name"''
-    mkdir -p ./models/staging/"$source_name"
-    touch ./models/staging/"$source_name"/stg_"$source_name"_"$table_name".sql
-    dbt --log-format json \
-    run-operation generate_base_model \
-    --args '{"source_name": '"$source_name"', "table_name": '"$table_name"'}' \
-    | jq -r 'select(.message | startswith ("with") ) | .message' \
-    > ./models/staging/"$source_name"/stg_"$source_name"_"$table_name".sql
-}
 
-function dbtstb() {
-    database_name=$1
-    schema_name=$2
-    dbtsrc "$database_name" "$schema_name"
-    length=$(cat ./models/staging/"$schema_name"/_source.yml | shyaml get-length sources.0.tables)
-    length=$((length-1))
-    for i in {0.."$length"}
-    do
-        table_name=$(cat ./models/staging/"$schema_name"/_source.yml | shyaml get-value sources.0.tables."$i".name)
-        dbtstg "$schema_name" "$table_name"
-    done
-}
 
+#  __                   ___
+# /\ \__               /\_ \    __
+# \ \ ,_\   ___     ___\//\ \  /\_\    ___      __
+#  \ \ \/  / __`\  / __`\\ \ \ \/\ \ /' _ `\  /'_ `\
+#   \ \ \_/\ \L\ \/\ \L\ \\_\ \_\ \ \/\ \/\ \/\ \L\ \
+#    \ \__\ \____/\ \____//\____\\ \_\ \_\ \_\ \____ \
+#     \/__/\/___/  \/___/ \/____/ \/_/\/_/\/_/\/___L\ \
+#                                               /\____/
+#                                               \_/__/
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# snowflake env vars
-[ -f ~/.dotfiles/snowflake_env_vars ] && source ~/.dotfiles/snowflake_env_vars
-
 # z
 . /usr/local/etc/profile.d/z.sh
-
-export BAT_THEME="ansi-dark"
 
 # Not currently doing much JS work and nvm is very slow -- look into lazy loading if you need to add it back -> https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
