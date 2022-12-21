@@ -193,9 +193,12 @@
       "editorCursor.foreground": "#ff79c6"
     }
   },
-  "workbench.colorTheme": "Rosé Pine Moon",
+  "workbench.colorTheme": "Rosé Pine Dawn",
   "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
   "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
   "workbench.startupEditor": "readme",
-  "terminal.integrated.defaultLocation": "editor"
+  "terminal.integrated.defaultLocation": "editor",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

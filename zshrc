@@ -33,6 +33,7 @@ export ZSH=~/.oh-my-zsh
 export ZSH_CUSTOM=~/.dotfiles/oh-my-zsh
 # Set $SHELL because it gets overriden with Bash in Codespaces
 export SHELL=zsh
+export JOURNAL=~/dev/star-elf-guide/dependencies/github.com/gwenwindflower/my.journal
 # Terminal color stuff I don't understand
 # TODO: research terminal colors one day
 export TERM=xterm-256color
@@ -89,6 +90,7 @@ function pydir() {
     mkdir $1 && touch $1/__init__.py
 }
 
+# TODO: make a nice way to handle custom functions, they need to be copied in dotbot
 # functions that scaffold out a dbt project with codegen
 source dbt-scaffolding.sh
 
@@ -115,14 +117,15 @@ alias dbtprof="code ~/.dbt/profiles.yml"
 alias dbtdoc="dbt docs generate && dbt docs serve"
 alias sc="sc-im"
 alias wthr="curl wttr.in/chicago"
-alias dotz="cd ~/.dotfiles && code ."
+alias dotz="code ~/.dotfiles"
+alias journal="cd $JOURNAL"
 alias cl="gcalcli"
 alias cla="gcalcli agenda"
 alias gch="omz plugin info git"
 alias pu="cmus-remote --pause"
-alias kb="cd /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
+alias kb="code /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower"
 alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
-alias notes="cd ~/dev/star-elf-guide && code ."
+alias notes="code ~/dev/star-elf-guide"
 alias va="source .venv/bin/activate"
 alias pyr="python -m pip install -r requirements.txt"
 alias pypi="python -m pip"
@@ -149,9 +152,6 @@ alias la="ls -a"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# z
-. /usr/local/etc/profile.d/z.sh
-
 # Not currently doing much JS work and nvm is very slow -- look into lazy loading if you need to add it back -> https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -170,11 +170,15 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # crazy haskell stuff for tidalcycles
 [ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
 
+
 # no need for pyenv in codespaces
-if ! $CODESPACES || [[ -v $CODESPACES ]]; then
+if ! $CODESPACES || ! [[ -v $CODESPACES ]]; then
     # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
     eval "$(pyenv init -)";
 fi
+
+# enable zoxide, a Rust replacement for z
+eval "$(zoxide init zsh)"
 
 # enable starship prompt
 eval "$(starship init zsh)"
