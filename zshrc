@@ -32,7 +32,7 @@ export ZSH=~/.oh-my-zsh
 # Changes OMZ
 export ZSH_CUSTOM=~/.dotfiles/oh-my-zsh
 # Set $SHELL because it gets overriden with Bash in Codespaces
-export SHELL=zsh
+export SHELL=/bin/zsh
 export JOURNAL=~/dev/star-elf-guide/dependencies/github.com/gwenwindflower/my.journal
 # Terminal color stuff I don't understand
 # TODO: research terminal colors one day
