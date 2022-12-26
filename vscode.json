@@ -27,8 +27,15 @@
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
   },
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
   "[sql]": {
     // these are my custom syntax highligting rules to add italics in SQL
     "editor.tokenColorCustomizations": {
@@ -155,8 +162,6 @@
   "projects.refreshRoots": [
     "~/dev/"
   ],
-  "python.analysis.inlayHints.functionReturnTypes": true,
-  "python.analysis.inlayHints.variableTypes": true,
   "python.venvPath": "~/Library/caches/pypoetry/virtualenvs",
   "redhat.telemetry.enabled": false,
   "terminal.external.osxExec": "alacritty.app",
@@ -193,12 +198,14 @@
       "editorCursor.foreground": "#ff79c6"
     }
   },
-  "workbench.colorTheme": "Rosé Pine Dawn",
+  "workbench.colorTheme": "Rosé Pine Moon",
   "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
   "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
   "workbench.startupEditor": "readme",
   "terminal.integrated.defaultLocation": "editor",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "python.formatting.provider": "black",
+  "quarto.mathjax.theme": "light"
 }

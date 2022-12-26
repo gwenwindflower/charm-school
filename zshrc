@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # ███████╗████████╗ █████╗ ██████╗     ███████╗██╗     ███████╗    ███████╗██╗     ███████╗███████╗████████╗
 # ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗    ██╔════╝██║     ██╔════╝    ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝
 # ███████╗   ██║   ███████║██████╔╝    █████╗  ██║     █████╗      █████╗  ██║     █████╗  █████╗     ██║
@@ -12,8 +14,6 @@
 
 # The next line enables Fig autocomplete, has a corresponding post hook at the bottom.
 # Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 # Module that lets you profile your shell and find slow processes
 zmodload zsh/zprof
 
@@ -92,7 +92,7 @@ function pydir() {
 
 # TODO: make a nice way to handle custom functions, they need to be copied in dotbot
 # functions that scaffold out a dbt project with codegen
-source dbt-scaffolding.sh
+# source dbt-scaffolding.sh
 
 
 
@@ -183,5 +183,7 @@ eval "$(zoxide init zsh)"
 # enable starship prompt
 eval "$(starship init zsh)"
 
+# remove duplicates from $PATH
+typeset -U PATH
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
