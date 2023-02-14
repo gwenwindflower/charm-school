@@ -11,17 +11,18 @@
 - shell:
     - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
       description: Checking starship prompt install...
-    - command: if ! command -v z >/dev/null 2>&1; then echo "Installing zoxide..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" -y -f; else echo "Already installed zoxide"; fi
+    - command: if ! command -v zoxide >/dev/null 2>&1; then echo "Installing zoxide..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" -y -f; else echo "Already installed zoxide"; fi
       description: Checking zoxide install...
-    - command: git submodule update --init --recursive
-      description: Installing git submodules...
-    # - command: TODO: install pyenv
+    - command: if [ $CODESPACES ] || command -v pyenv >/dev/null 2>&1; then echo "Don't need pyenv"; else echo "Installing pyenv..."; sh -c "$(curl -fsSL https://pyenv.run)" -y -f; fi
+      description: Checking pyenv install..
+    # - command: git submodule update --init --recursive
+    #   description: Installing git submodules...
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.vimrc: vimrc
-    ~/.config/nvim/init.vim: vimrc
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
-    ~/.config/starship.toml: starship.toml
-    ~/.config/alacritty/alacritty.yml: alacritty.yml
+    # ~/.vimrc: vimrc
+    # ~/.config/nvim/init.vim: vimrc
+    # ~/.zprofile: zprofile
+    # ~/.zshrc: zshrc
+    # ~/.config/starship.toml: starship.toml
+    # ~/.config/alacritty/alacritty.yml: alacritty.yml

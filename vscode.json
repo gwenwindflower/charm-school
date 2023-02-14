@@ -1,41 +1,33 @@
 {
-  // language-specific settings
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // trunk.io
+  "json.format.enable": false,
+  "editor.defaultFormatter": "trunk.io",
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.trunk/*out": true
   },
-  "[jinja-sql]": {
-    "editor.formatOnSave": false
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+  "trunk.trunkGrayOutNonBlockingIssues": false,
+  "files.watcherExclude": {
+    "**/.trunk/*out": true
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.quickSuggestions": {
       "comments": "on",
       "other": "on",
       "strings": "on"
     },
-    "editor.rulers": [
-      80
-    ],
+    "editor.rulers": [80],
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 80
+    "editor.wordWrapColumn": 80,
+    "editor.formatOnPaste": true
   },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     },
+    "editor.formatOnType": true
   },
-  "isort.args": [
-    "--profile",
-    "black"
-  ],
+  "isort.args": ["--profile", "black"],
   "[sql]": {
     // these are my custom syntax highligting rules to add italics in SQL
     "editor.tokenColorCustomizations": {
@@ -73,9 +65,7 @@
           }
         },
         {
-          "scope": [
-            "constant.other.database-name.sql"
-          ],
+          "scope": ["constant.other.database-name.sql"],
           "settings": {
             "fontStyle": "italic",
             "foreground": "#ea9a97"
@@ -93,9 +83,6 @@
         }
       ]
     }
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   // tags i want autoclose on, primiarly templating language files
   "auto-close-tag.activationOnLanguage": [
@@ -118,20 +105,14 @@
     "HTML (Eex)",
     "python"
   ],
-  // bujo can automatically make a time log, I don't really use this
-  "bujo.scheduler.plannerPrefix": "daily.log",
-  // dbt - we don't uppercase keywords in this house
-  "dbt-formatter.upper": false,
-  "dbt.listModelsDisabled": true,
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorBlinking": "phase",
-  "editor.cursorStyle": "line",
+  "editor.cursorStyle": "underline",
   "editor.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.fontWeight": "100",
-  "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
   "editor.minimap.enabled": false,
   "explorer.confirmDragAndDrop": false,
@@ -155,14 +136,9 @@
   "markdown-checkbox.dateFormat": "YYYY.MM.DD HH:mm",
   "markdown-checkbox.typeOfBulletPoint": "-",
   "markdown.extension.print.theme": "dark",
-  "projectManager.git.baseFolders": [
-    "~/dev/"
-  ],
+  "projectManager.git.baseFolders": ["~/dev/"],
   "projects.configPath": "~/.dotfiles/projectconfig.json",
-  "projects.refreshRoots": [
-    "~/dev/"
-  ],
-  "python.venvPath": "~/Library/caches/pypoetry/virtualenvs",
+  "projects.refreshRoots": ["~/dev/"],
   "redhat.telemetry.enabled": false,
   "terminal.external.osxExec": "alacritty.app",
   "terminal.integrated.defaultProfile.linux": "zsh",
@@ -178,13 +154,8 @@
   "vim.easymotion": true,
   "vim.insertModeKeyBindings": [
     {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "j",
-        "j"
-      ]
+      "after": ["<Esc>"],
+      "before": ["j", "j"]
     }
   ],
   "vim.leader": ",",
@@ -192,20 +163,16 @@
   "window.autoDetectColorScheme": true,
   "window.autoDetectHighContrast": false,
   "workbench.activityBar.visible": true,
-  "workbench.colorCustomizations": {
-    "[Dracula]": {
-      "editor.selectionBackground": "#ff79c677",
-      "editorCursor.foreground": "#ff79c6"
-    }
-  },
-  "workbench.colorTheme": "Rosé Pine Moon",
   "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
   "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
-  "workbench.startupEditor": "readme",
   "terminal.integrated.defaultLocation": "editor",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "python.formatting.provider": "black",
-  "quarto.mathjax.theme": "light"
+  "quarto.mathjax.theme": "light",
+  "jupyter.interactiveWindowMode": "perFile",
+  "workbench.startupEditor": "none",
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "vim.cursorStylePerMode.insert": "underline",
+  "vim.cursorStylePerMode.normal": "block",
+  "workbench.colorTheme": "Rosé Pine Dawn"
 }

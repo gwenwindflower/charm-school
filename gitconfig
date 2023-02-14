@@ -5,3 +5,5 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[diff]
+	external = difft

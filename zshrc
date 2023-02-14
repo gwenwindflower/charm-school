@@ -1,5 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
 # ███████╗████████╗ █████╗ ██████╗     ███████╗██╗     ███████╗    ███████╗██╗     ███████╗███████╗████████╗
 # ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗    ██╔════╝██║     ██╔════╝    ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝
 # ███████╗   ██║   ███████║██████╔╝    █████╗  ██║     █████╗      █████╗  ██║     █████╗  █████╗     ██║
@@ -92,7 +93,7 @@ function pydir() {
 
 # TODO: make a nice way to handle custom functions, they need to be copied in dotbot
 # functions that scaffold out a dbt project with codegen
-# source dbt-scaffolding.sh
+source ~/.dotfiles/dbt-scaffolding.sh
 
 
 
@@ -126,13 +127,21 @@ alias pu="cmus-remote --pause"
 alias kb="code /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower"
 alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
 alias notes="code ~/dev/star-elf-guide"
+alias venv="python -m venv .venv"
 alias va="source .venv/bin/activate"
-alias pyr="python -m pip install -r requirements.txt"
-alias pypi="python -m pip"
+alias venva="venv && va"
+alias pir="python -m pip install -r requirements.txt"
+alias pi="python -m pip"
+alias piu="python -m pip install --upgrade"
+alias piup="python -m pip install --upgrade pip"
+alias vpi="venva && piup && pir"
 alias bv="PYTHONPATH=~/dev/buenavista python3 ~/dev/buenavista/examples/duckdb_server.py ../jaffle-shop-guides/jaffle_shop_database.duckdb"
 alias pipu="pip install --upgrade pip"
-alias ll="ls -l"
-alias la="ls -a"
+alias ls="exa"
+alias ll="exa -l"
+alias la="exa -a"
+alias lla="exa -la"
+alias lg="exa -alG --git"
 
 
 
@@ -156,12 +165,6 @@ alias la="ls -a"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/grant/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 
 # The next line updates PATH for Postgres.app CLI
@@ -172,7 +175,9 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 
 # no need for pyenv in codespaces
-if ! $CODESPACES || ! [[ -v $CODESPACES ]]; then
+if [ $CODESPACES ] ||; then 
+    echo "No need for pyenv we're in a codespace";
+else
     # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
     eval "$(pyenv init -)";
 fi
@@ -183,7 +188,18 @@ eval "$(zoxide init zsh)"
 # enable starship prompt
 eval "$(starship init zsh)"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/grant/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/completion.zsh.inc'; fi
+
 # remove duplicates from $PATH
 typeset -U PATH
+
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
