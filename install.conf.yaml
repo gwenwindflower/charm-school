@@ -15,14 +15,14 @@
       description: Checking zoxide install...
     - command: if [ $CODESPACES ] || command -v pyenv >/dev/null 2>&1; then echo "Don't need pyenv"; else echo "Installing pyenv..."; sh -c "$(curl -fsSL https://pyenv.run)" -y -f; fi
       description: Checking pyenv install..
-    # - command: git submodule update --init --recursive
-    #   description: Installing git submodules...
+    - command: git submodule update --init --recursive
+      description: Installing git submodules...
 
 - link:
     ~/.gitconfig: gitconfig
-    # ~/.vimrc: vimrc
-    # ~/.config/nvim/init.vim: vimrc
-    # ~/.zprofile: zprofile
-    # ~/.zshrc: zshrc
-    # ~/.config/starship.toml: starship.toml
-    # ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.vimrc: vimrc
+    ~/.config/nvim/init.vim: vimrc
+    ~/.zprofile: zprofile
+    ~/.zshrc: zshrc
+    ~/.config/starship.toml: starship.toml
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
