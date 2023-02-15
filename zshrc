@@ -174,7 +174,7 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 
 # no need for pyenv in codespaces
-if [ $CODESPACES ] ||; then 
+if [ $CODESPACES ]; then
     echo "No need for pyenv we're in a codespace";
 else
     # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
