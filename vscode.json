@@ -1,7 +1,7 @@
 {
   // trunk.io
   "json.format.enable": false,
-  "editor.defaultFormatter": "trunk.io",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "files.exclude": {
     "**/.trunk/*out": true
@@ -22,12 +22,15 @@
     "editor.formatOnPaste": true
   },
   "[python]": {
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
+      "source.fixAll": true,
       "source.organizeImports": true
     },
+    "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnType": true
   },
-  "isort.args": ["--profile", "black"],
+  "python.formatting.provider": "black",
   "[sql]": {
     // these are my custom syntax highligting rules to add italics in SQL
     "editor.tokenColorCustomizations": {
@@ -166,7 +169,6 @@
   "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
   "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
   "terminal.integrated.defaultLocation": "editor",
-  "python.formatting.provider": "black",
   "quarto.mathjax.theme": "light",
   "jupyter.interactiveWindowMode": "perFile",
   "workbench.startupEditor": "none",
