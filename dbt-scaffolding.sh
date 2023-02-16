@@ -6,10 +6,10 @@ function dbtsrc() {
     mkdir -p ./models/staging/"$schema_name"
     touch ./models/staging/"$schema_name"/_source.yml
     dbt --log-format json \
-    run-operation generate_source \
-    --args '{"schema_name": '"$schema_name"', "database_name": '"$database_name"'}' \
-    | jq -r 'select(.message | contains ("version") ) | .message' \
-    > ./models/staging/"$schema_name"/_source.yml
+        run-operation generate_source \
+        --args '{"schema_name": '"$schema_name"', "database_name": '"$database_name"'}' |
+        jq -r 'select(.message | contains ("version") ) | .message' \
+            >./models/staging/"$schema_name"/_source.yml
 }
 
 function dbtstg() {
@@ -19,10 +19,10 @@ function dbtstg() {
     mkdir -p ./models/staging/"$source_name"
     touch ./models/staging/"$source_name"/stg_"$source_name"_"$table_name".sql
     dbt --log-format json \
-    run-operation generate_base_model \
-    --args '{"source_name": '"$source_name"', "table_name": '"$table_name"'}' \
-    | jq -r 'select(.message | startswith ("with") ) | .message' \
-    > ./models/staging/"$source_name"/stg_"$source_name"_"$table_name".sql
+        run-operation generate_base_model \
+        --args '{"source_name": '"$source_name"', "table_name": '"$table_name"'}' |
+        jq -r 'select(.message | startswith ("with") ) | .message' \
+            >./models/staging/"$source_name"/stg_"$source_name"_"$table_name".sql
 }
 
 function dbtstb() {
@@ -30,9 +30,8 @@ function dbtstb() {
     schema_name=$2
     dbtsrc "$database_name" "$schema_name"
     length=$(cat ./models/staging/"$schema_name"/_source.yml | shyaml get-length sources.0.tables)
-    length=$((length-1))
-    for i in {0.."$length"}
-    do
+    length=$((length - 1))
+    for i in {0.."$length"}; do
         table_name=$(cat ./models/staging/"$schema_name"/_source.yml | shyaml get-value sources.0.tables."$i".name)
         dbtstg "$schema_name" "$table_name"
     done

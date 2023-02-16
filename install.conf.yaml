@@ -13,7 +13,7 @@
       description: Checking starship prompt install...
     - command: if ! command -v zoxide >/dev/null 2>&1; then echo "Installing zoxide..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" -y -f; else echo "Already installed zoxide"; fi
       description: Checking zoxide install...
-    - command: if [ $CODESPACES ] || command -v pyenv >/dev/null 2>&1; then echo "Don't need pyenv"; else echo "Installing pyenv..."; sh -c "$(curl -fsSL https://pyenv.run)" -y -f; fi
+    - command: if [[ ${CODESPACES} ]]; then echo "Don't need pyenv in Codespaces"; elif command -v pyenv >/dev/null 2>&1; then echo "Already installed pyenv"; else echo "Installing pyenv..."; sh -c "$(curl -fsSL https://pyenv.run)" -y -f; fi
       description: Checking pyenv install..
     - command: git submodule update --init --recursive
       description: Installing git submodules...
@@ -26,3 +26,6 @@
     ~/.zshrc: zshrc
     ~/.config/starship.toml: starship.toml
     ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/Library/Application Support/Code/User/settings.json: vscode.json
+    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting: oh-my-zsh/plugins/zsh-syntax-highlighting
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions: oh-my-zsh/plugins/zsh-autosuggestions

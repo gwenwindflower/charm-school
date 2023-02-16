@@ -9,18 +9,10 @@
 # ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚══════╝╚═╝         ╚═╝     ╚══════╝╚══════╝╚══════╝   ╚═╝
 # *•.¸♡ *•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡ extra special zsh config ♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*
 
-
-
-
-
 # The next line enables Fig autocomplete, has a corresponding post hook at the bottom.
 # Keep at the top of this file.
 # Module that lets you profile your shell and find slow processes
 zmodload zsh/zprof
-
-
-
-
 
 #  __  __     __     _ __   ____
 # /\ \/\ \  /'__`\  /\`'__\/',__\
@@ -30,8 +22,7 @@ zmodload zsh/zprof
 
 # Path to oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-# Changes OMZ
-export ZSH_CUSTOM=~/.dotfiles/oh-my-zsh
+export ZSH_CUSTOM=~/.oh-my-zsh/custom
 # Set $SHELL because it gets overriden with Bash in Codespaces
 export SHELL=/bin/zsh
 # Terminal color stuff I don't understand
@@ -47,10 +38,6 @@ fi
 export BAT_THEME="ansi-dark"
 # use extended glob patterning
 setopt extendedglob
-
-
-
-
 
 #        ___
 #       /\_ \                    __
@@ -72,12 +59,6 @@ source $ZSH/oh-my-zsh.sh
 # load z move
 autoload -U zmv
 
-
-
-
-
-
-
 #    ___                         __
 #  /'___\                       /\ \__  __
 # /\ \__/  __  __    ___     ___\ \ ,_\/\_\    ___     ___     ____
@@ -93,11 +74,6 @@ function pydir() {
 # TODO: make a nice way to handle custom functions, they need to be copied in dotbot
 # functions that scaffold out a dbt project with codegen
 source ~/.dotfiles/dbt-scaffolding.sh
-
-
-
-
-
 
 #         ___
 #        /\_ \    __
@@ -142,12 +118,6 @@ alias la="exa -a"
 alias lla="exa -la"
 alias lg="exa -alG --git"
 
-
-
-
-
-
-
 #  __                   ___
 # /\ \__               /\_ \    __
 # \ \ ,_\   ___     ___\//\ \  /\_\    ___      __
@@ -172,13 +142,12 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # crazy haskell stuff for tidalcycles
 [ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
 
-
 # no need for pyenv in codespaces
-if [ $CODESPACES ]; then
-    echo "No need for pyenv we're in a codespace";
+if [[ -z ${CODESPACES} ]]; then
+    :
 else
     # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
-    eval "$(pyenv init -)";
+    eval "$(pyenv init -)"
 fi
 
 # enable zoxide, a Rust replacement for z
@@ -188,10 +157,10 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
+if [[ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/grant/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/grant/google-cloud-sdk/completion.zsh.inc'; fi
+if [[ -f '/Users/grant/google-cloud-sdk/completion.zsh.inc' ]]; then . '/Users/grant/google-cloud-sdk/completion.zsh.inc'; fi
 
 # remove duplicates from $PATH
 typeset -U PATH

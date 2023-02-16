@@ -1,14 +1,22 @@
 {
-  // trunk.io
-  "json.format.enable": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "python.formatting.provider": "black",
+  "python.interpreter.infoVisibility": "always",
   "editor.formatOnSave": true,
-  "files.exclude": {
-    "**/.trunk/*out": true
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
   },
-  "trunk.trunkGrayOutNonBlockingIssues": false,
-  "files.watcherExclude": {
-    "**/.trunk/*out": true
+  "[jsonc]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[markdown]": {
     "editor.quickSuggestions": {
@@ -22,7 +30,6 @@
     "editor.formatOnPaste": true
   },
   "[python]": {
-    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll": true,
       "source.organizeImports": true
@@ -30,21 +37,28 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnType": true
   },
-  "python.formatting.provider": "black",
+  "sqlfluff.format.arguments": ["--FIX-EVEN-UNPARSABLE"],
+  "sqlfluff.format.enabled": true,
+  "sqlfluff.linter.run": "onSave",
+  "sqlfluff.experimental.format.executeInTerminal": true,
   "[sql]": {
-    // these are my custom syntax highligting rules to add italics in SQL
+    "editor.formatOnSave": false
+  },
+  "[jinja-sql]": {
+    "editor.defaultFormatter": "dorzey.vscode-sqlfluff",
+    "editor.formatOnSave": false,
     "editor.tokenColorCustomizations": {
       "textMateRules": [
         {
           "scope": [
             "comment",
-            "constant", //String, Number, Boolean…, this, super
-            "keyword", //import, export, return…
+            "constant",
+            "keyword",
             "markup.italic",
             "meta.selector",
-            "storage.modifier", //static keyword
+            "storage.modifier",
             "storage.type",
-            "storage.type.class.js", //class keyword
+            "storage.type.class.js",
             "variable.language"
           ],
           "settings": {
@@ -53,7 +67,6 @@
         },
         {
           "scope": [
-            //following will be excluded from italics
             "invalid",
             "keyword.operator",
             "constant.numeric.css",
@@ -87,7 +100,6 @@
       ]
     }
   },
-  // tags i want autoclose on, primiarly templating language files
   "auto-close-tag.activationOnLanguage": [
     "xml",
     "php",
@@ -120,9 +132,11 @@
   "editor.minimap.enabled": false,
   "explorer.confirmDragAndDrop": false,
   "extensions.ignoreRecommendations": false,
-  // dbt - this lets Jinja work in SQL files
   "files.associations": {
-    "*.sql": "jinja-sql"
+    "*.sql": "jinja-sql",
+    "settings.json": "jsonc",
+    "vscode.json": "jsonc",
+    ".sqlfluff": "toml"
   },
   "git.ignoreMissingGitWarning": true,
   "githubIssues.queries": [
@@ -176,5 +190,8 @@
   "svelte.plugin.svelte.note-new-transformation": false,
   "vim.cursorStylePerMode.insert": "underline",
   "vim.cursorStylePerMode.normal": "block",
-  "workbench.colorTheme": "Rosé Pine Dawn"
+  "workbench.colorTheme": "Rosé Pine Dawn",
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  }
 }
