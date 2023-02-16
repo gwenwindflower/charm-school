@@ -28,8 +28,9 @@ export SHELL=/bin/zsh
 # Terminal color stuff I don't understand
 # TODO: research terminal colors one day
 export TERM=xterm-256color
+export PYENV_ROOT="${HOME}/.pyenv"
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n ${SSH_CONNECTION} ]]; then
     export EDITOR='nvim'
 else
     export EDITOR='code'
@@ -144,8 +145,6 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # no need for pyenv in codespaces
 if [[ -z ${CODESPACES} ]]; then
-    :
-else
     # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
     eval "$(pyenv init -)"
 fi
