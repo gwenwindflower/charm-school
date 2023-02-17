@@ -190,7 +190,7 @@
   "svelte.plugin.svelte.note-new-transformation": false,
   "vim.cursorStylePerMode.insert": "underline",
   "vim.cursorStylePerMode.normal": "block",
-  "workbench.colorTheme": "Rosé Pine Dawn",
+  "workbench.colorTheme": "Rosé Pine Moon",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   }

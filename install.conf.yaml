@@ -8,6 +8,8 @@
 
 - clean: ["~"]
 
+- install-brew: true
+
 - shell:
     - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
       description: Checking starship prompt install...
@@ -18,6 +20,13 @@
     - command: git submodule update --init --recursive
       description: Installing git submodules...
 
+- brew:
+    - exa
+    - jq
+    - yq
+    - ruff
+    - pipx
+
 - link:
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
@@ -27,5 +36,4 @@
     ~/.config/starship.toml: starship.toml
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/Library/Application Support/Code/User/settings.json: vscode.json
-    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting: oh-my-zsh/plugins/zsh-syntax-highlighting
-    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions: oh-my-zsh/plugins/zsh-autosuggestions
+    ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt

@@ -12,3 +12,6 @@
 [submodule "oh-my-zsh/plugins/zsh-autosuggestions"]
 	path = oh-my-zsh/plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "dotbot-brew"]
+	path = dotbot-brew
+	url = https://github.com/wren/dotbot-brew.git
