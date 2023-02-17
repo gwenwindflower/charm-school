@@ -74,7 +74,7 @@ function pydir() {
 
 # TODO: make a nice way to handle custom functions, they need to be copied in dotbot
 # functions that scaffold out a dbt project with codegen
-source ~/.dotfiles/dbt-scaffolding.sh
+source ~/scripts/dbt_scaffolding.sh
 
 #         ___
 #        /\_ \    __

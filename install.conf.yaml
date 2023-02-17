@@ -44,3 +44,4 @@
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/Library/Application Support/Code/User/settings.json: vscode.json
     ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
+    ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
