@@ -1,286 +1,110 @@
-# TODO make a brewfile from this list and the bundle dump
-aom
-apr
-apr-util
-arm-gcc-bin@8
-asciinema
-autoconf
-avr-binutils
-avr-gcc@8
-avrdude
-bash
-bash-completion
-bat
-bdw-gc
-berkeley-db
-boost
-bootloadhid
-brotli
-c-ares
-ca-certificates
-cairo
-cjson
-clang-format
-cmake
-cmocka
-cmus
-confuse
-cowsay
-dav1d
-dbus
-dfu-programmer
-dfu-util
-docbook
-docbook-xsl
-docutils
-elvish
-exa
-faad2
-ffmpeg
-flac
-fontconfig
-fontforge
-fortune
-freetype
-frei0r
-fribidi
-fx
-gcalcli
-gdbm
-gdk-pixbuf
-gettext
-gh
-ghostscript
-giflib
-git
-glib
-gmime
-gmp
-gnu-getopt
-gnu-sed
-gnupg
-gnutls
-go
-gobject-introspection
-gpgme
-graphite2
-guile
-harfbuzz
-heroku
-heroku-node
-hidapi
-highway
-icu4c
-imagemagick
-imath
-isl
-jansson
-jasper
-jbig2dec
-jemalloc
-jpeg
-jpeg-turbo
-jpeg-xl
-jq
-krb5
-lame
-leptonica
-libarchive
-libass
-libassuan
-libb2
-libbluray
-libcue
-libde265
-libelf
-libev
-libevent
-libffi
-libftdi
-libftdi0
-libgcrypt
-libgpg-error
-libheif
-libhid
-libidn
-libidn2
-libimagequant
-libksba
-liblinear
-liblqr
-libmpc
-libnghttp2
-libogg
-libomp
-libpng
-libpq
-libpthread-stubs
-libpython-tabulate
-libraqm
-libraw
-librist
-librsvg
-libsamplerate
-libsndfile
-libsodium
-libsoxr
-libspiro
-libssh2
-libtasn1
-libtermkey
-libtiff
-libtool
-libuninameslist
-libunistring
-libusb
-libusb-compat
-libuv
-libvidstab
-libvmaf
-libvorbis
-libvpx
-libvterm
-libx11
-libxau
-libxcb
-libxdmcp
-libxext
-libxls
-libxlsxwriter
-libxml2
-libxrender
-libyaml
-libzip
-little-cms2
-lmdb
-lolcat
-lua
-lua@5.3
-luajit
-luajit-openresty
-luarocks
-luv
-lz4
-lzo
-m4
-mad
-make
-materialized
-mbedtls
-mdloader
-mono
-mp4v2
-mpdecimal
-mpfr
-msgpack
-nb
-ncurses
-neofetch
-neovim
-nettle
-nghttp2
-nmap
-node
-notmuch
-npth
-oniguruma
-opencore-amr
-openexr
-openjpeg
-openssl@1.1
-opus
-opusfile
-p11-kit
-pandoc
-pango
-pcre
-pcre2
-perl
-pgcli
-pillow
-pinentry
-pipx
-pixman
-pkg-config
-portaudio
-postgresql
-postgresql@14
-pyenv
-pygments
-python-tabulate
-python-typing-extensions
-python@3.10
-python@3.11
-python@3.8
-python@3.9
-pyyaml
-qmk
-rav1e
-rbenv
-readline
-rich-cli
-ripgrep
-rubberband
-ruby
-ruby-build
-sc-im
-screenresolution
-sdl2
-shared-mime-info
-shellcheck
-shyaml
-six
-snappy
-speex
-spotify-tui
-spotifyd
-sqlite
-srt
-starship
-subversion
-talloc
-task
-taskwarrior-tui
-tcl-tk
-teensy_loader_cli
-tesseract
-texinfo
-theora
-tig
-timewarrior
-tmux
-tmuxp
-tokyo-cabinet
-tree
-tree-sitter
-unbound
-unibilium
-unixodbc
-utf8proc
-vim
-w3m
-webp
-wget
-whale
-x264
-x265
-xapian
-xmlto
-xorgproto
-xvid
-xz
-z
-zeromq
-zimg
-zsh-syntax-highlighting
-zstd
-1password-cli
-alacritty
-dbeaver-community
-fig
-font-cascadia-code-pl
-font-source-code-pro
-font-source-code-pro-for-powerline
-hyper
-kitty
-snowflake-snowsql
+tap "1password/tap"
+tap "dbcli/tap"
+tap "dbt-labs/dbt"
+tap "github/gh"
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "materializeinc/materialize"
+tap "miniscruff/changie", "https://github.com/miniscruff/changie"
+tap "nickolasburr/pfa"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
+tap "qmk/qmk"
+tap "vitorgalvao/tiny-scripts"
+tap "xwmx/taps"
+brew "angband"
+brew "python@3.10"
+brew "asciinema"
+brew "bat"
+brew "glib"
+brew "python@3.9"
+brew "cmake"
+brew "gnutls"
+brew "harfbuzz"
+brew "libass"
+brew "ffmpeg"
+brew "cmus"
+brew "cowsay"
+brew "difftastic"
+brew "elvish"
+brew "exa"
+brew "pango"
+brew "fontforge"
+brew "fortune"
+brew "fx"
+brew "gcalcli"
+brew "gdk-pixbuf"
+brew "gh"
+brew "git"
+brew "glow"
+brew "gnupg"
+brew "gpgme"
+brew "nghttp2"
+brew "go"
+brew "gobject-introspection"
+brew "hurl"
+brew "libheif"
+brew "imagemagick"
+brew "jq"
+brew "librsvg"
+brew "lolcat"
+brew "lua"
+brew "luajit", args: ["HEAD"]
+brew "mas"
+brew "mono"
+brew "pandoc"
+brew "ripgrep"
+brew "nb"
+brew "neofetch"
+brew "neovim"
+brew "node"
+brew "xapian"
+brew "notmuch"
+brew "nsnake"
+brew "perl"
+brew "pygments"
+brew "python-tabulate"
+brew "pgcli"
+brew "pipx"
+brew "postgresql@14"
+brew "pyenv"
+brew "python@3.8"
+brew "rbenv"
+brew "rich-cli"
+brew "ruff"
+brew "sc-im"
+brew "shellcheck"
+brew "shyaml"
+brew "spotify-tui"
+brew "spotifyd", restart_service: true
+brew "starship", link: false
+brew "subversion"
+brew "task"
+brew "taskwarrior-tui"
+brew "timewarrior"
+brew "tmux"
+brew "tmuxp"
+brew "toot"
+brew "tree"
+brew "vim"
+brew "wget"
+brew "yq"
+brew "zoxide"
+brew "zsh-syntax-highlighting"
+brew "heroku/brew/heroku"
+brew "materializeinc/materialize/materialized"
+brew "miniscruff/changie/changie"
+brew "qmk/qmk/qmk"
+cask "1password-cli"
+cask "alacritty"
+cask "arc"
+cask "dbeaver-community"
+cask "fig"
+cask "snowflake-snowsql"
+mas "Gifski", id: 1351639930
+mas "iA Writer", id: 775737590
+mas "TestFlight", id: 899247664
