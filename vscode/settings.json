@@ -136,7 +136,8 @@
     "*.sql": "jinja-sql",
     "settings.json": "jsonc",
     "vscode.json": "jsonc",
-    ".sqlfluff": "toml"
+    ".sqlfluff": "toml",
+    ".md": "markdown"
   },
   "git.ignoreMissingGitWarning": true,
   "githubIssues.queries": [
@@ -188,10 +189,18 @@
   "workbench.startupEditor": "none",
   "svelte.enable-ts-plugin": true,
   "svelte.plugin.svelte.note-new-transformation": false,
-  "vim.cursorStylePerMode.insert": "underline",
+  "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.normal": "block",
   "workbench.colorTheme": "Rosé Pine Dawn",
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#c4a7e7",
+    "terminalCursor.foreground": "#c4a7e7"
+  },
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
-  }
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "snippets.viewer.combineLanguageSnippets": false
 }

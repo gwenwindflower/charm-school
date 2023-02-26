@@ -42,6 +42,9 @@
     ~/.zshrc: zshrc
     ~/.config/starship.toml: starship.toml
     ~/.config/alacritty/alacritty.yml: alacritty.yml
-    ~/Library/Application Support/Code/User/settings.json: vscode.json
+    ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
+    ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
     ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
     ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
+    ~/scripts/install_vscode_extensions.sh: scripts/install_vscode_extensions.sh
+    ~/scripts/save_vscode_extensions.sh: scripts/save_vscode_extensions.sh

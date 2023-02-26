@@ -9,3 +9,6 @@
 [submodule "dotbot-brew"]
 	path = dotbot-brew
 	url = https://github.com/wren/dotbot-brew.git
+[submodule "dotbot-conditional"]
+	path = dotbot-conditional
+	url = https://gitlab.com/gnfzdz/dotbot-conditional.git

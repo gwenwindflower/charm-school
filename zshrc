@@ -71,8 +71,6 @@ function pydir() {
     mkdir $1 && touch $1/__init__.py
 }
 
-# TODO: make a nice way to handle custom functions, they need to be copied in dotbot
-# functions that scaffold out a dbt project with codegen
 source ~/scripts/dbt_scaffolding.sh
 
 #         ___
