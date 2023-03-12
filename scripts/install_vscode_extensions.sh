@@ -1,6 +1,7 @@
 #!/bin/bash
 
-pkglist=($(cat extensions.txt))
+FILE=~/dev/charm-school/extensions.txt
+pkglist=($(cat "${FILE}"))
 
 for i in "${pkglist[@]}"; do
     code --install-extension "${i}"

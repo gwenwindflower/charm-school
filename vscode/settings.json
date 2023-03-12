@@ -1,49 +1,4 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "python.formatting.provider": "black",
-  "python.interpreter.infoVisibility": "always",
-  "editor.formatOnSave": true,
-  "[json]": {
-    "editor.quickSuggestions": {
-      "strings": true
-    },
-    "editor.suggest.insertMode": "replace"
-  },
-  "[jsonc]": {
-    "editor.quickSuggestions": {
-      "strings": true
-    },
-    "editor.suggest.insertMode": "replace"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[markdown]": {
-    "editor.quickSuggestions": {
-      "comments": "on",
-      "other": "on",
-      "strings": "on"
-    },
-    "editor.rulers": [80],
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 80,
-    "editor.formatOnPaste": true
-  },
-  "[python]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll": true,
-      "source.organizeImports": true
-    },
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnType": true
-  },
-  "sqlfluff.format.arguments": ["--FIX-EVEN-UNPARSABLE"],
-  "sqlfluff.format.enabled": true,
-  "sqlfluff.linter.run": "onSave",
-  "sqlfluff.experimental.format.executeInTerminal": true,
-  "[sql]": {
-    "editor.formatOnSave": false
-  },
   "[jinja-sql]": {
     "editor.defaultFormatter": "dorzey.vscode-sqlfluff",
     "editor.formatOnSave": false,
@@ -100,6 +55,49 @@
       ]
     }
   },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "[jsonc]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "[markdown]": {
+    "editor.formatOnPaste": true,
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "other": "on",
+      "strings": "on"
+    },
+    "editor.rulers": [80],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnType": true
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[sql]": {
+    "editor.formatOnSave": false
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
   "auto-close-tag.activationOnLanguage": [
     "xml",
     "php",
@@ -124,20 +122,22 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorBlinking": "phase",
   "editor.cursorStyle": "underline",
-  "editor.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "'EllographCF Nerd Font', 'Fira Code Nerd Font'",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.fontWeight": "100",
+  "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
   "editor.minimap.enabled": false,
   "explorer.confirmDragAndDrop": false,
   "extensions.ignoreRecommendations": false,
   "files.associations": {
     "*.sql": "jinja-sql",
-    "settings.json": "jsonc",
-    "vscode.json": "jsonc",
+    ".md": "markdown",
     ".sqlfluff": "toml",
-    ".md": "markdown"
+    "settings.json": "jsonc",
+    "vscode.json": "jsonc"
   },
   "git.ignoreMissingGitWarning": true,
   "githubIssues.queries": [
@@ -149,6 +149,7 @@
   "githubIssues.useBranchForIssues": "prompt",
   "githubPullRequests.pullBranch": "never",
   "jupyter.askForKernelRestart": false,
+  "jupyter.interactiveWindowMode": "perFile",
   "jupyter.themeMatplotlibPlots": true,
   "markdown-checkbox.checkmark": "x",
   "markdown-checkbox.dateFormat": "YYYY.MM.DD HH:mm",
@@ -157,18 +158,31 @@
   "projectManager.git.baseFolders": ["~/dev/"],
   "projects.configPath": "~/.dotfiles/projectconfig.json",
   "projects.refreshRoots": ["~/dev/"],
+  "python.formatting.provider": "black",
+  "python.interpreter.infoVisibility": "always",
+  "quarto.mathjax.theme": "light",
   "redhat.telemetry.enabled": false,
+  "snippets.viewer.combineLanguageSnippets": false,
+  "sqlfluff.experimental.format.executeInTerminal": true,
+  "sqlfluff.format.arguments": ["--FIX-EVEN-UNPARSABLE"],
+  "sqlfluff.format.enabled": true,
+  "sqlfluff.linter.run": "onSave",
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.note-new-transformation": false,
   "terminal.external.osxExec": "alacritty.app",
+  "terminal.integrated.defaultLocation": "editor",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "terminal.integrated.fontFamily": "'Ellograph CF', 'Fira Code Nerd Font'",
+  "terminal.integrated.fontFamily": "'EllographCF Nerd Font', 'Fira Code Nerd Font'",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": 100,
   "terminal.integrated.fontWeightBold": 400,
   "terminal.integrated.tabs.enabled": true,
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.normal": "block",
   "vim.easymotion": true,
   "vim.insertModeKeyBindings": [
     {
@@ -181,26 +195,12 @@
   "window.autoDetectColorScheme": true,
   "window.autoDetectHighContrast": false,
   "workbench.activityBar.visible": true,
-  "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
-  "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
-  "terminal.integrated.defaultLocation": "editor",
-  "quarto.mathjax.theme": "light",
-  "jupyter.interactiveWindowMode": "perFile",
-  "workbench.startupEditor": "none",
-  "svelte.enable-ts-plugin": true,
-  "svelte.plugin.svelte.note-new-transformation": false,
-  "vim.cursorStylePerMode.insert": "line",
-  "vim.cursorStylePerMode.normal": "block",
-  "workbench.colorTheme": "Rosé Pine Dawn",
   "workbench.colorCustomizations": {
     "editorCursor.foreground": "#c4a7e7",
     "terminalCursor.foreground": "#c4a7e7"
   },
-  "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml"
-  },
-  "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "snippets.viewer.combineLanguageSnippets": false
+  "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
+  "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Rosé Pine Dawn"
 }

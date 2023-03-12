@@ -1,6 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
-# 
+#
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
@@ -11,6 +11,7 @@ export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 eval "$(pyenv init --path)"
 
 #
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"

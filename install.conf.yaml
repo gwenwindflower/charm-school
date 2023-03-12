@@ -5,6 +5,9 @@
     shell:
       quiet: true
       stdout: true
+    brewfile:
+      stdout: true
+      stderr: true
 
 - clean: ["~"]
 
@@ -13,7 +16,18 @@
 
 - install-brew: true
 
+# - brewfile:
+#     - Brewfile
+
+# install conditional plugin to make this more readable
 - shell:
+    - command: git submodule update --init --recursive
+      description: Installing git submodules...
+    - command: if ! command -v nvm >/dev/null 2>&1; then echo "Installing nvm..."; sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh)" -y -f; else echo "Already installed nvm"; fi
+      description: Checking starship prompt install...
+      # figure out what's up with oh-my-zsh check, maybe check for the .oh-my-zsh folder?
+    # - command: if ! command -v omz >/dev/null 2>&1; then echo "Installing oh-my-zsh..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; else echo "Already installed oh-my-zsh"; fi
+    #   description: Checking oh-my-zsh install...
     - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
       description: Checking starship prompt install...
     - command: if ! command -v zoxide >/dev/null 2>&1; then echo "Installing zoxide..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" -y -f; else echo "Already installed zoxide"; fi
@@ -24,15 +38,15 @@
       description: Installing or updating zsh-autosuggestions
     - command: git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
       description: Installing or updating zsh-autosuggestions
-    - command: git submodule update --init --recursive
-      description: Installing git submodules...
-
-- brew:
-    - exa
-    - jq
-    - yq
-    - ruff
-    - pipx
+    - command: git -C ~/dev/rose-pine-alacritty-theme pull || git clone https://github.com/rose-pine/alacritty.git ~/dev/rose-pine-alacritty-theme
+      description: Installing or updating alacritty rose-pine theme
+    # figure out a way to not always do this or do it more elegantly
+    # - command: source ~/scripts/install_vscode_extensions.sh
+    # description: Installing VSCode extensions...
+    - command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+      description: Enabling key-repeat for vim mode in VSCode
+    - command: defaults write md.obsidian ApplePressAndHoldEnabled -bool false
+      description: Enabling key-repeat for vim mode in Obsidian
 
 - link:
     ~/.gitconfig: gitconfig
