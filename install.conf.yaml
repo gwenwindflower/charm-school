@@ -14,10 +14,12 @@
 - create:
     - ~/.oh-my-zsh/custom/plugins
 
-- install-brew: true
+- install-brew: false
 
 # - brewfile:
 #     - Brewfile
+# perhaps we have two brewfiles, one for a local machine and one for a codespace that just has essentials like
+# difftastic
 
 # install conditional plugin to make this more readable
 - shell:

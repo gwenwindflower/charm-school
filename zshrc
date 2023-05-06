@@ -81,6 +81,7 @@ source ~/scripts/dbt_scaffolding.sh
 # \ \__/.\_\/\____\\ \_\ \__/.\_\/\____/\ \____\/\____/
 #  \/__/\/_/\/____/ \/_/\/__/\/_/\/___/  \/____/\/___/
 
+alias python="python3"
 alias vi="nvim"
 alias vim="nvim"
 alias zc="code ~/.dotfiles/zshrc"

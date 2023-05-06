@@ -8,7 +8,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 
 # initialize pyenv shims dir in path per login session
-eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"
 
 #
 eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -149,7 +149,6 @@
   "githubIssues.useBranchForIssues": "prompt",
   "githubPullRequests.pullBranch": "never",
   "jupyter.askForKernelRestart": false,
-  "jupyter.interactiveWindowMode": "perFile",
   "jupyter.themeMatplotlibPlots": true,
   "markdown-checkbox.checkmark": "x",
   "markdown-checkbox.dateFormat": "YYYY.MM.DD HH:mm",
@@ -202,5 +201,44 @@
   "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
   "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Rosé Pine Dawn"
+  "workbench.colorTheme": "Rosé Pine Dawn",
+  "git.autofetch": true,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "quarto": false,
+    "typescriptreact": true,
+    "python": true,
+    "typescript": true,
+    "emd": true,
+    "jinja-sql": true,
+    "yaml": true
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "remote.SSH.defaultExtensions": [
+    "gitpod.gitpod-remote-ssh"
+  ],
+  "settingsSync.ignoredSettings": [
+    "configurationSync.store"
+  ],
+  "configurationSync.store": {
+    "url": "https://gitpod.io/code-sync",
+    "stableUrl": "https://gitpod.io/code-sync",
+    "insidersUrl": "https://gitpod.io/code-sync",
+    "canSwitch": false,
+    "authenticationProviders": {
+      "gitpod": {
+        "scopes": [
+          "function:accessCodeSyncStorage",
+          "function:getLoggedInUser",
+          "resource:default"
+        ]
+      }
+    }
+  }
 }
