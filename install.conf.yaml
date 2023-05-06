@@ -11,10 +11,7 @@
 
 - clean: ["~"]
 
-- create:
-    - ~/.oh-my-zsh/custom/plugins
-
-- install-brew: false
+# - install-brew: false
 
 # - brewfile:
 #     - Brewfile
@@ -25,11 +22,11 @@
 - shell:
     - command: git submodule update --init --recursive
       description: Installing git submodules...
-    - command: if ! command -v nvm >/dev/null 2>&1; then echo "Installing nvm..."; sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh)" -y -f; else echo "Already installed nvm"; fi
+    - command: if [[ ${CODESPACES} ]]; then echo "Don't need nvm in Codespaces"; elif command -v nvm >/dev/null 2>&1; then echo "Already installed nvm"; else echo "Installing nvm"; sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh)" -y -f; fi
       description: Checking starship prompt install...
       # figure out what's up with oh-my-zsh check, maybe check for the .oh-my-zsh folder?
-    # - command: if ! command -v omz >/dev/null 2>&1; then echo "Installing oh-my-zsh..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; else echo "Already installed oh-my-zsh"; fi
-    #   description: Checking oh-my-zsh install...
+    - command: if [ -z "${ZSH+x}" ] && ! command -v omz &> /dev/null; then echo "Installing oh-my-zsh..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; else echo "Already installed oh-my-zsh"; fi
+      description: Checking oh-my-zsh install...
     - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
       description: Checking starship prompt install...
     - command: if ! command -v zoxide >/dev/null 2>&1; then echo "Installing zoxide..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" -y -f; else echo "Already installed zoxide"; fi
@@ -45,22 +42,26 @@
     # figure out a way to not always do this or do it more elegantly
     # - command: source ~/scripts/install_vscode_extensions.sh
     # description: Installing VSCode extensions...
-    - command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-      description: Enabling key-repeat for vim mode in VSCode
-    - command: defaults write md.obsidian ApplePressAndHoldEnabled -bool false
-      description: Enabling key-repeat for vim mode in Obsidian
+    # - command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+    #   description: Enabling key-repeat for vim mode in VSCode
+    # - command: defaults write md.obsidian ApplePressAndHoldEnabled -bool false
+    #   description: Enabling key-repeat for vim mode in Obsidian
+
+# - create:
+#     - ~/.oh-my-zsh/custom/plugins
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.vimrc: vimrc
-    ~/.config/nvim/init.vim: vimrc
+    # ~/.vimrc: vimrc
+    # ~/.config/nvim/init.vim: vimrc
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
     ~/.config/starship.toml: starship.toml
     ~/.config/alacritty/alacritty.yml: alacritty.yml
-    ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
-    ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
+    # should we just use the vscode settings sync extension and deal with shortcomings vs complexity?
+    # ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
+    # ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
     ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
-    ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
-    ~/scripts/install_vscode_extensions.sh: scripts/install_vscode_extensions.sh
-    ~/scripts/save_vscode_extensions.sh: scripts/save_vscode_extensions.sh
+    # ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
+    # ~/scripts/install_vscode_extensions.sh: scripts/install_vscode_extensions.sh
+    # ~/scripts/save_vscode_extensions.sh: scripts/save_vscode_extensions.sh
