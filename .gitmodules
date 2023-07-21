@@ -1,17 +1,12 @@
-[submodule "oh-my-zsh/custom/themes/spaceship-prompt"]
-	path = oh-my-zsh/custom/themes/spaceship-prompt
-  url = https://github.com/denysdovhan/spaceship-prompt.git
-
-
 [submodule "dotbot"]
-	path = dotbot
-	url = https://github.com/anishathalye/dotbot
+path = dotbot
+url = https://github.com/anishathalye/dotbot
 [submodule "dotbot-brew"]
-	path = dotbot-brew
-	url = https://github.com/wren/dotbot-brew.git
+path = dotbot-brew
+url = https://github.com/wren/dotbot-brew.git
 [submodule "dotbot-conditional"]
-	path = dotbot-conditional
-	url = https://gitlab.com/gnfzdz/dotbot-conditional.git
-[submodule "starter"]
-	path = starter
+path = dotbot-conditional
+url = https://gitlab.com/gnfzdz/dotbot-conditional.git
+[submodule "lazyvim"]
+	path = lazyvim
 	url = https://github.com/LazyVim/starter
