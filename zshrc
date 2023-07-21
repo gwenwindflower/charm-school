@@ -1,12 +1,16 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
-# ███████╗████████╗ █████╗ ██████╗     ███████╗██╗     ███████╗    ███████╗██╗     ███████╗███████╗████████╗
-# ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗    ██╔════╝██║     ██╔════╝    ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝
-# ███████╗   ██║   ███████║██████╔╝    █████╗  ██║     █████╗      █████╗  ██║     █████╗  █████╗     ██║
-# ╚════██║   ██║   ██╔══██║██╔══██╗    ██╔══╝  ██║     ██╔══╝      ██╔══╝  ██║     ██╔══╝  ██╔══╝     ██║
-# ███████║   ██║   ██║  ██║██║  ██║    ███████╗███████╗██║         ██║     ███████╗███████╗███████╗   ██║
-# ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚══════╝╚═╝         ╚═╝     ╚══════╝╚══════╝╚══════╝   ╚═╝
+#                                             WELCOME TO
+#          ,,                                                                 ,,                           ,,
+#        `7MM                                                               `7MM                         `7MM
+#          MM                                                                 MM                           MM
+#  ,p6"bo  MMpMMMb.   ,6"Yb.  `7Mb,od8 `7MMpMMMb.pMMMb.      ,pP"Ybd  ,p6"bo  MMpMMMb.  ,pW"Wq.   ,pW"Wq.  MM
+# 6M'  OO  MM    MM  8)   MM    MM' "'   MM    MM    MM      8I   `" 6M'  OO  MM    MM 6W'   `Wb 6W'   `Wb MM
+# 8M       MM    MM   ,pm9MM    MM       MM    MM    MM      `YMMMa. 8M       MM    MM 8M     M8 8M     M8 MM
+# YM.    , MM    MM  8M   MM    MM       MM    MM    MM      L.   I8 YM.    , MM    MM YA.   ,A9 YA.   ,A9 MM
+#  YMbmd'.JMML  JMML.`Moo9^Yo..JMML.   .JMML  JMML  JMML.    M9mmmP'  YMbmd'.JMML  JMML.`Ybmd9'   `Ybmd9'.JMML.
+
 # *•.¸♡ *•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡ extra special zsh config ♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*
 
 # The next line enables Fig autocomplete, has a corresponding post hook at the bottom.
@@ -84,12 +88,13 @@ source ~/scripts/dbt_scaffolding.sh
 alias python="python3"
 alias vi="nvim"
 alias vim="nvim"
-alias zc="code ~/.dotfiles/zshrc"
+alias zc="code ~/dev/charm-school/zshrc"
 alias zr="exec $SHELL"
 alias ohmyzsh="cd ~/.oh-my-zsh && code ."
 alias vimconfig="code ~/.vim-config"
 alias dbtprof="code ~/.dbt/profiles.yml"
 alias dbtdoc="dbt docs generate && dbt docs serve"
+alias mfv="dbt parse && mf validate-configs"
 alias sc="sc-im"
 alias wthr="curl wttr.in/chicago"
 alias dotz="code ~/.dotfiles"
@@ -97,8 +102,8 @@ alias cl="gcalcli"
 alias cla="gcalcli agenda"
 alias gch="omz plugin info git"
 alias pu="cmus-remote --pause"
-alias kb="code /Users/grant/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower"
-alias spotify="spotifyd --config-path /Users/grant/.config/spotifyd/spotify.conf && spt"
+alias kb="code /Users/winnie/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower"
+alias spotify="spotifyd --config-path /Users/winnie/.config/spotifyd/spotify.conf && spt"
 alias notes="code ~/dev/star-elf-guide"
 alias venv="python -m venv .venv"
 alias va="source .venv/bin/activate"
@@ -138,7 +143,7 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # crazy haskell stuff for tidalcycles
-[ -f "/Users/grant/.ghcup/env" ] && source "/Users/grant/.ghcup/env" # ghcup-env
+[ -f "/Users/winnie/.ghcup/env" ] && source "/Users/winnie/.ghcup/env" # ghcup-env
 
 # no need for pyenv in codespaces
 if [[ -z ${CODESPACES} ]]; then
@@ -153,10 +158,10 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [[ -f '/Users/grant/google-cloud-sdk/path.zsh.inc' ]]; then . '/Users/grant/google-cloud-sdk/path.zsh.inc'; fi
+if [[ -f '/Users/winnie/google-cloud-sdk/path.zsh.inc' ]]; then . '/Users/winnie/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [[ -f '/Users/grant/google-cloud-sdk/completion.zsh.inc' ]]; then . '/Users/grant/google-cloud-sdk/completion.zsh.inc'; fi
+if [[ -f '/Users/winnie/google-cloud-sdk/completion.zsh.inc' ]]; then . '/Users/winnie/google-cloud-sdk/completion.zsh.inc'; fi
 
 # remove duplicates from $PATH
 typeset -U PATH
@@ -164,6 +169,13 @@ typeset -U PATH
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
+
+# put go installed binaries on path
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# set env vars for pop email cli
+export RESEND_API_KEY=$(pass RESEND_API_KEY)
+export POP_FROM=gwenwindflower@gmail.com
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

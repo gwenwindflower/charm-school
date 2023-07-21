@@ -12,3 +12,6 @@
 [submodule "dotbot-conditional"]
 	path = dotbot-conditional
 	url = https://gitlab.com/gnfzdz/dotbot-conditional.git
+[submodule "starter"]
+	path = starter
+	url = https://github.com/LazyVim/starter

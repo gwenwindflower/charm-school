@@ -134,10 +134,12 @@
   "extensions.ignoreRecommendations": false,
   "files.associations": {
     "*.sql": "jinja-sql",
+    "**/target/**": "",
     ".md": "markdown",
     ".sqlfluff": "toml",
     "settings.json": "jsonc",
-    "vscode.json": "jsonc"
+    "vscode.json": "jsonc",
+    "*.md": "markdown"
   },
   "git.ignoreMissingGitWarning": true,
   "githubIssues.queries": [
@@ -191,17 +193,18 @@
   ],
   "vim.leader": ",",
   "vim.useSystemClipboard": true,
-  "window.autoDetectColorScheme": true,
+  "window.autoDetectColorScheme": false,
   "window.autoDetectHighContrast": false,
+  "window.titleBarStyle": "custom",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
     "editorCursor.foreground": "#c4a7e7",
     "terminalCursor.foreground": "#c4a7e7"
   },
-  "workbench.preferredDarkColorTheme": "Rosé Pine Moon",
-  "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
+  "workbench.preferredDarkColorTheme": "Catppuccin Latte",
+  "workbench.preferredLightColorTheme": "Catppuccin Frappé",
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Rosé Pine Dawn",
+  "workbench.colorTheme": "Catppuccin Frappé",
   "git.autofetch": true,
   "jupyter.interactiveWindow.creationMode": "perFile",
   "[dotenv]": {
@@ -220,12 +223,8 @@
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "remote.SSH.defaultExtensions": [
-    "gitpod.gitpod-remote-ssh"
-  ],
-  "settingsSync.ignoredSettings": [
-    "configurationSync.store"
-  ],
+  "remote.SSH.defaultExtensions": ["gitpod.gitpod-remote-ssh"],
+  "settingsSync.ignoredSettings": ["configurationSync.store"],
   "configurationSync.store": {
     "url": "https://gitpod.io/code-sync",
     "stableUrl": "https://gitpod.io/code-sync",
@@ -240,5 +239,9 @@
         ]
       }
     }
-  }
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "workbench.iconTheme": "catppuccin-frappe"
 }
