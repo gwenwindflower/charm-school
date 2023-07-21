@@ -8,5 +8,5 @@ url = https://github.com/wren/dotbot-brew.git
 path = dotbot-conditional
 url = https://gitlab.com/gnfzdz/dotbot-conditional.git
 [submodule "lazyvim"]
-	path = lazyvim
-	url = https://github.com/LazyVim/starter
+path = lazyvim
+url = https://github.com/LazyVim/starter
