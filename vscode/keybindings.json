@@ -317,7 +317,7 @@
     "command": "workbench.action.showCommands"
   },
   {
-    "key": "ctrl+a shift+\\",
+    "key": "cmd+enter",
     "command": "workbench.action.splitEditorRight"
   },
   {

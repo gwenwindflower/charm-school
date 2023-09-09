@@ -24,6 +24,7 @@
     ~/.gitconfig: gitconfig
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
+    ~/.env: env
     ~/.config/starship.toml: starship.toml
     ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
     ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh

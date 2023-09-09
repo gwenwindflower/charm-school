@@ -30,7 +30,8 @@ In summary, if you're running an Intel Mac with a recent version of MacOS you sh
 
 1. How to work with this repo
 2. Terminal configs
-3. VSCode configs
+3. Neovim configs
+4. VSCode configs
 
 ## How to work with this repo
 
@@ -38,7 +39,7 @@ The install is managed via [dotbot](https://github.com/anishathalye/dotbot). Thi
 
 ### Do the thing
 
-If you're inside the repo, you simply run `source install`.
+If you're inside the repo, you simply run `source install` and dotbot will do its thing.
 
 ### ✌🏻 A note on vim
 
@@ -50,7 +51,7 @@ You should be excited to walk the path of vim to use these dotfiles or you will 
 
 Coming soon.
 
-### Alacritty
+### Kitty
 
 Coming soon.
 
@@ -69,6 +70,8 @@ Coming soon.
 ### zshrc
 
 Coming soon.
+
+## Neovim
 
 ## VSCode
 

@@ -1,4 +1,1 @@
-vim-config/backups
-vim-config/undo
-.env
-snowflake_env_vars
+env

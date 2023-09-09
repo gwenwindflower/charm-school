@@ -13,8 +13,6 @@
 
 # *•.¸♡ *•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡ extra special zsh config ♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*
 
-# The next line enables Fig autocomplete, has a corresponding post hook at the bottom.
-# Keep at the top of this file.
 # Module that lets you profile your shell and find slow processes
 zmodload zsh/zprof
 
@@ -37,12 +35,14 @@ export PYENV_ROOT="${HOME}/.pyenv"
 if [[ -n ${SSH_CONNECTION} ]]; then
     export EDITOR='nvim'
 else
-    export EDITOR='code'
+    export EDITOR='nvim'
 fi
 # Color theme for `bat` which I always forget to use
 export BAT_THEME="ansi-dark"
 # use extended glob patterning
 setopt extendedglob
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 #        ___
 #       /\_ \                    __
@@ -57,7 +57,7 @@ setopt extendedglob
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages sudo python pip brew zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(alias-finder git colored-man-pages sudo python pip brew zsh-syntax-highlighting zsh-autosuggestions web-search)
 source $ZSH/oh-my-zsh.sh
 
 # load z move
@@ -88,23 +88,22 @@ source ~/scripts/dbt_scaffolding.sh
 alias python="python3"
 alias vi="nvim"
 alias vim="nvim"
-alias zc="code ~/dev/charm-school/zshrc"
+alias zc="cd ~/dev/charm-school/ && vi zshrc"
 alias zr="exec $SHELL"
-alias ohmyzsh="cd ~/.oh-my-zsh && code ."
-alias vimconfig="code ~/.vim-config"
-alias dbtprof="code ~/.dbt/profiles.yml"
+alias ohmyzsh="cd ~/.oh-my-zsh && vi"
+alias vimconfig="cd ~/.config/nvim && vi"
+alias dbtprof="cd ~/.dbt && vi profiles.yml"
 alias dbtdoc="dbt docs generate && dbt docs serve"
 alias mfv="dbt parse && mf validate-configs"
 alias sc="sc-im"
 alias wthr="curl wttr.in/chicago"
-alias dotz="code ~/.dotfiles"
+alias dotz="cd ~/charm-school && vi"
 alias cl="gcalcli"
 alias cla="gcalcli agenda"
 alias gch="omz plugin info git"
 alias pu="cmus-remote --pause"
-alias kb="code /Users/winnie/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower"
-alias spotify="spotifyd --config-path /Users/winnie/.config/spotifyd/spotify.conf && spt"
-alias notes="code ~/dev/star-elf-guide"
+alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
+alias spotify="spotifyd --config-path ~/.config/spotifyd/spotify.conf && spt"
 alias venv="python -m venv .venv"
 alias va="source .venv/bin/activate"
 alias venva="venv && va"
@@ -114,12 +113,15 @@ alias piu="python -m pip install --upgrade"
 alias piup="python -m pip install --upgrade pip"
 alias vpi="venva && piup && pir"
 alias bv="PYTHONPATH=~/dev/buenavista python3 ~/dev/buenavista/examples/duckdb_server.py ../jaffle-shop-guides/jaffle_shop_database.duckdb"
-alias pipu="pip install --upgrade pip"
 alias ls="exa"
 alias ll="exa -l"
 alias la="exa -a"
 alias lla="exa -la"
 alias lg="exa -alG --git"
+alias ki="kitty +kitten icat"
+alias fr="joshuto"
+alias ddb="duckdb"
+alias bri="brew update && brew upgrade && brew install"
 
 #  __                   ___
 # /\ \__               /\_ \    __
@@ -174,8 +176,17 @@ fpath+=~/.zfunc
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # set env vars for pop email cli
-export RESEND_API_KEY=$(pass RESEND_API_KEY)
 export POP_FROM=gwenwindflower@gmail.com
+
+source ~/.env
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# pnpm
+export PNPM_HOME="/Users/winnie/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
