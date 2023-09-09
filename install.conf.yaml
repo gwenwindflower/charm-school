@@ -18,7 +18,7 @@
   #   - Brewfile-fresh-mac
 
 - create:
-  - ~/.oh-my-zsh/custom/plugins
+    - ~/.oh-my-zsh/custom/plugins
 
 - link:
     ~/.gitconfig: gitconfig
@@ -28,6 +28,7 @@
     ~/.config/starship.toml: starship.toml
     ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
     ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
+    ~/.config/kitty: kitty
 
 # install conditional plugin to make this more readable
 - shell:
