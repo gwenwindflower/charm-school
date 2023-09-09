@@ -30,6 +30,7 @@
     ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
+    ~/.config/karabiner: karabiner
 
 # install conditional plugin to make this more readable
 - shell:

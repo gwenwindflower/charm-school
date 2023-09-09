@@ -73,18 +73,4 @@ Coming soon.
 
 ## Neovim
 
-## VSCode
-
-Coming soon.
-
-### Keybindings
-
-Coming soon.
-
-### Settings
-
-Coming soon.
-
-### Extensions
-
 Coming soon.
