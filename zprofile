@@ -7,10 +7,13 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # added by Snowflake SnowSQL installer v1.2
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 
-# initialize pyenv shims dir in path per login session
-# eval "$(pyenv init --path)"
+if [ -x /usr/opt/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -x /usr/local/bin/brew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+else echo "Could not find Homebrew. Please install Homebrew first."
+fi
 
-#
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Added by OrbStack: command-line tools and integration
