@@ -1,3 +1,4 @@
 brew "difftastic"
 brew "exa"
-brew "pass"
+brew "zoxide"
+brew "starship"
