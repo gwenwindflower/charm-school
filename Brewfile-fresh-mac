@@ -1,4 +1,4 @@
-tap "dbt-labs/dbt"
+tap "dbt-labs/dbt-cli"
 tap "github/gh"
 tap "heroku/brew"
 tap "homebrew/bundle"
