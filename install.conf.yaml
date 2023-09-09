@@ -17,6 +17,17 @@
   # - Brewfile-dev-container
   #   - Brewfile-fresh-mac
 
+- create:
+  - ~/.oh-my-zsh/custom/plugins
+
+- link:
+    ~/.gitconfig: gitconfig
+    ~/.zprofile: zprofile
+    ~/.zshrc: zshrc
+    ~/.config/starship.toml: starship.toml
+    ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
+    ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
+
 # install conditional plugin to make this more readable
 - shell:
     - command: if [[ -n "${CODESPACES}" ]] || [[ -n "${GITPOD_WORKSPACE_ID}" ]]; then export IN_DEV_CONTAINER=true; fi
@@ -30,27 +41,6 @@
     - command: git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull || git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
       description: Installing or updating zsh-autosuggestions
     - command: git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-      description: Installing or updating zsh-autosuggestions
-    # figure out a way to not always do this or do it more elegantly
-    # - command: source ~/scripts/install_vscode_extensions.sh
-    # description: Installing VSCode extensions...
-    # - command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-    #   description: Enabling key-repeat for vim mode in VSCode
-
-# - create:
-#     - ~/.oh-my-zsh/custom/plugins
-
-- link:
-    ~/.gitconfig: gitconfig
-    # ~/.vimrc: vimrc
-    # ~/.config/nvim/init.vim: vimrc
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
-    ~/.config/starship.toml: starship.toml
-    # should we just use the vscode settings sync extension and deal with shortcomings vs complexity?
-    # ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
-    # ~/Library/Application Support/Code/User/keybindings.json: vscode/keybindings.json
-    ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
-    # ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
-    # ~/scripts/install_vscode_extensions.sh: scripts/install_vscode_extensions.sh
-    # ~/scripts/save_vscode_extensions.sh: scripts/save_vscode_extensions.sh
+      description: Installing or updating zsh-syntax-highlighting
+    - command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+      description: Enabling key-repeat for vim mode in VSCode
