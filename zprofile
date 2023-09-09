@@ -9,6 +9,8 @@ export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 
 if command -v brew >/dev/null 2>&1; then
     eval "$(brew shellenv)"
+elif [[ -d "/opt/homebrew/bin" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else echo "Brew doesn't seem to be installed"
 fi
 
