@@ -11,51 +11,12 @@
 
 - clean: ["~"]
 
-- install-brew: true
-
-- brewfile:
-    - Brewfile-dev-container
-  # - Brewfile-fresh-mac # this is for a fresh mac install, not a dev container
-
-# install conditional plugin to make this more readable
-- shell:
-    - command: if [[ -n "${CODESPACES}" ]] || [[ -n "${GITPOD_WORKSPACE_ID}" ]]; then export IN_DEV_CONTAINER=true; fi
-      description: Checking if in a dev container...
-    - command: git submodule update --init --recursive
-      description: Installing git submodules...
-    - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need nvm in Codespaces"; elif command -v nvm >/dev/null 2>&1; then echo "Already installed nvm"; else echo "Installing nvm"; sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh)" -y -f; fi
-      description: Checking starship prompt install...
-    - command: if [ -z "${ZSH+x}" ] && ! command -v omz &> /dev/null; then echo "Installing oh-my-zsh..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; else echo "Already installed oh-my-zsh"; fi
-      description: Checking oh-my-zsh install...
-    - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
-      description: Checking starship prompt install...
-    - command: if ! command -v zoxide >/dev/null 2>&1; then echo "Installing zoxide..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" -y -f; else echo "Already installed zoxide"; fi
-      description: Checking zoxide install...
-    - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need pyenv in Codespaces"; elif command -v pyenv >/dev/null 2>&1; then echo "Already installed pyenv"; else echo "Installing pyenv..."; sh -c "$(curl -fsSL https://pyenv.run)" -y -f; fi
-      description: Checking pyenv install..
-    - command: git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull || git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-      description: Installing or updating zsh-autosuggestions
-    - command: git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-      description: Installing or updating zsh-autosuggestions
-    - command: git -C ~/dev/rose-pine-alacritty-theme pull || git clone https://github.com/rose-pine/alacritty.git ~/dev/rose-pine-alacritty-theme
-      description: Installing or updating alacritty rose-pine theme
-    # figure out a way to not always do this or do it more elegantly
-    # - command: source ~/scripts/install_vscode_extensions.sh
-    # description: Installing VSCode extensions...
-    # - command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-    #   description: Enabling key-repeat for vim mode in VSCode
-    # - command: defaults write md.obsidian ApplePressAndHoldEnabled -bool false
-    #   description: Enabling key-repeat for vim mode in Obsidian
-
-# - create:
-#     - ~/.oh-my-zsh/custom/plugins
-
 - link:
     ~/.gitconfig: gitconfig
-    # ~/.vimrc: vimrc
-    # ~/.config/nvim/init.vim: vimrc
+    # ~/.config/nvim: lazyvim
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
+    ~/.env: env
     # figure out how to put kitty in the path
     # /usr/bin/kitty: ~/.config~/Applications/Kitty.app/Contents/MacOS/kitty
     ~/.config/starship.toml: starship.toml
@@ -67,3 +28,42 @@
     # ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
     # ~/scripts/install_vscode_extensions.sh: scripts/install_vscode_extensions.sh
     # ~/scripts/save_vscode_extensions.sh: scripts/save_vscode_extensions.sh
+# - install-brew: true
+
+# - brewfile:
+#     - Brewfile-dev-container
+# - Brewfile-fresh-mac # this is for a fresh mac install, not a dev container
+
+# install conditional plugin to make this more readable
+- shell:
+    - command: if [[ -n "${CODESPACES}" ]] || [[ -n "${GITPOD_WORKSPACE_ID}" ]]; then export IN_DEV_CONTAINER=true; fi
+      description: Checking if in a dev container...
+    - command: op inject -i .env_vars.tpl -o .env_vars
+# - command: git submodule update --init --recursive
+#   description: Installing git submodules...
+# - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need nvm in Codespaces"; elif command -v nvm >/dev/null 2>&1; then echo "Already installed nvm"; else echo "Installing nvm"; sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh)" -y -f; fi
+#   description: Checking starship prompt install...
+# - command: if [ -z "${ZSH+x}" ] && ! command -v omz &> /dev/null; then echo "Installing oh-my-zsh..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; else echo "Already installed oh-my-zsh"; fi
+#   description: Checking oh-my-zsh install...
+# - command: if ! command -v starship >/dev/null 2>&1; then echo "Installing starship prompt..."; sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f; else echo "Already installed starship prompt"; fi
+#   description: Checking starship prompt install...
+# - command: if ! command -v zoxide >/dev/null 2>&1; then echo "Installing zoxide..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)" -y -f; else echo "Already installed zoxide"; fi
+#   description: Checking zoxide install...
+# - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need pyenv in Codespaces"; elif command -v pyenv >/dev/null 2>&1; then echo "Already installed pyenv"; else echo "Installing pyenv..."; sh -c "$(curl -fsSL https://pyenv.run)" -y -f; fi
+#   description: Checking pyenv install..
+# - command: git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull || git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+#   description: Installing or updating zsh-autosuggestions
+# - command: git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+#   description: Installing or updating zsh-autosuggestions
+# - command: git -C ~/dev/rose-pine-alacritty-theme pull || git clone https://github.com/rose-pine/alacritty.git ~/dev/rose-pine-alacritty-theme
+#   description: Installing or updating alacritty rose-pine theme
+# figure out a way to not always do this or do it more elegantly
+# - command: source ~/scripts/install_vscode_extensions.sh
+# description: Installing VSCode extensions...
+# - command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+#   description: Enabling key-repeat for vim mode in VSCode
+# - command: defaults write md.obsidian ApplePressAndHoldEnabled -bool false
+#   description: Enabling key-repeat for vim mode in Obsidian
+
+# - create:
+#     - ~/.oh-my-zsh/custom/plugins
