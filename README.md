@@ -6,7 +6,7 @@ You've found yourself at charm school, the easiest way to get your terminal and 
 
 I see this repository as useful mainly for folks who (sanely) don't enjoy gardening their dotfiles, want a general framework to start from, and are comfortable editing the defaults and ripping out what they don't like.
 
-This is only tested on my personal 2020 MacBook Pro and my work 2022 M2 Macbook Pro, running recent versions of MacOS. I would not install these dotfiles on anything else. If you're running an Intel Mac with a recent version of MacOS you should be fine, but use at your own risk. There's no easy way to undo the install yet if you don't like the settings. I hope in the future to add more optional paths, CI, uninstall scripts, and customizable install options to share this with a larger audience in a more robust way, but until that day, send your computer to Charm School at your own risk.
+This is only tested on my personal 2020 MacBook Pro and my work 2022 M2 Macbook Pro, running recent versions of MacOS. I would not install these dotfiles on anything else. If you're on a Mac with a recent version of MacOS you should be fine, but use at your own risk. There's no easy way to undo the install yet if you don't like the settings. I hope in the future to add more optional paths, CI, uninstall scripts, and customizable install options to share this with a larger audience in a more robust way, but until that day, send your computer to Charm School at your own risk.
 
 ## 📚 Table of Contents
 
