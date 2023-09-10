@@ -20,7 +20,7 @@ In summary, if you're running an Intel Mac with a recent version of MacOS you sh
 ## 📚 Table of Contents
 
 1. [How to work with this repo](#how-to-work-with-this-repo)
-2. [Terminal configs](#terminal]
+2. [Terminal configs](#terminal)
 3. [Neovim configs](#neovim)
 
 ## How to work with this repo
