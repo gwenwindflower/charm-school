@@ -1,15 +1,6 @@
 # ✨💄 Welcome, girly! 💅🏻✨
 
-```text
-         ,,                                                                 ,,                           ,,
-       `7MM                                                               `7MM                         `7MM
-         MM                                                                 MM                           MM
- ,p6"bo  MMpMMMb.   ,6"Yb.  `7Mb,od8 `7MMpMMMb.pMMMb.      ,pP"Ybd  ,p6"bo  MMpMMMb.  ,pW"Wq.   ,pW"Wq.  MM
-6M'  OO  MM    MM  8)   MM    MM' "'   MM    MM    MM      8I   `" 6M'  OO  MM    MM 6W'   `Wb 6W'   `Wb MM
-8M       MM    MM   ,pm9MM    MM       MM    MM    MM      `YMMMa. 8M       MM    MM 8M     M8 8M     M8 MM
-YM.    , MM    MM  8M   MM    MM       MM    MM    MM      L.   I8 YM.    , MM    MM YA.   ,A9 YA.   ,A9 MM
- YMbmd'.JMML  JMML.`Moo9^Yo..JMML.   .JMML  JMML  JMML.    M9mmmP'  YMbmd'.JMML  JMML.`Ybmd9'   `Ybmd9'.JMML.
-```
+![Charm](https://github.com/gwenwindflower/charm-school/assets/91998347/e1ba0c00-5a9d-4913-bed5-210a09d6b9bc)
 
 You've found yourself at charm school, the easiest way to get your terminal and editor into shape for data work. This is an _opinionated_ set of dotfiles that is easy to install, but I will endeavor to explain these opinions and purpose via extensive commenting and documentation. I welcome issues and PRs to add docs and explanation for specific areas.
 
