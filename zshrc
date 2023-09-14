@@ -38,7 +38,7 @@ else
     export EDITOR='nvim'
 fi
 # Color theme for `bat` which I always forget to use
-export BAT_THEME="ansi-dark"
+export BAT_THEME="Catppuccin-frappe"
 # use extended glob patterning
 setopt extendedglob
 
@@ -77,6 +77,15 @@ function pydir() {
 
 source ~/scripts/dbt_scaffolding.sh
 
+function ya() {
+	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 #         ___
 #        /\_ \    __
 #    __  \//\ \  /\_\     __      ____     __    ____
@@ -103,7 +112,7 @@ alias cla="gcalcli agenda"
 alias gch="omz plugin info git"
 alias pu="cmus-remote --pause"
 alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
-alias spotify="spotifyd --config-path ~/.config/spotifyd/spotify.conf && spt"
+alias spotify="spotify_player"
 alias venv="python -m venv .venv"
 alias va="source .venv/bin/activate"
 alias venva="venv && va"
@@ -122,6 +131,8 @@ alias ki="kitty +kitten icat"
 alias fr="joshuto"
 alias ddb="duckdb"
 alias bri="brew update && brew upgrade && brew install"
+alias pg="pgcli"
+alias js="cd ~/dev/jaffle-shop && vi"
 
 #  __                   ___
 # /\ \__               /\_ \    __
