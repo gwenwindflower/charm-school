@@ -2900,7 +2900,7 @@
         }
       },
       "spotify": {
-        "version": "1.2.19.941,bf202593,417",
+        "version": "1.2.19.941,bf202593,416",
         "options": {
           "full_name": "spotify"
         }
@@ -2975,7 +2975,7 @@
     "macos": {
       "ventura": {
         "HOMEBREW_VERSION": "4.1.11",
-        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "api",
         "CLT": "14.3.1.0.1.1683849156",
         "Xcode": "14.3",
