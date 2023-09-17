@@ -36,6 +36,9 @@
 - shell:
     - command: if [[ -n "${CODESPACES}" ]] || [[ -n "${GITPOD_WORKSPACE_ID}" ]]; then export IN_DEV_CONTAINER=true; fi
       description: Checking if in a dev container...
+    - command: curl https://sh.rustup.rs -sSf | sh
+    - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need to install rust in Codespaces"; elif ! command -v cargo &> /dev/null; then echo "Installing rust" && sh -c "$(curl -o- https://sh.rustup.rs)" -y -f; else echo "Already installed rust"; fi
+      description: Checking  nvm install...
     - command: git submodule update --init --recursive
       description: Installing git submodules...
     - command: source ~/.zshrc; if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need nvm in Codespaces"; elif ! command -v nvm &> /dev/null; then echo "Installing nvm" && sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh)" -y -f; else echo "Already installed nvm"; fi

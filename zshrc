@@ -31,6 +31,8 @@ export SHELL=/bin/zsh
 # TODO: research terminal colors one day
 export TERM=xterm-256color
 export PYENV_ROOT="${HOME}/.pyenv"
+# set rm-improved graveyard to trash
+export GRAVEYARD=$HOME/.Trash
 # Preferred editor for local and remote sessions
 if [[ -n ${SSH_CONNECTION} ]]; then
     export EDITOR='nvim'
