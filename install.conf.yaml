@@ -14,7 +14,7 @@
 - install-brew: true
 
 - brewfile:
-  - Brewfile-fresh-mac
+    - Brewfile-fresh-mac
   # - Brewfile-dev-container
 
 - create:
@@ -53,5 +53,3 @@
       description: Checking  rust install...
     - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need to install pnpm in Codespaces"; elif ! command -v pnpm &> /dev/null; then echo "Installing pnpm" && curl -sSL https://get.pnpm.io/install.sh | sh -s -- -y; else echo "Already installed pnpm"; fi
       description: Checking pnpm install...
-    - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need to install bun in Codespaces"; elif ! command -v bun &> /dev/null; then echo "Installing bun" && curl -sSL https://bun.sh/install | sh -s -- -y; else echo "Already installed bun"; fi
-      description: Checking bun install...
