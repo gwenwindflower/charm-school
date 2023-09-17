@@ -59,7 +59,7 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(alias-finder git colored-man-pages sudo python pip brew zsh-syntax-highlighting zsh-autosuggestions web-search)
+plugins=(alias-finder git colored-man-pages sudo python pip brew zsh-autosuggestions web-search)
 source $ZSH/oh-my-zsh.sh
 
 # load z move
@@ -207,6 +207,10 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+#zsh syntax highlighting and autosuggestions
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

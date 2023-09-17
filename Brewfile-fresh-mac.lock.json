@@ -33,6 +33,9 @@
       },
       "xwmx/taps": {
         "revision": "cb30010f4bb0fe221923f1a068d4f40a3fe802bc"
+      },
+      "oven-sh/bun": {
+        "revision": "9ef629885b492d96587ca9720ebe19cc5aaa4706"
       }
     },
     "brew": {
@@ -2803,6 +2806,24 @@
             }
           }
         }
+      },
+      "bun": {
+        "version": "1.0.2",
+        "bottle": false
+      },
+      "zsh-autosuggestions": {
+        "version": "0.7.0",
+        "bottle": {
+          "rebuild": 1,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/zsh-autosuggestions/blobs/sha256:4537653cbf3540a0785481966b36291255839f1be4012a22409ef97c46a1860b",
+              "sha256": "4537653cbf3540a0785481966b36291255839f1be4012a22409ef97c46a1860b"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -2879,7 +2900,7 @@
         }
       },
       "spotify": {
-        "version": "1.2.19.941,bf202593,416",
+        "version": "1.2.19.941,bf202593,417",
         "options": {
           "full_name": "spotify"
         }
@@ -2919,6 +2940,24 @@
         "options": {
           "full_name": "visual-studio-code"
         }
+      },
+      "monodraw": {
+        "version": "1.6.1,111",
+        "options": {
+          "full_name": "monodraw"
+        }
+      },
+      "morgen": {
+        "version": "3.0.1",
+        "options": {
+          "full_name": "morgen"
+        }
+      },
+      "postico": {
+        "version": "2.0.4,9636",
+        "options": {
+          "full_name": "postico"
+        }
       }
     },
     "mas": {
@@ -2936,7 +2975,7 @@
     "macos": {
       "ventura": {
         "HOMEBREW_VERSION": "4.1.11",
-        "HOMEBREW_PREFIX": "/usr/local",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
         "CLT": "14.3.1.0.1.1683849156",
         "Xcode": "14.3",
