@@ -216,3 +216,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 
+
+# bun completions
+[ -s "/Users/winnie/.bun/_bun" ] && source "/Users/winnie/.bun/_bun"

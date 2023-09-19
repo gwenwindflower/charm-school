@@ -6,9 +6,21 @@ return {
     },
   },
   {
-    "linux-cultist/venv-selector.nvim",
+    "nvim-telescope/telescope-media-files.nvim",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-telescope/telescope-media-files.nvim" },
+  },
+  {
+    "renerocksai/telekasten.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "renerocksai/calendar-vim",
+      "nvim-telescope/telescope-media-files.nvim",
+    },
     opts = {
-      name = { ".venv", "venv", ".env" },
+      home = vim.fn.expand("~/writing"),
     },
   },
   {
@@ -42,32 +54,9 @@ return {
     cmd = "Glow",
   },
   {
-    "jakewvincent/mkdnflow.nvim",
-    config = true,
-    opts = {
-      perspective = {
-        priority = "root",
-        root_tell = "+page.svelte",
-      },
-      links = {
-        implicit_extension = "md",
-      },
-      new_file_template = {
-        use_template = true,
-        template = [[
----
-title: {{ title }}
----
-]],
-      },
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-emoji",
-      "kvngvikram/cmp-mkdnflow",
-      "jakewvincent/mkdnflow.nvim",
       "nvim-lua/plenary.nvim",
     },
     ---@param opts cmp.ConfigSchema
