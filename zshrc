@@ -59,7 +59,7 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(alias-finder git colored-man-pages sudo python pip brew web-search)
+plugins=(alias-finder git colored-man-pages sudo python pip brew jsontools web-search)
 source $ZSH/oh-my-zsh.sh
 
 # load z move
@@ -135,6 +135,7 @@ alias ddb="duckdb"
 alias bri="brew update && brew upgrade && brew install"
 alias pg="pgcli"
 alias js="cd ~/dev/jaffle-shop && vi"
+alias ppl="perplexity"
 
 #  __                   ___
 # /\ \__               /\_ \    __
