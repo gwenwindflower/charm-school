@@ -1,7 +1,7 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
-#
 
+# add poetry to PATH
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # added by Snowflake SnowSQL installer v1.2
