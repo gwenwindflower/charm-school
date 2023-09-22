@@ -12,17 +12,17 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-telescope/telescope-media-files.nvim" },
   },
-  {
-    "renerocksai/telekasten.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "renerocksai/calendar-vim",
-      "nvim-telescope/telescope-media-files.nvim",
-    },
-    opts = {
-      home = vim.fn.expand("~/writing"),
-    },
-  },
+  -- {
+  --   "renerocksai/telekasten.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --     "renerocksai/calendar-vim",
+  --     "nvim-telescope/telescope-media-files.nvim",
+  --   },
+  --   opts = {
+  --     home = vim.fn.expand("~/writing"),
+  --   },
+  -- },
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -42,6 +42,7 @@ return {
       vim.list_extend(opts.sources, {
         nls.builtins.formatting.prettierd,
         nls.builtins.formatting.sqlfluff,
+        nls.builtins.formatting.black,
       })
     end,
   },
