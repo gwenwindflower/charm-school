@@ -31,6 +31,7 @@
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/karabiner: karabiner
+    ~/.config/yazi: yazi
 
 - shell:
     - command: if [[ -n "${CODESPACES}" ]] || [[ -n "${GITPOD_WORKSPACE_ID}" ]]; then export IN_DEV_CONTAINER=true; fi
