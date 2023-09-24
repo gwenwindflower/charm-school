@@ -6,14 +6,6 @@ return {
     },
   },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      format = {
-        timeout_ms = 10000,
-      },
-    },
-  },
-  {
     "nvim-telescope/telescope-media-files.nvim",
   },
   {
@@ -34,6 +26,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      timeout_ms = 10000,
       autoformat = true,
     },
   },
