@@ -48,7 +48,6 @@ return {
     opts = function(_, opts)
       local nls = require("null-ls")
       vim.list_extend(opts.sources, {
-        nls.builtins.linting.sqlfluff,
         nls.builtins.formatting.prettierd,
         nls.builtins.formatting.black,
         nls.builtins.formatting.isort,
