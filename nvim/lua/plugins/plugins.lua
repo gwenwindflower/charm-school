@@ -6,6 +6,14 @@ return {
     },
   },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      format = {
+        timeout_ms = 10000,
+      },
+    },
+  },
+  {
     "nvim-telescope/telescope-media-files.nvim",
   },
   {
@@ -40,9 +48,10 @@ return {
     opts = function(_, opts)
       local nls = require("null-ls")
       vim.list_extend(opts.sources, {
+        nls.builtins.linting.sqlfluff,
         nls.builtins.formatting.prettierd,
-        nls.builtins.formatting.sqlfluff,
         nls.builtins.formatting.black,
+        nls.builtins.formatting.isort,
       })
     end,
   },
