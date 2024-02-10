@@ -12,23 +12,43 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-telescope/telescope-media-files.nvim" },
   },
-  -- {
-  --   "renerocksai/telekasten.nvim",
-  --   dependencies = {
-  --     "nvim-telescope/telescope.nvim",
-  --     "renerocksai/calendar-vim",
-  --     "nvim-telescope/telescope-media-files.nvim",
-  --   },
-  --   opts = {
-  --     home = vim.fn.expand("~/writing"),
-  --   },
-  -- },
   {
     "neovim/nvim-lspconfig",
     opts = {
       timeout_ms = 10000,
-      autoformat = true,
     },
+  },
+  {
+    "jakewvincent/mkdnflow.nvim",
+    config = function()
+      require("mkdnflow").setup({
+        perspective = {
+          priority = "root",
+          root_tell = "index.md",
+        },
+        filetypes = { md = true, markdown = true },
+        new_file_template = {
+          use_template = true,
+          template = [[
+# {{ title }}
+Date: {{ date }}
+Filename: {{ filename }}
+]],
+          placeholders = {
+            before = {
+              date = function()
+                return os.date("%A, %B %d, %Y") -- Wednesday, March 1, 2023
+              end,
+            },
+            after = {
+              filename = function()
+                return vim.api.nvim_buf_get_name(0)
+              end,
+            },
+          },
+        },
+      })
+    end,
   },
   {
     "williamboman/mason.nvim",
@@ -37,15 +57,45 @@ return {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      vim.list_extend(opts.sources, {
-        nls.builtins.formatting.prettierd,
-        nls.builtins.formatting.black,
-        nls.builtins.formatting.isort,
-      })
-    end,
+    "stevearc/conform.nvim",
+    optional = true,
+    log_level = vim.log.levels.DEBUG,
+    opts = {
+      format = {
+        timeout_ms = 5000,
+      },
+      formatters = {
+        sqlfluff = {
+          args = { "fix", "--force", "--templater", "jinja", "-" },
+        },
+      },
+      formatters_by_ft = {
+        ["javascript"] = { { "prettierd", "prettier" } },
+        ["javascriptreact"] = { { "prettierd", "prettier" } },
+        ["typescript"] = { { "prettierd", "prettier" } },
+        ["typescriptreact"] = { { "prettierd", "prettier" } },
+        ["vue"] = { { "prettierd", "prettier" } },
+        ["css"] = { { "prettierd", "prettier" } },
+        ["scss"] = { { "prettierd", "prettier" } },
+        ["less"] = { { "prettierd", "prettier" } },
+        ["html"] = { { "prettierd", "prettier" } },
+        ["json"] = { { "prettierd", "prettier" } },
+        ["jsonc"] = { { "prettierd", "prettier" } },
+        ["yaml"] = { { "prettierd", "prettier" } },
+        ["markdown"] = { { "prettierd", "prettier" } },
+        ["markdown.mdx"] = { { "prettierd", "prettier" } },
+        ["graphql"] = { { "prettierd", "prettier" } },
+        ["handlebars"] = { { "prettierd", "prettier" } },
+        ["python"] = { "isort", "black" },
+        ["lua"] = { "stylua" },
+        ["shell"] = { "shfmt" },
+        ["sh"] = { "shfmt" },
+        ["zsh"] = { "shfmt" },
+        ["go"] = { "gofumpt", "goimports" },
+        ["rust"] = { "rustfmt" },
+        ["sql"] = { "sqlfluff" },
+      },
+    },
   },
   {
     "prisma/vim-prisma",
@@ -68,6 +118,12 @@ return {
     end,
   },
   {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets/dbt" } })
+    end,
+  },
+  {
     "zbirenbaum/copilot.lua",
     suggestion = { enabled = true },
     panel = { enabled = true },
@@ -76,6 +132,14 @@ return {
       yaml = true,
       sql = true,
     },
+  },
+  {
+    "andrewferrier/wrapping.nvim",
+    config = function()
+      require("wrapping").setup({
+        -- config goes here
+      })
+    end,
   },
   {
     "folke/twilight.nvim",
@@ -112,57 +176,61 @@ return {
     },
   },
   {
-    "goolord/alpha-nvim",
+    "nvimdev/dashboard-nvim",
     opts = function()
-      local dashboard = require("alpha.themes.dashboard")
       local logo = [[
-                !!!"..?!!.' ......        !!!!!!!
-                !!! e2$ .<!!!!!!!!!`~!~!!!!!!~! ""!`.`
-                !!!!^:!!!!!!!!!!!!!!.:!!!!!!!!! *@ !4:'
-               . >! !!!!!!!!!!!!!!!!!:^:!!!!!!!!:  J!:
-               .!! ,<!!!!!!!!!!!!!...`*."!!!!!!!!!!.~~
-               !!~!!!!!!!!!f !!!! #$$$$$$b`!!!!!L!!!(
-              !!! ! !!!!! !>b"!!!!. ^$$$*"!!~!4!!!!!!`x
-             .!!!! !`!! d "= "$N !!f u `!!!~' !!!!!!!!!
-             !!!!!  !XH.=m" C..^*$!.  .~L:u@ !! !!!!~:`  Let's get this dread!
-            !!!!!   '`"*:$$P k  $$$$e$R""" mee"<!!!!!
-           :!!!!"    $N $$$  * x$$$$$$$   <-m.` !!!!!'<!
-          .!!!!f     "$ $$$.  u$$$$$$$e $ : ee `  !`:!!!`
-          !!!!!.        $$$$$$$$$$$ $$   u$$" r'    !!!!!             ~4
-         !!!!!          "$$$$$$&""%$$$ee$$$ @"      !!!!!h            $b`
-        !!!!!             $$$$     $$$$$$$           !!!!!           @$
-       !!!!! X             "&$c   $$$$$"              !!!!!       `e$$
-      !!!!! !              $$."***""                   !!!!h     z$$$$$$$$$$$$$$eJ
-     !!!!! !!     .....     ^"'$$$            $         !!!!    J$$$$$$$$$$$"
-     !!!! !!  .d$$$$$$$$$$e( <  d            4$          ~!!! z$$F$$$$$$$$$$b
-     !!! !!  J$$$$$$*****$$$$. "J<=    t'b  `)$b' ,C)`    `!~@$$$$$J'$$$$$$$
-     !!~:!   $$$$"e$$$$$$$$c"$N". - ". :F$ ?P"$$$ #$$      .$$$$$$$FL$$$$$$$
-     !`:!    $$"$$$$$$$$$$$$$$e $$$.   '>@ z$&$$$eC$"    .d$$$$$$$P      "*$$.
-      !!     #$$$$$$$*"zddaaa""e^*F""*. "$ $$P.#$$$$E:: d$$$$$$$$           ^$
-     !!~      ;$$$$"d$$$$$$$$$$$$$u       $c#d$$@$\$>`x$$$$$$$$"             "c
-     !!        ;e?(."$$$$$$$$$$$$$$$$u     "$NJ$$$d"x$$$$$$$$$
+┬  ┌─┐┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┌─┐┌─┐  ┌─┐┌─┐┌─┐┬┌┬┐┌─┐┬  ┬┌─┐┌┬┐  ┌─┐┬┌┬┐┬ ┬┬  ┌─┐┌┬┐┌─┐┬─┐
+│  ├─┤ │ ├┤   └─┐ │ ├─┤│ ┬├┤   │  ├─┤├─┘│ │ ├─┤│  │└─┐│││  └─┐│││││ ││  ├─┤ │ │ │├┬┘
+┴─┘┴ ┴ ┴ └─┘  └─┘ ┴ ┴ ┴└─┘└─┘  └─┘┴ ┴┴  ┴ ┴ ┴ ┴┴─┘┴└─┘┴ ┴  └─┘┴┴ ┴└─┘┴─┘┴ ┴ ┴ └─┘┴└─
 ]]
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
 
-      dashboard.section.header.val = vim.split(logo, "\n")
-      dashboard.section.buttons.val = {
-        dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-        dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-        dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-        dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
-        dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-        dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+      local opts = {
+        theme = "doom",
+        hide = {
+          -- this is taken care of by lualine
+          -- enabling this messes up the actual laststatus setting after loading a file
+          statusline = false,
+        },
+        config = {
+          header = vim.split(logo, "\n"),
+        -- stylua: ignore
+        center = {
+          { action = "Telescope find_files",                                     desc = " Find file",       icon = " ", key = "f" },
+          { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
+          { action = "Telescope oldfiles",                                       desc = " Recent files",    icon = " ", key = "r" },
+          { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g" },
+          { action = [[lua require("lazyvim.util").telescope.config_files()()]], desc = " Config",          icon = " ", key = "c" },
+          { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
+          { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
+          { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
+          { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
+        },
+          footer = function()
+            local stats = require("lazy").stats()
+            local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+            return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+          end,
+        },
       }
-      for _, button in ipairs(dashboard.section.buttons.val) do
-        button.opts.hl = "AlphaButtons"
-        button.opts.hl_shortcut = "AlphaShortcut"
+
+      for _, button in ipairs(opts.config.center) do
+        button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+        button.key_format = "  %s"
       end
-      dashboard.section.header.opts.hl = "AlphaHeader"
-      dashboard.section.buttons.opts.hl = "AlphaButtons"
-      dashboard.section.footer.opts.hl = "AlphaFooter"
-      dashboard.opts.layout[1].val = 8
-      return dashboard
+
+      -- close Lazy and re-open when the dashboard is ready
+      if vim.o.filetype == "lazy" then
+        vim.cmd.close()
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "DashboardLoaded",
+          callback = function()
+            require("lazy").show()
+          end,
+        })
+      end
+
+      return opts
     end,
   },
 }

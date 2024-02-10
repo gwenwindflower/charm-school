@@ -35,10 +35,14 @@ export PYENV_ROOT="${HOME}/.pyenv"
 export GRAVEYARD=$HOME/.Trash
 # Preferred editor for local and remote sessions
 if [[ -n ${SSH_CONNECTION} ]]; then
-    export EDITOR='nvim'
+	export EDITOR='nvim'
 else
-    export EDITOR='nvim'
+	export EDITOR='nvim'
 fi
+
+export AWS_ACCESS_KEY_ID=$(aws configure get default.aws_access_key_id)
+export AWS_SECRET_ACCESS_KEY=$(aws configure get default.aws_secret_access_key)
+
 # Color theme for `bat` which I always forget to use
 export BAT_THEME="Catppuccin-frappe"
 # use extended glob patterning
@@ -74,7 +78,7 @@ autoload -U zmv
 #    \/_/   \/___/  \/_/\/_/\/____/ \/__/ \/_/\/___/  \/_/\/_/\/___/
 # make a subdirectory in a python project
 function pydir() {
-    mkdir $1 && touch $1/__init__.py
+	mkdir $1 && touch $1/__init__.py
 }
 
 source ~/scripts/dbt_scaffolding.sh
@@ -118,11 +122,12 @@ alias spotify="spotify_player"
 alias venv="python -m venv .venv"
 alias va="source .venv/bin/activate"
 alias venva="venv && va"
-alias pir="python -m pip install -r requirements.txt"
 alias pi="python -m pip"
+alias pir="python -m pip install -r"
+alias pirr="python -m pip install -r requirements.txt"
 alias piu="python -m pip install --upgrade"
 alias piup="python -m pip install --upgrade pip"
-alias vpi="venva && piup && pir"
+alias vpi="venva && piup && pirr"
 alias bv="PYTHONPATH=~/dev/buenavista python3 ~/dev/buenavista/examples/duckdb_server.py ../jaffle-shop-guides/jaffle_shop_database.duckdb"
 alias ls="exa"
 alias ll="exa -l"
@@ -136,6 +141,8 @@ alias bri="brew update && brew upgrade && brew install"
 alias pg="pgcli"
 alias js="cd ~/dev/jaffle-shop && vi"
 alias ppl="perplexity"
+alias gho="gh repo view -w"
+alias hq="harlequin"
 
 #  __                   ___
 # /\ \__               /\_ \    __
@@ -163,8 +170,8 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # no need for pyenv in codespaces
 if [[ -z ${CODESPACES} ]]; then
-    # initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
-    eval "$(pyenv init -)"
+	# initialize pyenv autocomplete, rehashes shims, and installs pyenv as a shell function
+	eval "$(pyenv init -)"
 fi
 
 # enable zoxide, a Rust replacement for z
@@ -197,17 +204,21 @@ source ~/.env
 # pnpm
 export PNPM_HOME="/Users/winnie/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# bun completions
-[ -s "/Users/winnie/.oh-my-zsh/completions/_bun" ] && source "/Users/winnie/.oh-my-zsh/completions/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/Users/winnie/.oh-my-zsh/completions/_bun" ] && source "/Users/winnie/.oh-my-zsh/completions/_bun"
+[ -s "/Users/winnie/.bun/_bun" ] && source "/Users/winnie/.bun/_bun"
+
+#atuin
+eval "$(atuin init zsh)"
 
 #zsh syntax highlighting and autosuggestions
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -215,8 +226,3 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
-
-
-# bun completions
-[ -s "/Users/winnie/.bun/_bun" ] && source "/Users/winnie/.bun/_bun"

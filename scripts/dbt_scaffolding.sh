@@ -27,7 +27,7 @@ function dbtstg() {
 
 function dbtstb() {
     database_name=$1
-    schema_name=$2
+    schema_name=$2   
     dbtsrc "$database_name" "$schema_name"
     length=$(cat ./models/staging/"$schema_name"/_source.yml | shyaml get-length sources.0.tables)
     length=$((length - 1))

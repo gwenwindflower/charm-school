@@ -14,11 +14,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- this doesn't work?
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = augroup("config_file_types"),
   pattern = { ".sqlfluff" },
   callback = function()
-    vim.opt_local.set.FileType = "toml"
+    vim.opt_local.filetype = "toml"
   end,
 })
