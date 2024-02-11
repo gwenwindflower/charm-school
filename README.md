@@ -26,7 +26,7 @@ If you're inside the repo, you simply run `source install` and dotbot will do it
 
 ### ✌🏻 A note on vim
 
-I learned to code in vim. It's what the senior engineers at the company I first worked at did, and they made me work in it to get their help. I'm deeply grateful they did this (thanks @ebenoist 💗). Vim as a philosophy is initially intimidating, but elegant and fast when you get used to it. That said, I'm not a vim evangelist. I use it because I enjoy it, and you _definitely_ don't have to use vim to be a 'real coder' (🤢 at this concept). Many, many engineers and data scientists much better than me use VSCode or other editors, and those tools are amazing too.
+I learned to code in vim. It's what the senior engineers at the company I first worked at did, and they made me work in it to get their help. I'm deeply grateful they did this (thanks [@ebenoist](https://github.com/ebenoist) 💗). Vim as a philosophy is initially intimidating, but elegant and fast when you get used to it. That said, I'm not a vim evangelist. I use it because I enjoy it, and you _definitely_ don't have to use vim to be a 'real coder' (🤢 at this concept). Many, many engineers and data scientists much better than me use VSCode or other editors, and those tools are amazing too.
 
 That said, you should be excited to walk the path of vim to use these dotfiles or you will be fighting against the flow of all the configurations.
 
