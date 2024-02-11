@@ -38,11 +38,15 @@ I also heavily, heavily recommend [Raycast](https://www.raycast.com/) but they a
 
 ## Terminal
 
-Coming soon.
+I love the terminal a weird amount. It really does something for my neurodivergent brain. It feels fast, clean, colorful, creative, powerful, expressive, and uniform all at the same time, in a very special way that really gets my serotonin flowing. I use [kitty](https://sw.kovidgoyal.net/kitty/) as my terminal emulator, [oh-my-zsh](https://ohmyz.sh/) as my zsh framework, [Starship](https://starship.rs/) as my prompt, and [Homebrew](https://docs.brew.sh/Installation) as my package manager.
+
+One of the reasons I like a terminal-focused approach is an ability to stay "Hands on Keyboard" (HOK) as much as possible, which is categorically faster. I also find that the more I can do in the terminal, the more I can automate, script, and keymap, which gets me into flow state faster and keeps me there longer. This is not only good for productivity, but more importantly mental health and feeling fulfilled by that productivity. Lastly, the terminal, and tools based in the terminal like vim, tend to be highly customizable, so I can form my work environment around my ever-changing needs and tastes rather than molding myself to the work.
 
 ### Kitty
 
-Coming soon.
+Look, it's called 'kitty' and it has a cute cat icon. That should be enough. On top of that though, it actually happens to be one of the fatest terminal emulators available, has outstanding font support including ligatures, is highly extensible and customizable, image support, and tons of other cool features. [The creator and maintainer](https://github.com/kovidgoyal) is also extremely passionate and responsive, you can tell he really loves this project. This is always a really good sign for the long term health of an open source project.
+
+My kitty configuration is found in the `kitty` directory of this repo. It's one file called `kitty.conf`. I don't have a ton of customizations, my main ones of note are designating the [Ellograph CF](https://connary.com/ellograph.html) font from the excellent independent fontsmith Connary Fagen (you need to purchase this font if you want to use it, it's not included in this repo, support independent font makers!), which I've patched with [Nerd Fonts](https://www.nerdfonts.com/) (I'll add more on how to do this soon) and setting the color scheme to [Catppucin Frappe](https://github.com/catppuccin/catppuccin) (this is my vim colorscheme as well and set everywhere possible). I also have a few aesthetic settings to get rid of the MacOS menu bar and make the tab bar look a little more stylish. Lastly, I have a few keybindings to make it easier to switch tabs, windows, and panes and resize panes in a coherent way. My kitty.conf includes all of the default boilerplate which shows you all available settings and values commented out, so if you look at that file you can see all the settings that _aren't_ commented, that's what I've changed and set.
 
 ### Oh My Zsh
 
