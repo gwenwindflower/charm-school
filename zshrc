@@ -64,6 +64,7 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(alias-finder git colored-man-pages sudo python pip brew jsontools web-search)
+ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
 source $ZSH/oh-my-zsh.sh
 
 # load z move
@@ -83,7 +84,7 @@ function pydir() {
 
 source ~/scripts/dbt_scaffolding.sh
 
-function ya() {
+function ff() {
 	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
@@ -128,21 +129,22 @@ alias pirr="python -m pip install -r requirements.txt"
 alias piu="python -m pip install --upgrade"
 alias piup="python -m pip install --upgrade pip"
 alias vpi="venva && piup && pirr"
-alias bv="PYTHONPATH=~/dev/buenavista python3 ~/dev/buenavista/examples/duckdb_server.py ../jaffle-shop-guides/jaffle_shop_database.duckdb"
 alias ls="exa"
 alias ll="exa -l"
 alias la="exa -a"
 alias lla="exa -la"
 alias lg="exa -alG --git"
 alias ki="kitty +kitten icat"
-alias fr="joshuto"
 alias ddb="duckdb"
 alias bri="brew update && brew upgrade && brew install"
 alias pg="pgcli"
 alias js="cd ~/dev/jaffle-shop && vi"
-alias ppl="perplexity"
+alias ppl="web_search perplexity"
 alias gho="gh repo view -w"
 alias hq="harlequin"
+alias yt="youtube"
+alias ytdl="youtube-dl"
+alias gdl="gallery-dl"
 
 #  __                   ___
 # /\ \__               /\_ \    __

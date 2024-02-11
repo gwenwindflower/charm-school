@@ -29,6 +29,18 @@
     "body": ["{% filter ${1:filter} %}", "  $2", "{% endfilter %}"],
     "description": "Jinja Filter"
   },
+  "Import CTE": {
+    "prefix": "import_cte",
+    "body": [
+      "${1:cte_name} as (",
+      "",
+      "select * from {{ ref('${2:model}') }}",
+      "",
+      "),",
+      ""
+    ],
+    "description": "Import CTE"
+  },
   "For": {
     "prefix": "for",
     "body": ["{% for ${1:item} in ${2:sequence} %}", "  $3", "{% endfor %}"],
