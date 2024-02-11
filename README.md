@@ -62,12 +62,14 @@ Coming soon.
 
 ### zshrc
 
-Coming soon.
+Outside of my Neovim config below, most of the customization in this repo is in my `zshrc`. This is where I set up my PATH, environment variables, initialize zsh plugins and other tools, and map a lot of command aliases. I've tried to organize this file into sections and comment it extensively so you can see what's going on and why.
 
 ## Neovim
 
-Coming soon.
+[Neovim](https://neovim.io/) (often called by its terminal command `nvim`) is a fork of [Vim](<https://en.wikipedia.org/wiki/Vim_(text_editor)>) that's been modernized and has a lot of cool features and improvements. It's backwards compatible with (the somewhat esoteric) Vimscript, but importantly, new plugins and configuration can be directly written using [Lua](https://www.lua.org/), which is much, much easier (imo) to read and write. My setup uses lua plugins and config whenever possible, and I generally try to avoid plugins that haven't been written in Lua specifically for nvim for the sake of future maintainability. At this point in the nvim ecosystem, most important and popular plugins have improved Lua-based options that target nvim specificaly, so I have yet to find any issues with this approach.
+
+I use Neovim for all my coding and writing, and I've set it up to be a very comfortable and productive environment for me. The vast majority of my nvim setup is handled by the [LazyVim](https://www.lazyvim.org/) framework, which aims to provide an advanced IDE-like experience out-of-the-box while still being completely customizable.
 
 ### LazyVim
 
-Coming soon.
+[LazyVim](https://www.lazyvim.org/) — created by nvim plugin builder [folke](https://github.com/folke) — is a framework for Neovim that provides a wealth of useful features and plugins out-of-the-box. It's designed to be a complete, cohesive IDE-like experience, but still be completely customizable. It's a great way to get started with Neovim, and is a great way to learn how to configure and extend Neovim. Among the many things it provides is an excellent implementation of the complex knot of plugins and config required to create an [Intellisense](https://learn.microsoft.com/en-us/visualstudio/ide/using-intellisense?view=vs-2022)-like experience for snippets, LSP navigation, LSP completions, and AI Copilot completions. You don't have to really think about to get all these things working together, which is very welcome. At the same time, you can also easily extend and customize these features to your heart's content. I highly recommend it, and it's the base config for my Neovim setup. Most of the customization in these dotfiles is to extend and tweak LazyVim to support data work and Markdown authoring, as well as to fit some of my personal preferences around keybindings.
