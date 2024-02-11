@@ -4,7 +4,7 @@
 
 > Charm School is in early development, I still need to find time to write the detailed documentation for all the sections below. If you're interested in this project, please star it and check back later. I'm hoping to have full documentation of this project by the end of 2024.
 
-You've found yourself at Charm School, the easiest way to get your terminal and editor into shape for data work. This is an _opinionated_ set of dotfiles that is easy to install, but I will endeavor to explain these opinions and purpose via extensive commenting and documentation. I welcome issues and PRs to add docs and explanation for specific areas.
+You've found yourself at Charm School, an elegant dotfile repo to get your terminal and editor into form for data work. This is an _opinionated_ set of dotfiles that is easy to install, but I will endeavor to explain these opinions and purpose via extensive commenting and documentation. I welcome issues and PRs to add docs and explanation for specific areas.
 
 I see this repository as useful mainly for folks who (sanely) don't enjoy gardening their dotfiles, want a general framework to start from, and are comfortable editing the defaults and ripping out what they don't like. Particularly, if you do data work, are comfortable with the command line, and want to use vim, this could be a good starting point for you.
 
