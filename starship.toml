@@ -14,3 +14,6 @@ symbol = "🌱"
 
 [nodejs]
 symbol = "☕"
+
+[aws]
+disabled = true
