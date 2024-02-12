@@ -25,29 +25,38 @@ zmodload zsh/zprof
 # Path to oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export ZSH_CUSTOM=~/.oh-my-zsh/custom
+
 # Set $SHELL because it gets overriden with Bash in Codespaces
 export SHELL=/bin/zsh
+
 # Terminal color stuff I don't understand
 # TODO: research terminal colors one day
 export TERM=xterm-256color
+
+# set directory where pyenv stores its versions
 export PYENV_ROOT="${HOME}/.pyenv"
-# set rm-improved graveyard to trash
+
+# set rm-improved (`rip`) graveyard to trash
 export GRAVEYARD=$HOME/.Trash
+
 # Preferred editor for local and remote sessions
+export EDITOR='nvim'
+# if you want to set different editors for local and remote sessions, you can do so here
 if [[ -n ${SSH_CONNECTION} ]]; then
-	export EDITOR='nvim'
-else
 	export EDITOR='nvim'
 fi
 
+# set AWS env vars
 export AWS_ACCESS_KEY_ID=$(aws configure get default.aws_access_key_id)
 export AWS_SECRET_ACCESS_KEY=$(aws configure get default.aws_secret_access_key)
 
 # Color theme for `bat` which I always forget to use
 export BAT_THEME="Catppuccin-frappe"
+
 # use extended glob patterning
 setopt extendedglob
 
+# load homebrew zsh completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 #        ___
@@ -59,12 +68,15 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 #   \ \ \/ \/____/ \/___/  \/___L\ \/_/\/_/\/_/\/___/
 #    \ \_\                   /\____/
 #     \/_/                   \_/__/
+
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(alias-finder git colored-man-pages sudo python pip brew jsontools web-search)
+# you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
+# initialize oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # load z move
@@ -77,13 +89,17 @@ autoload -U zmv
 #  \ \ \_/\ \ \_\ \/\ \/\ \/\ \__/\ \ \_\ \ \/\ \L\ \/\ \/\ \/\__, `\
 #   \ \_\  \ \____/\ \_\ \_\ \____\\ \__\\ \_\ \____/\ \_\ \_\/\____/
 #    \/_/   \/___/  \/_/\/_/\/____/ \/__/ \/_/\/___/  \/_/\/_/\/___/
-# make a subdirectory in a python project
+
+# make a subdirectory in a python package project
+# these often require an __init__.py file to be recognized as a package
 function pydir() {
 	mkdir $1 && touch $1/__init__.py
 }
 
+# functions for wrapping dbt codegen
 source ~/scripts/dbt_scaffolding.sh
 
+# open yazi and exit to directory navigated to
 function ff() {
 	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi --cwd-file="$tmp"
@@ -101,25 +117,43 @@ function ff() {
 # \ \__/.\_\/\____\\ \_\ \__/.\_\/\____/\ \____\/\____/
 #  \/__/\/_/\/____/ \/_/\/__/\/_/\/___/  \/____/\/___/
 
-alias python="python3"
+# shell and editor
 alias vi="nvim"
 alias vim="nvim"
-alias zc="cd ~/dev/charm-school/ && vi zshrc"
+alias zc="z ~/dev/charm-school/ && vi zshrc"
 alias zr="exec $SHELL"
 alias ohmyzsh="cd ~/.oh-my-zsh && vi"
-alias vimconfig="cd ~/.config/nvim && vi"
+alias vc="z ~/.config/nvim && vi"
+alias dot="z ~/charm-school && vi"
+alias bri="brew update && brew upgrade && brew install"
+
+# git
+alias gch="omz plugin info git"
+alias gho="gh repo view -w"
+
+# dbt and data
 alias dbtprof="cd ~/.dbt && vi profiles.yml"
 alias dbtdoc="dbt docs generate && dbt docs serve"
 alias mfv="dbt parse && mf validate-configs"
-alias sc="sc-im"
-alias wthr="curl wttr.in/chicago"
-alias dotz="cd ~/charm-school && vi"
-alias cl="gcalcli"
-alias cla="gcalcli agenda"
-alias gch="omz plugin info git"
-alias pu="cmus-remote --pause"
+alias ddb="duckdb"
+alias hq="harlequin"
+alias js="cd ~/dev/jaffle-shop && vi"
+
+# media and misc
 alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
+alias sc="sc-im"
+alias ki="kitty +kitten icat"
+alias wthr="curl wttr.in/chicago"
+alias pu="cmus-remote --pause"
 alias spotify="spotify_player"
+alias pg="pgcli"
+alias yt="youtube"
+alias ytdl="youtube-dl"
+alias gdl="gallery-dl"
+alias ppl="web_search perplexity"
+
+# python
+alias python="python3"
 alias venv="python -m venv .venv"
 alias va="source .venv/bin/activate"
 alias venva="venv && va"
@@ -129,22 +163,16 @@ alias pirr="python -m pip install -r requirements.txt"
 alias piu="python -m pip install --upgrade"
 alias piup="python -m pip install --upgrade pip"
 alias vpi="venva && piup && pirr"
-alias ls="exa"
-alias ll="exa -l"
-alias la="exa -a"
-alias lla="exa -la"
-alias lg="exa -alG --git"
-alias ki="kitty +kitten icat"
-alias ddb="duckdb"
-alias bri="brew update && brew upgrade && brew install"
-alias pg="pgcli"
-alias js="cd ~/dev/jaffle-shop && vi"
-alias ppl="web_search perplexity"
-alias gho="gh repo view -w"
-alias hq="harlequin"
-alias yt="youtube"
-alias ytdl="youtube-dl"
-alias gdl="gallery-dl"
+
+# eza
+alias ls="eza"
+alias ll="eza -l"
+alias la="eza -a"
+alias lla="eza -la"
+alias lg="eza -alG --git"
+
+# frontend
+alias nrd="pnpm run dev"
 
 #  __                   ___
 # /\ \__               /\_ \    __
@@ -201,6 +229,7 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # set env vars for pop email cli
 export POP_FROM=winnie@gwenwindflower.com
 
+# set private env vars
 source ~/.env
 
 # pnpm
