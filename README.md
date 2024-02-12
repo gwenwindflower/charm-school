@@ -50,15 +50,26 @@ My kitty configuration is found in the `kitty` directory of this repo. It's one 
 
 ### Oh My Zsh
 
-Coming soon.
+Oh My Zsh! or `oh-my-zsh` is a framework for zsh. What this means essentially is it provides some extra functionality out-of-the-box and an easier means of adding plugins and customizing your shell. Some engineers complain that it's a little 'heavy', particularly those that obsess over shell performance, but that's not really my bag, and I find it easy to use. I don't do a ton with it, the biggest thing is the list of plugins you'll find in my `zshrc`:
+
+```shell
+
+plugins=(alias-finder git colored-man-pages sudo python pip brew jsontools web-search)
+```
+
+These add some extra commands and functionality for tools I use a lot like python, brew, and git. I also use the `alias-finder` plugin to help me remember all of the stuff it adds, a lot of which are aliases to save you some typing.
 
 ### Starship prompt
 
-Coming soon.
+A prompt is the thing you type commands into in your terminal emulator. By default they're usually very basic, maybe just a symbol indicating where you are in the terminal. You can really kit these out though with lots of useful information and metadata. I think Starship is the best one currently available. It's super easy to configure with a simple `starship.toml` file, and it's written in Rust, so it's very fast and efficient. It comes with a lot of built-in support for popular tools and languages and good defaults, so my `starship.toml` is fairly short.
+
+I've disabled some of the big cloud provider integrations, as they're ever-present even though I'm typically working locally. I've also configured it to use emojis in a few places for some extra vibes. Lastly, I've extended the command timeout to allow for some longer running commands.
 
 ### Homebrew
 
-Coming soon.
+Homebrew is a package manager originally for MacOS, but now also for Linux. It lets you install system wide packages and tools easily and robustly. Think things like a CLI tool for listening to Spotify that aren't scoped to a specific project. Or compilers like golang's `go`. Or system utilities like `htop` and `neofetch`. It even, through its `cask` functionality lets you install GUI apps like `raycast`. It's a great way to version control, manage, and keep up to date a lot of the 'global' tools you use in your workflow. So it's super useful for a lot of things, but one of its benefits is also that it makes setting up a fresh computer a breeze. You can just run `brew bundle` and it will install everything you need from a `Brewfile` that you can keep in your dotfiles repo.
+
+You'll see two Brewfiles in this repo. One for a 'fresh-mac' and one for a 'dev-container'. `Brewfile-fresh-mac` contains everything I want and use on my computer. I use it to keep my machines consistent and up-to-date. `Brewfile-dev-container` is for things like GitHub Codespaces or Gitpod, where I just want some key terminal-based tools that I rely on like [difftastic](https://github.com/Wilfred/difftastic).
 
 ### zshrc
 
