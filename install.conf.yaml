@@ -11,12 +11,6 @@
 
 - clean: ["~"]
 
-- install-brew: true
-
-- brewfile:
-    - Brewfile-fresh-mac
-# - Brewfile-dev-container
-
 - create:
     - ~/.oh-my-zsh/custom/plugins
 
@@ -39,6 +33,10 @@
       description: Checking if in a dev container...
     - command: git submodule update --init --recursive
       description: Installing git submodules...
+    - command: if ! command -v brew &> /dev/null; then sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; else echo "Homebrew already installed"; fi
+      description: Checking Homebrew install...
+    - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Installing bundle from Brewfile-dev-container" && brew bundle install --file Brewfile-dev-container; else echo "Installing bundle from Brewfile-fresh-mac" && brew bundle install --file Brewfile-fresh-mac; fi
+      description: Checking Brewfile install...
     - command: source ~/.zshrc; if [[ ${IN_DEV_CONTAINER} ]]; then echo "Don't need nvm in Codespaces"; elif ! command -v nvm &> /dev/null; then echo "Installing nvm" && sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh)" -y -f; else echo "Already installed nvm"; fi
       description: Checking  nvm install...
     - command: source ~/.zshrc; nvm install v18.17.1
