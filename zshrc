@@ -124,7 +124,7 @@ alias zc="z ~/dev/charm-school/ && vi zshrc"
 alias zr="exec $SHELL"
 alias ohmyzsh="cd ~/.oh-my-zsh && vi"
 alias vc="z ~/.config/nvim && vi"
-alias dot="z ~/charm-school && vi"
+alias dot="z ~/dev/charm-school && vi"
 alias bri="brew update && brew upgrade && brew install"
 
 # git
