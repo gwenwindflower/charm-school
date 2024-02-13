@@ -18,7 +18,7 @@ This is only tested on my personal 2020 MacBook Pro and my work 2022 M2 Macbook 
 
 ## How to work with this repo
 
-The install is managed via [dotbot](https://github.com/anishathalye/dotbot). This is installed in the repo as a submodule along with two dotbot plugins to manage [Homebrew](https://github.com/wren/dotbot-brew) and provide more legible [conditional installations](https://gitlab.com/gnfzdz/dotbot-conditional/).
+The install is managed via [dotbot](https://github.com/anishathalye/dotbot). This is installed in the repo as a git submodule, and configured in the `install.conf.yaml` file. What dotbot does in short is, based on this YAML config, symlinks a bunch of stuff into place from this repo into where it belongs on the system, and then runs a bunch of shell commands. Could you write a bash script to do this? Sure. But dotbot is a little more robust and has some nice features like logging and dry-run mode.
 
 ### Do the thing
 
