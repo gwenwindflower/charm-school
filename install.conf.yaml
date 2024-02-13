@@ -5,9 +5,6 @@
     shell:
       quiet: true
       stdout: true
-    brewfile:
-      stdout: true
-      stderr: true
 
 - clean: ["~"]
 
