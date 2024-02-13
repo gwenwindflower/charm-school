@@ -162,6 +162,7 @@ keymap = [
 	{ on = [ "<C-q>" ],       exec = "close",          desc = "Cancel input" },
 	{ on = [ "<Enter>" ],     exec = "close --submit", desc = "Submit the input" },
 	{ on = [ "<Esc>" ],       exec = "escape",         desc = "Go back the normal mode, or cancel input" },
+  { on = [ "<Backspace>" ], exec = "backspace",      desc = "Backspace" },
 
 	# Mode
 	{ on = [ "i" ], exec = "insert",                              desc = "Enter insert mode" },
