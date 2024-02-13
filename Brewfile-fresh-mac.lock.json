@@ -3297,6 +3297,12 @@
         "options": {
           "full_name": "notion-calendar"
         }
+      },
+      "shortcat": {
+        "version": "0.11.4",
+        "options": {
+          "full_name": "shortcat"
+        }
       }
     },
     "mas": {
