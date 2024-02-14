@@ -59,6 +59,10 @@ setopt extendedglob
 # load homebrew zsh completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
+# nvm is slow, we use zsh-nvm to wrap it and allow lazy loading
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+
 #        ___
 #       /\_ \                    __
 #  _____\//\ \    __  __     __ /\_\    ___     ____
@@ -73,7 +77,7 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(alias-finder git colored-man-pages sudo python pip brew jsontools web-search)
+plugins=(alias-finder git colored-man-pages zsh-nvm sudo python pip brew jsontools web-search)
 # you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
 # initialize oh-my-zsh
@@ -187,11 +191,7 @@ alias nrd="pnpm run dev"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#nvm
-export NVM_DIR="$HOME/.nvm"
-[[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion" # This loads completions
-
+#add ruby gems to PATH
 export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 
 # The next line updates PATH for Postgres.app CLI
