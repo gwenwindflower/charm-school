@@ -39,14 +39,14 @@ export PYENV_ROOT="${HOME}/.pyenv"
 # set rm-improved (`rip`) graveyard to trash
 export GRAVEYARD=$HOME/.Trash
 
-# Preferred editor for local and remote sessions
+# Preferred editor locally
 export EDITOR='nvim'
-# if you want to set different editors for local and remote sessions, you can do so here
+# if you want to set a different editor for remote sessions, you can do so here
 if [[ -n ${SSH_CONNECTION} ]]; then
 	export EDITOR='nvim'
 fi
 
-# set AWS env vars
+# set AWS env vars, you'll need to authenticate through awscli for this to work
 export AWS_ACCESS_KEY_ID=$(aws configure get default.aws_access_key_id)
 export AWS_SECRET_ACCESS_KEY=$(aws configure get default.aws_secret_access_key)
 
@@ -75,8 +75,7 @@ export NVM_COMPLETION=true
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Add more plugins wisely, as too many plugins slow down shell startup
 plugins=(alias-finder git colored-man-pages zsh-nvm sudo python pip brew jsontools web-search)
 # you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
