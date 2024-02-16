@@ -101,6 +101,19 @@ Filename: {{ filename }}
     "prisma/vim-prisma",
   },
   {
+    "linux-cultist/venv-selector.nvim",
+    opts = function(_, opts)
+      if require("lazyvim.util").has("nvim-dap-python") then
+        opts.dap_enabled = true
+      end
+      return vim.tbl_deep_extend("force", opts, {
+        parents = 1,
+        name = { ".venv", ".env", "venv", "env" },
+        fd_binary_name = "fd",
+      })
+    end,
+  },
+  {
     "ellisonleao/glow.nvim",
     config = true,
     cmd = "Glow",
