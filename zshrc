@@ -157,14 +157,14 @@ alias ppl="web_search perplexity"
 
 # python
 alias python="python3"
-alias venv="python -m venv .venv"
+alias venv="uv venv .venv"
 alias va="source .venv/bin/activate"
 alias venva="venv && va"
-alias pi="python -m pip"
-alias pir="python -m pip install -r"
-alias pirr="python -m pip install -r requirements.txt"
-alias piu="python -m pip install --upgrade"
-alias piup="python -m pip install --upgrade pip"
+alias pi="uv pip"
+alias pir="uv pip install -r"
+alias pirr="uv pip install -r requirements.txt"
+alias pc="uv pip compile requirements.in -o requirements.txt"
+alias piup="uv pip install pip"
 alias vpi="venva && piup && pirr"
 
 # eza
@@ -175,7 +175,9 @@ alias lla="eza -la"
 alias lg="eza -alG --git"
 
 # frontend
-alias nrd="pnpm run dev"
+alias nrd="pnpm dev"
+alias nrb="pnpm build"
+alias ni="pnpm i"
 
 #  __                   ___
 # /\ \__               /\_ \    __
@@ -190,8 +192,11 @@ alias nrd="pnpm run dev"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#add ruby gems to PATH
+# Add ruby gems to PATH
 export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+
+# Add cargo to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # The next line updates PATH for Postgres.app CLI
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
@@ -258,3 +263,4 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+. "$HOME/.cargo/env"
