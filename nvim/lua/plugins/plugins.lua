@@ -113,7 +113,7 @@ Filename: {{ filename }}
       })
     end,
   },
-  { "Olical/conjure" },
+  { "Olical/conjure", ft = { "clojure", "aniseed", "fennel", "lisp" } },
   {
     "ellisonleao/glow.nvim",
     config = true,
