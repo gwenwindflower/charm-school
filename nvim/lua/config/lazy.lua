@@ -17,6 +17,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.ui.edgy" },
     { import = "lazyvim.plugins.extras.editor.symbols-outline" },
     { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.ui.mini-animate" },

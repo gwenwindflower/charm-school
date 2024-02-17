@@ -8,7 +8,7 @@
         "revision": "209f59cda890de69b74c224982591642c21323d3"
       },
       "heroku/brew": {
-        "revision": "379bc49cf928a18cb0e7dcad4946278ff831e420"
+        "revision": "3282356a489e6000344f176cd7dac0eb9565bb68"
       },
       "homebrew/bundle": {
         "revision": "2f22c21799744c6b027a0695b36a37185d66a6a6"
@@ -3337,6 +3337,34 @@
             }
           }
         }
+      },
+      "zsh-autopair": {
+        "version": "1.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/zsh-autopair/blobs/sha256:43069acaa2147e5783bd7af94b7a469e80a065f9e41f05f20e6a7d62eb9eda53",
+              "sha256": "43069acaa2147e5783bd7af94b7a469e80a065f9e41f05f20e6a7d62eb9eda53"
+            }
+          }
+        }
+      },
+      "zsh-vi-mode": {
+        "version": "0.11.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/zsh-vi-mode/blobs/sha256:ac68701f582b67a709e3a7c767418c7e819bd19fb4fd6811ce0a6991a7ff6bd6",
+              "sha256": "ac68701f582b67a709e3a7c767418c7e819bd19fb4fd6811ce0a6991a7ff6bd6"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -3413,7 +3441,7 @@
         }
       },
       "spotify": {
-        "version": "1.2.31.1205,4d59ad7c,349",
+        "version": "1.2.31.1205,4d59ad7c,345",
         "options": {
           "full_name": "spotify"
         }
@@ -3513,12 +3541,12 @@
         "macOS": "13.5.2"
       },
       "sonoma": {
-        "HOMEBREW_VERSION": "4.2.8-137-gfa23636",
-        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "HOMEBREW_VERSION": "4.2.8",
+        "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "api",
-        "CLT": "15.1.0.0.1.1700200546",
+        "CLT": "15.0.0.0.1.1694021235",
         "Xcode": "15.1",
-        "macOS": "14.3"
+        "macOS": "14.1"
       }
     }
   }
