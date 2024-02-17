@@ -114,6 +114,7 @@ Filename: {{ filename }}
     end,
   },
   { "Olical/conjure" },
+  { "Olical/nfnl", ft = "fennel" },
   {
     "ellisonleao/glow.nvim",
     config = true,
