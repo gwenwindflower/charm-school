@@ -19,6 +19,11 @@ return {
     },
   },
   {
+    "sotte/presenting.nvim",
+    opts = {},
+    cmd = { "Presenting" },
+  },
+  {
     "jakewvincent/mkdnflow.nvim",
     config = function()
       require("mkdnflow").setup({
