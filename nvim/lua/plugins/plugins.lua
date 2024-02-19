@@ -16,44 +16,33 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       timeout_ms = 10000,
+      servers = {
+        marksman = {},
+      },
     },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    keys = {
+      {
+        "<leader>cp",
+        ft = "markdown",
+        "<cmd>MarkdownPreviewToggle<cr>",
+        desc = "Markdown Preview",
+      },
+    },
+    config = function()
+      vim.cmd([[do FileType]])
+    end,
   },
   {
     "sotte/presenting.nvim",
     opts = {},
     cmd = { "Presenting" },
-  },
-  {
-    "jakewvincent/mkdnflow.nvim",
-    config = function()
-      require("mkdnflow").setup({
-        perspective = {
-          priority = "root",
-          root_tell = "index.md",
-        },
-        filetypes = { md = true, markdown = true },
-        new_file_template = {
-          use_template = true,
-          template = [[
-# {{ title }}
-Date: {{ date }}
-Filename: {{ filename }}
-]],
-          placeholders = {
-            before = {
-              date = function()
-                return os.date("%A, %B %d, %Y") -- Wednesday, March 1, 2023
-              end,
-            },
-            after = {
-              filename = function()
-                return vim.api.nvim_buf_get_name(0)
-              end,
-            },
-          },
-        },
-      })
-    end,
   },
   {
     "williamboman/mason.nvim",
@@ -101,6 +90,13 @@ Filename: {{ filename }}
         ["sql"] = { "sqlfluff" },
       },
     },
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, { "marksman" })
+    end,
   },
   {
     "prisma/vim-prisma",
@@ -156,24 +152,16 @@ Filename: {{ filename }}
     },
   },
   {
-    "andrewferrier/wrapping.nvim",
-    config = function()
-      require("wrapping").setup({
-        -- config goes here
-      })
-    end,
-  },
-  {
     "folke/twilight.nvim",
     opts = {},
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "svelte",
-      },
-    },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline", "svelte" })
+      end
+    end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",

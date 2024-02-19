@@ -76,14 +76,10 @@ export NVM_COMPLETION=true
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add more plugins wisely, as too many plugins slow down shell startup
-plugins=(alias-finder git colored-man-pages zsh-nvm sudo python pip brew jsontools web-search vi-mode)
+plugins=(alias-finder git colored-man-pages zsh-nvm sudo python pip brew jsontools web-search)
 # you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
-# VI_MODE_CURSOR_NORMAL=2
-# VI_MODE_CURSOR_VISUAL=6
-# VI_MODE_CURSOR_INSERT=0
-# VI_MODE_CURSOR_OPPEND=0
-# VI_MODE_SET_CURSOR=true
+
 # initialize oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -169,8 +165,8 @@ alias pi="uv pip"
 alias pir="uv pip install -r"
 alias pirr="uv pip install -r requirements.txt"
 alias pc="uv pip compile requirements.in -o requirements.txt"
-alias piup="uv pip install pip"
-alias vpi="venva && piup && pirr"
+alias piup="uv pip install --upgrade pip"
+alias vpi="venva && piup && pc && pirr"
 
 # eza
 alias ls="eza"
@@ -262,7 +258,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 #atuin
 eval "$(atuin init zsh)"
 
-#zsh syntax highlighting, autopairs, autosuggestions, and vi-mode
+#enable custom zsh plugins
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 

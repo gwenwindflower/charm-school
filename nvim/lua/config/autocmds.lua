@@ -9,7 +9,9 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup("sql_formatting"),
   pattern = { "sql" },
   callback = function()
+    vim.opt.expandtab = true
     vim.opt_local.tabstop = 4
+    vim.opt.softtabstop = 4
     vim.opt_local.shiftwidth = 4
   end,
 })
