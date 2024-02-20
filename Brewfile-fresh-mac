@@ -30,6 +30,7 @@ brew "lua"
 brew "luajit", args: ["HEAD"]
 brew "mas"
 brew "miniscruff/changie/changie"
+brew "nb"
 brew "neofetch"
 brew "neovim"
 brew "pandoc"
