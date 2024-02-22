@@ -76,7 +76,7 @@ export NVM_COMPLETION=true
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add more plugins wisely, as too many plugins slow down shell startup
-plugins=(alias-finder git colored-man-pages zsh-nvm sudo python pip brew jsontools web-search)
+plugins=(alias-finder git colored-man-pages zsh-nvm sudo python golang pip brew jsontools web-search)
 # you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
 

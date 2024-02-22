@@ -22,6 +22,14 @@ return {
     },
   },
   {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = { lsp = { auto_attach = true } },
+  },
+  {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
@@ -60,6 +68,7 @@ return {
       },
       formatters = {
         sqlfluff = {
+          -- use Jinja templating for speed
           args = { "fix", "--force", "--templater", "jinja", "-" },
         },
       },
@@ -159,7 +168,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline", "svelte" })
+        vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline", "sql", "svelte" })
       end
     end,
   },

@@ -16,6 +16,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("go"),
+  pattern = { "go" },
+  callback = function()
+    vim.keymap.set("n", "<Leader>gr", "<cmd>!go run %<CR>", { noremap = true, silent = true, desc = "Go run file" })
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = augroup("config_file_types"),
   pattern = { ".sqlfluff" },

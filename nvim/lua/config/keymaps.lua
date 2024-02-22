@@ -12,3 +12,4 @@ vim.keymap.set(
   "<cmd>Presenting<cr>",
   { noremap = true, silent = true, desc = "Toggle Presenting mode" }
 )
+vim.keymap.set("n", "<Leader>cb", "<cmd>Navbuddy<cr>", { noremap = true, silent = true, desc = "Open Navbuddy" })
