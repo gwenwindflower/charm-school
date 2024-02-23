@@ -130,6 +130,7 @@ alias ohmyzsh="cd ~/.oh-my-zsh && vi"
 alias vc="z ~/.config/nvim && vi"
 alias dot="z ~/dev/charm-school && vi"
 alias bri="brew update && brew upgrade && brew install"
+alias xn="sunbeam xn"
 
 # git
 alias gch="omz plugin info git"
