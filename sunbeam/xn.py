@@ -181,20 +181,22 @@ elif payload["command"] == "get-details":
     else:
         compiled_path = "N/A"
     text = f"""
-    # {entity['name']}
+    \033[1;32m{entity['name']}\033[0m
 
-    ## Details
-    - unique_id: {entity['unique_id']}
-    - resource_type: {entity['resource_type']}
-    - original_file_path: {entity['original_file_path']}
-    - compiled_path: {compiled_path}
-    - depends_on: {entity['depends_on']}
+    \033[1mDetails\033[0m
+
+    \033[0;32m\u2022 unique_id: {entity['unique_id']}
+    \033[0;32m\u2022 resource_type: {entity['resource_type']}
+    \033[0;32m\u2022 original_file_path: {entity['original_file_path']}
+    \033[0;32m\u2022 compiled_path: {compiled_path}
+    \033[0;32m\u2022 depends_on: {entity['depends_on']}
+    \033[0;32m\u2022 columns: {entity['columns']}
     """
 
     print(
         json.dumps(
             {
-                "format": "markdown",
+                "format": "ansi",
                 "text": text,
                 "actions": [
                     {

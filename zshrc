@@ -16,6 +16,14 @@
 # Module that lets you profile your shell and find slow processes
 zmodload zsh/zprof
 
+# function to time zsh startup
+timezsh() {
+	shell=${1-$SHELL}
+	for i in $(seq 1 10); do
+		/usr/bin/time $shell -i -c exit
+	done
+}
+
 #  __  __     __     _ __   ____
 # /\ \/\ \  /'__`\  /\`'__\/',__\
 # \ \ \_/ |/\ \L\.\_\ \ \//\__, `\
@@ -29,8 +37,7 @@ export ZSH_CUSTOM=~/.oh-my-zsh/custom
 # Set $SHELL because it gets overriden with Bash in Codespaces
 export SHELL=/bin/zsh
 
-# Terminal color stuff I don't understand
-# TODO: research terminal colors one day
+# we got all the colors in kitty bb
 export TERM=xterm-256color
 
 # set directory where pyenv stores its versions
@@ -76,7 +83,7 @@ export NVM_COMPLETION=true
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add more plugins wisely, as too many plugins slow down shell startup
-plugins=(alias-finder git colored-man-pages zsh-nvm sudo python golang pip brew jsontools web-search)
+plugins=(alias-finder git colored-man-pages zsh-nvm sudo 1password python golang pip brew jsontools web-search)
 # you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
 
@@ -218,10 +225,10 @@ eval "$(zoxide init zsh)"
 # enable starship prompt
 eval "$(starship init zsh)"
 
-# The next line updates PATH for the Google Cloud SDK.
+# Updates PATH for the Google Cloud SDK.
 if [[ -f '/Users/winnie/google-cloud-sdk/path.zsh.inc' ]]; then . '/Users/winnie/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
+# Completions for gcloud.
 if [[ -f '/Users/winnie/google-cloud-sdk/completion.zsh.inc' ]]; then . '/Users/winnie/google-cloud-sdk/completion.zsh.inc'; fi
 
 # remove duplicates from $PATH
@@ -233,9 +240,6 @@ fpath+=~/.zfunc
 
 # put go installed binaries on path
 export PATH=$PATH:$(go env GOPATH)/bin
-
-# set env vars for pop email cli
-export POP_FROM=winnie@gwenwindflower.com
 
 # set private env vars
 source ~/.env
@@ -263,6 +267,7 @@ eval "$(atuin init zsh)"
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+. "$HOME/.cargo/env"
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-. "$HOME/.cargo/env"
