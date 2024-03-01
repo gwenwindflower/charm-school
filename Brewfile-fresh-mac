@@ -88,8 +88,8 @@ cask "shortcat"
 cask "snowflake-snowsql"
 cask "soundsource"
 cask "spotify"
-cask "sunsama"
 cask "superhuman"
 cask "visual-studio-code"
 mas "Gifski", id: 1351639930
 mas "iA Writer", id: 775737590
+mas "NotePlan", id: 1505432629
