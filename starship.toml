@@ -7,17 +7,36 @@ palette = "catppuccin_frappe"
 success_symbol = "[🦋](bold_green)"
 error_symbol = "[🐛](bold_red)"
 
+[directory]
+style = "sky"
+
 [gcloud]
+disabled = true
+
+[aws]
 disabled = true
 
 [git_branch]
 symbol = "🌱"
+format = "[$symbol$branch(:$remote_branch) ]($style) "
+style = "bold bg:mauve fg:mantle"
+ignore_branches = ["main", "master"]
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+stashed = "📦"
+modified = "📝"
+conflicted = "💥"
+untracked = "🤷"
+deleted = "❌"
+renamed = "↻"
+staged = "🚚"
+ahead = "🚀"
+behind = "👇"
+
 
 [nodejs]
 symbol = "☕"
-
-[aws]
-disabled = true
 
 [palettes.catppuccin_frappe]
 rosewater = "#f2d5cf"

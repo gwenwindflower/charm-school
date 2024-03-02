@@ -11,6 +11,9 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-telescope/telescope-media-files.nvim" },
+    keys = {
+      { "<Leader>ff", false },
+    },
   },
   {
     "neovim/nvim-lspconfig",
@@ -28,6 +31,9 @@ return {
       "MunifTanjim/nui.nvim",
     },
     opts = { lsp = { auto_attach = true } },
+    keys = {
+      { "<Leader>cb", "<cmd>Navbuddy<CR>", desc = "Open Navbuddy" },
+    },
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -51,6 +57,9 @@ return {
     "sotte/presenting.nvim",
     opts = {},
     cmd = { "Presenting" },
+    keys = {
+      { "<Leader>mg", "<cmd>Presenting<CR>", desc = "Toggle Presenting" },
+    },
   },
   {
     "williamboman/mason.nvim",
@@ -256,6 +265,16 @@ return {
     cmd = "Glow",
   },
   {
+    "DreamMaoMao/yazi.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>ff", "<cmd>Yazi<CR>", desc = "Toggle Yazi" },
+    },
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-emoji",
@@ -310,6 +329,9 @@ return {
   {
     "folke/zen-mode.nvim",
     opts = {},
+    keys = {
+      { "<Leader>mz", "<cmd>ZenMode<CR>", desc = "Toggle ZenMode" },
+    },
   },
   {
     "folke/noice.nvim",

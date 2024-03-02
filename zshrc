@@ -159,6 +159,8 @@ alias hq="harlequin"
 alias js="cd ~/dev/jaffle-shop && vi"
 
 # media and misc
+alias c="clear"
+alias cat="bat"
 alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
 alias sc="sc-im"
 alias ki="kitty +kitten icat"
@@ -181,7 +183,8 @@ alias pir="uv pip install -r"
 alias pirr="uv pip install -r requirements.txt"
 alias pc="uv pip compile requirements.in -o requirements.txt"
 alias piup="uv pip install --upgrade pip"
-alias vpi="venva && piup && pc && pirr"
+alias vpi="venva && piup && pirr"
+alias vpci="venva && piup && pc && pirr"
 
 # eza
 alias ls="eza"
