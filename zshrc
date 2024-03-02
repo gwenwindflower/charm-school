@@ -60,6 +60,12 @@ export AWS_SECRET_ACCESS_KEY=$(aws configure get default.aws_secret_access_key)
 # Color theme for `bat` which I always forget to use
 export BAT_THEME="Catppuccin-frappe"
 
+# Color theme for `fzf` also Catppuccin Frappe
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
+
 # use extended glob patterning
 setopt extendedglob
 
@@ -142,6 +148,7 @@ alias xn="sunbeam xn"
 # git
 alias gch="omz plugin info git"
 alias gho="gh repo view -w"
+alias dft="git dft"
 
 # dbt and data
 alias dbtprof="cd ~/.dbt && vi profiles.yml"

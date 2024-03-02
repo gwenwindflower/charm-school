@@ -1,150 +1,109 @@
-[tab]
-active    = { fg = "#1E2031", bg = "#80AEFA" }
-inactive  = { fg = "#C8D3F8", bg = "#484D66" }
-max_width = 1
+[manager]
+cwd = { fg = "#81c8be" }
+
+# Hovered
+hovered         = { fg = "#303446", bg = "#8caaee" }
+preview_hovered = { underline = true }
+
+# Find
+find_keyword  = { fg = "#e5c890", italic = true }
+find_position = { fg = "#f4b8e4", bg = "reset", italic = true }
+
+# Marker
+marker_copied   = { fg = "#a6d189", bg = "#a6d189" }
+marker_cut      = { fg = "#e78284", bg = "#e78284" }
+marker_selected = { fg = "#8caaee", bg = "#8caaee" }
+
+# Tab
+tab_active   = { fg = "#303446", bg = "#c6d0f5" }
+tab_inactive = { fg = "#c6d0f5", bg = "#51576d" }
+tab_width    = 1
+
+# Count
+count_copied   = { fg = "#303446", bg = "#a6d189" }
+count_cut      = { fg = "#303446", bg = "#e78284" }
+count_selected = { fg = "#303446", bg = "#8caaee" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#838ba7" }
+
+# Highlighting
+syntect_theme = "~/.config/bat/themes/Catppuccin-frappe.tmTheme"
 
 [status]
-primary	  = { normal = "#80AEFA", select = "#CD9EFC", unset = "#FFA577" }
-secondary = { normal = "#1E2031", select = "#23273B", unset = "#23273B" }
-tertiary  = { normal = "#6D738F", select = "#6D738F", unset = "#6D738F" }
-body      = { normal = "#484D66", select = "#484D66", unset = "#484D66" }
-emphasis  = { normal = "#C8D3F8", select = "#C8D3F8", unset = "#C8D3F8" }
-info      = { normal = "#7AD9E5", select = "#7AD9E5", unset = "#7AD9E5" }
-success   = { normal = "#97DC8D", select = "#97DC8D", unset = "#97DC8D" }
-warning   = { normal = "#F3D398", select = "#F3D398", unset = "#F3D398" }
-danger    = { normal = "#FA7F94", select = "#FA7F94", unset = "#FA7F94" }
-separator = { opening = "", closing = "" }
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#51576d", bg = "#51576d" }
 
-[progress]
-gauge = { fg = "#FFA577", bg = "#484D66" }
-label = { fg = "#FFFFFF", bold = true }
+# Mode
+mode_normal = { fg = "#303446", bg = "#8caaee", bold = true }
+mode_select = { fg = "#303446", bg = "#a6d189", bold = true }
+mode_unset  = { fg = "#303446", bg = "#eebebe", bold = true }
 
-[selection]
-hovered = { fg = "#1E2031", bg = "#80AEFA" }
+# Progress
+progress_label  = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#8caaee", bg = "#51576d" }
+progress_error  = { fg = "#e78284", bg = "#51576d" }
 
-[marker]
-selecting = { fg = "#97DC8D", bg = "#97DC8D" }
-selected  = { fg = "#F3D398", bg = "#F3D398" }
+# Permissions
+permissions_t = { fg = "#8caaee" }
+permissions_r = { fg = "#e5c890" }
+permissions_w = { fg = "#e78284" }
+permissions_x = { fg = "#a6d189" }
+permissions_s = { fg = "#838ba7" }
 
-[preview]
-hovered       = { underline = true }
-syntect_theme = "~/.config/bat/themes/Catppuccin-macchiato.tmTheme"
+[input]
+border   = { fg = "#8caaee" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+[select]
+border   = { fg = "#8caaee" }
+active   = { fg = "#f4b8e4" }
+inactive = {}
+
+[tasks]
+border  = { fg = "#8caaee" }
+title   = {}
+hovered = { underline = true }
+
+[which]
+mask            = { bg = "#414559" }
+cand            = { fg = "#81c8be" }
+rest            = { fg = "#949cbb" }
+desc            = { fg = "#f4b8e4" }
+separator       = "  "
+separator_style = { fg = "#626880" }
+
+[help]
+on      = { fg = "#f4b8e4" }
+exec    = { fg = "#81c8be" }
+desc    = { fg = "#949cbb" }
+hovered = { bg = "#626880", bold = true }
+footer  = { fg = "#51576d", bg = "#c6d0f5" }
 
 [filetype]
 
 rules = [
 	# Images
-	{ mime = "image/*", fg = "#7AD9E5" },
+	{ mime = "image/*", fg = "#81c8be" },
 
 	# Videos
-	{ mime = "video/*", fg = "#F3D398" },
-	{ mime = "audio/*", fg = "#F3D398" },
+	{ mime = "video/*", fg = "#e5c890" },
+	{ mime = "audio/*", fg = "#e5c890" },
 
 	# Archives
-	{ mime = "application/zip", fg = "#CD9EFC" },
-	{ mime = "application/gzip", fg = "#CD9EFC" },
-	{ mime = "application/x-tar", fg = "#CD9EFC" },
-	{ mime = "application/x-bzip", fg = "#CD9EFC" },
-	{ mime = "application/x-bzip2", fg = "#CD9EFC" },
-	{ mime = "application/x-7z-compressed", fg = "#CD9EFC" },
-	{ mime = "application/x-rar", fg = "#CD9EFC" },
+	{ mime = "application/zip",             fg = "#f4b8e4" },
+	{ mime = "application/gzip",            fg = "#f4b8e4" },
+	{ mime = "application/x-tar",           fg = "#f4b8e4" },
+	{ mime = "application/x-bzip",          fg = "#f4b8e4" },
+	{ mime = "application/x-bzip2",         fg = "#f4b8e4" },
+	{ mime = "application/x-7z-compressed", fg = "#f4b8e4" },
+	{ mime = "application/x-rar",           fg = "#f4b8e4" },
 
 	# Fallback
-	{ name = "*", fg = "#C8D3F8" },
-	{ name = "*/", fg = "#80AEFA" }
+	{ name = "*", fg = "#c6d0f5" },
+	{ name = "*/", fg = "#8caaee" }
 ]
-
-[icons]
-
-"Desktop/"     = ""
-"Documents/"   = ""
-"Downloads/"   = ""
-"Pictures/"    = ""
-"Music/"       = ""
-"Movies/"      = ""
-"Videos/"      = ""
-"Public/"      = ""
-"Library/"     = ""
-"Development/" = ""
-".config/"     = ""
-
-# Git
-".git/"          = ""
-".gitignore"     = ""
-".gitmodules"    = ""
-".gitattributes" = ""
-
-# Dotfiles
-".DS_Store"    = ""
-".bashrc"      = ""
-".bashprofile" = ""
-".zshrc"       = ""
-".zshenv"      = ""
-".zprofile"    = ""
-".vimrc"       = ""
-
-# Text
-"*.txt" = ""
-"*.md"  = ""
-
-# Archives
-"*.zip" = ""
-"*.tar" = ""
-"*.gz"  = ""
-"*.7z"  = ""
-
-# Audio
-"*.mp3"  = ""
-"*.flac" = ""
-"*.wav"  = ""
-
-# Movies
-"*.mp4" = ""
-"*.mkv" = ""
-"*.avi" = ""
-"*.mov" = ""
-
-# Images
-"*.jpg"  = ""
-"*.jpeg" = ""
-"*.png"  = ""
-"*.gif"  = ""
-"*.webp" = ""
-"*.avif" = ""
-"*.bmp"  = ""
-"*.ico"  = ""
-"*.svg"  = ""
-
-# Programming
-"*.c"     = ""
-"*.cpp"   = ""
-"*.h"     = ""
-"*.hpp"   = ""
-"*.rs"    = ""
-"*.go"    = ""
-"*.py"    = ""
-"*.js"    = ""
-"*.ts"    = ""
-"*.tsx"   = ""
-"*.jsx"   = ""
-"*.rb"    = ""
-"*.php"   = ""
-"*.java"  = ""
-"*.sh"    = ""
-"*.fish"  = ""
-"*.swift" = ""
-"*.vim"   = ""
-"*.lua"   = ""
-"*.html"  = ""
-"*.css"   = ""
-"*.scss"  = ""
-"*.json"  = ""
-"*.toml"  = ""
-"*.yml"   = ""
-"*.yaml"  = ""
-"*.ini"   = ""
-"*.conf"  = ""
-
-# Default
-"*"  = ""
-"*/" = ""
