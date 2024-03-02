@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "dbt-labs/dbt-cli": {
-        "revision": "b47a02fc146ca9d16ea73277c55c288214b98b4d"
+        "revision": "cf3b763c0f2d29f0d86192ff3f329bcdde285b2e"
       },
       "github/gh": {
         "revision": "209f59cda890de69b74c224982591642c21323d3"
@@ -11,7 +11,7 @@
         "revision": "379bc49cf928a18cb0e7dcad4946278ff831e420"
       },
       "homebrew/bundle": {
-        "revision": "77f5526b935e5eb6714f905032616882ec7c1747"
+        "revision": "ffd2348507f77fb2a582e254e6da1a16bba8cc92"
       },
       "miniscruff/changie": {
         "revision": "3e31b282849be5f880c75b9d4d7bef440e4bf816",
@@ -3416,6 +3416,20 @@
       "sunbeam": {
         "version": "1.0.0",
         "bottle": false
+      },
+      "forgit": {
+        "version": "24.03.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/forgit/blobs/sha256:920ba213f9c762993789086c637360c86be6298219ad88c44887b2a4dba9f35e",
+              "sha256": "920ba213f9c762993789086c637360c86be6298219ad88c44887b2a4dba9f35e"
+            }
+          }
+        }
       }
     },
     "cask": {
