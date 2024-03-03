@@ -135,6 +135,7 @@ function ff() {
 #  \/__/\/_/\/____/ \/_/\/__/\/_/\/___/  \/____/\/___/
 
 # shell and editor
+alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias zc="z ~/dev/charm-school/ && vi zshrc"
@@ -146,25 +147,33 @@ alias bri="brew update && brew upgrade && brew install"
 alias xn="sunbeam xn"
 
 # git
-alias gch="omz plugin info git"
+alias gla="omz plugin info git"
+alias gz="lazygit"
 alias gho="gh repo view -w"
-alias dft="git dft"
+alias gdt="git dft"
 
 # dbt and data
-alias dbtprof="cd ~/.dbt && vi profiles.yml"
-alias dbtdoc="dbt docs generate && dbt docs serve"
-alias mfv="dbt parse && mf validate-configs"
-alias ddb="duckdb"
-alias hq="harlequin"
-alias js="cd ~/dev/jaffle-shop && vi"
+alias dbtp="vi ~/.dbt/profiles.yml"
+alias db="dbt build"
+alias dbs="dbt build -s"
+alias dt="dbt test"
+alias dts="dbt test -s"
+alias dr="dbt run"
+alias drs="dbt run -s"
+alias dp="dbt parse"
+alias dmv="dbt parse && mf validate-configs"
 
 # media and misc
 alias c="clear"
 alias cat="bat"
+alias cc="cookiecutter"
 alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
+alias ddb="duckdb"
 alias sc="sc-im"
 alias ki="kitty +kitten icat"
 alias wthr="curl wttr.in/chicago"
+alias moon="pyphoon"
+alias moonl="pyphoon-lolcat"
 alias pu="cmus-remote --pause"
 alias spotify="spotify_player"
 alias pg="pgcli"
@@ -187,16 +196,18 @@ alias vpi="venva && piup && pirr"
 alias vpci="venva && piup && pc && pirr"
 
 # eza
+alias l="eza -l"
 alias ls="eza"
 alias ll="eza -l"
 alias la="eza -a"
 alias lla="eza -la"
-alias lg="eza -alG --git"
+alias lg="eza -laG --git"
 
 # frontend
 alias nrd="pnpm dev"
 alias nrb="pnpm build"
 alias ni="pnpm i"
+alias nu="pnpm up"
 
 #  __                   ___
 # /\ \__               /\_ \    __

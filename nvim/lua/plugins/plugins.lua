@@ -32,7 +32,7 @@ return {
     },
     opts = { lsp = { auto_attach = true } },
     keys = {
-      { "<Leader>cb", "<cmd>Navbuddy<CR>", desc = "Open Navbuddy" },
+      { "<Leader>cd", "<cmd>Navbuddy<CR>", desc = "Open Navbuddy" },
     },
   },
   {
@@ -98,7 +98,7 @@ return {
         ["markdown.mdx"] = { { "prettierd", "prettier" } },
         ["graphql"] = { { "prettierd", "prettier" } },
         ["handlebars"] = { { "prettierd", "prettier" } },
-        ["python"] = { "isort", "black" },
+        ["python"] = { "ruff" },
         ["lua"] = { "stylua" },
         ["shell"] = { "shfmt" },
         ["sh"] = { "shfmt" },
