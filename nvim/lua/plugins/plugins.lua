@@ -16,15 +16,6 @@ return {
     },
   },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      timeout_ms = 10000,
-      servers = {
-        marksman = {},
-      },
-    },
-  },
-  {
     "SmiteshP/nvim-navbuddy",
     dependencies = {
       "SmiteshP/nvim-navic",
@@ -64,7 +55,28 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      table.insert(opts.ensure_installed, "prettierd")
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, {
+        "marksman",
+        "mdx-analyzer",
+        "prettier",
+        "prettierd",
+        "svelte-language-server",
+        "prisma-language-server",
+        "typescript-language-server",
+        "emmet-ls",
+        "json-lsp",
+        "yaml-language-server",
+        "black",
+        "isort",
+        "sqlfluff",
+        "shfmt",
+        "stylua",
+        "lua-language-server",
+        "gopls",
+        "rustfmt",
+        "taplo", -- TOML LSP
+      })
     end,
   },
   {
@@ -73,7 +85,7 @@ return {
     log_level = vim.log.levels.DEBUG,
     opts = {
       format = {
-        timeout_ms = 5000,
+        timeout_ms = 1000,
       },
       formatters = {
         sqlfluff = {
@@ -98,7 +110,7 @@ return {
         ["markdown.mdx"] = { { "prettierd", "prettier" } },
         ["graphql"] = { { "prettierd", "prettier" } },
         ["handlebars"] = { { "prettierd", "prettier" } },
-        ["python"] = { "ruff" },
+        ["python"] = { "isort", "black" },
         ["lua"] = { "stylua" },
         ["shell"] = { "shfmt" },
         ["sh"] = { "shfmt" },
@@ -106,6 +118,52 @@ return {
         ["go"] = { "gofumpt", "goimports" },
         ["rust"] = { "rustfmt" },
         ["sql"] = { "sqlfluff" },
+      },
+    },
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        -- TODO: figure out how to override pyright being installed
+        -- TODO: explore using ruff formatter instead of black and isort
+        "ruff_lsp",
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      timeout_ms = 10000,
+      servers = {
+        marksman = {},
+        ruff_lsp = {
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
+            },
+          },
+        },
+      },
+      setup = {
+        ruff_lsp = function()
+          require("lazyvim.util").lsp.on_attach(function(client, _)
+            if client.name == "ruff_lsp" then
+              -- Disable hover in favor of Pyright
+              client.server_capabilities.hoverProvider = false
+            end
+          end)
+        end,
       },
     },
   },
@@ -129,21 +187,21 @@ return {
           {
             ft = "toggleterm",
             size = { height = 0.4 },
-            filter = function(buf, win)
+            filter = function(_, win)
               return vim.api.nvim_win_get_config(win).relative == ""
             end,
           },
           {
             ft = "noice",
             size = { height = 0.4 },
-            filter = function(buf, win)
+            filter = function(_, win)
               return vim.api.nvim_win_get_config(win).relative == ""
             end,
           },
           "Trouble",
           {
             ft = "trouble",
-            filter = function(buf, win)
+            filter = function(_, win)
               return vim.api.nvim_win_get_config(win).relative == ""
             end,
           },
@@ -232,13 +290,6 @@ return {
           }),
         },
       }
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "marksman" })
     end,
   },
   {
