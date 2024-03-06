@@ -72,10 +72,13 @@ setopt extendedglob
 # load homebrew zsh completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-# nvm is slow, we use zsh-nvm to wrap it and allow lazy loading
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
-
+# nvm is really slow so we lazy load it
+# this means it will only load when you use a command that requires it
+zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier typescript
+# if there is an .nvmrc file in the current directory,
+# autoload that node version with nvm when a node-related command is run
+zstyle ':omz:plugins:nvm' autoload yes
 #        ___
 #       /\_ \                    __
 #  _____\//\ \    __  __     __ /\_\    ___     ____
@@ -89,7 +92,7 @@ export NVM_COMPLETION=true
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add more plugins wisely, as too many plugins slow down shell startup
-plugins=(alias-finder git colored-man-pages zsh-nvm sudo 1password python golang pip brew jsontools web-search)
+plugins=(alias-finder git colored-man-pages nvm sudo 1password python golang pip brew jsontools web-search)
 # you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
 
