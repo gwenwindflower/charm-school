@@ -27,6 +27,9 @@ return {
     },
   },
   {
+    "IndianBoy42/tree-sitter-just",
+  },
+  {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
@@ -354,6 +357,10 @@ return {
       yaml = true,
       sql = true,
     },
+  },
+  {
+    "NoahTheDuke/vim-just",
+    ft = { "just" },
   },
   {
     "folke/twilight.nvim",

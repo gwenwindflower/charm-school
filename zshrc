@@ -58,6 +58,7 @@ export AWS_ACCESS_KEY_ID=$(aws configure get default.aws_access_key_id)
 export AWS_SECRET_ACCESS_KEY=$(aws configure get default.aws_secret_access_key)
 
 # Color theme for `bat` which I always forget to use
+# so I alias it to `cat` in the aliases section
 export BAT_THEME="Catppuccin-frappe"
 
 # Color theme for `fzf` also Catppuccin Frappe
@@ -79,6 +80,8 @@ zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier typescript
 # if there is an .nvmrc file in the current directory,
 # autoload that node version with nvm when a node-related command is run
 zstyle ':omz:plugins:nvm' autoload yes
+# we can do this silently as the node env is displayed nicely in starship prompt
+zstyle ':omz:plugins:nvm' silent-autoload yes
 #        ___
 #       /\_ \                    __
 #  _____\//\ \    __  __     __ /\_\    ___     ____
@@ -92,7 +95,7 @@ zstyle ':omz:plugins:nvm' autoload yes
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add more plugins wisely, as too many plugins slow down shell startup
-plugins=(alias-finder git colored-man-pages nvm sudo 1password python golang pip brew jsontools web-search)
+plugins=(aliases alias-finder git colored-man-pages nvm sudo 1password python golang pip brew jsontools web-search)
 # you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
 
@@ -150,7 +153,6 @@ alias bri="brew update && brew upgrade && brew install"
 alias xn="sunbeam xn"
 
 # git
-alias gla="omz plugin info git"
 alias gz="lazygit"
 alias gho="gh repo view -w"
 alias gdt="git dft"
