@@ -170,6 +170,12 @@ return {
       },
     },
   },
+  { "nvim-neotest/neotest-go" },
+  { "nvim-neotest/neotest-python" },
+  {
+    "nvim-neotest/neotest",
+    opts = { adapters = { "neotest-python", "neotest-go" } },
+  },
   {
     "folke/edgy.nvim",
     event = "VeryLazy",
@@ -218,10 +224,7 @@ return {
             end,
           },
           { title = "Spectre", ft = "spectre_panel", size = { height = 0.4 } },
-          { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
-        },
-        left = {
-          { title = "Neotest Summary", ft = "neotest-summary" },
+          { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 0.4 } },
         },
         right = {
           {
@@ -310,6 +313,9 @@ return {
         fd_binary_name = "fd",
       })
     end,
+    keys = {
+      { "<leader>ck", "<cmd>VenvSelectCached<CR>", desc = "Select Cached Venv" },
+    },
   },
   { "Olical/conjure", ft = { "clojure", "aniseed", "fennel", "lisp" } },
   { "Olical/nfnl", ft = "fennel" },

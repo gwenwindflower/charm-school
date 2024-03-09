@@ -144,18 +144,17 @@ function ff() {
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias zc="z ~/dev/charm-school/ && vi zshrc"
-alias zr="exec $SHELL"
-alias ohmyzsh="cd ~/.oh-my-zsh && vi"
-alias vc="z ~/.config/nvim && vi"
-alias dot="z ~/dev/charm-school && vi"
+alias rr="z ~/dev/charm-school/ && vi zshrc"
+alias ss="exec $SHELL"
+alias oh="cd ~/.oh-my-zsh && vi"
 alias bri="brew update && brew upgrade && brew install"
-alias xn="sunbeam xn"
+alias s="z"
 
-# git
+# git tools
+alias gdt="git dft"
 alias gz="lazygit"
 alias gho="gh repo view -w"
-alias gdt="git dft"
+alias ghd="gh dash"
 
 # dbt and data
 alias dbtp="vi ~/.dbt/profiles.yml"
@@ -167,6 +166,7 @@ alias dr="dbt run"
 alias drs="dbt run -s"
 alias dp="dbt parse"
 alias dmv="dbt parse && mf validate-configs"
+alias dn="sunbeam xn"
 
 # media and misc
 alias c="clear"
@@ -174,7 +174,6 @@ alias cat="bat"
 alias cc="cookiecutter"
 alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
 alias ddb="duckdb"
-alias sc="sc-im"
 alias ki="kitty +kitten icat"
 alias wthr="curl wttr.in/chicago"
 alias moon="pyphoon"
@@ -199,6 +198,7 @@ alias pc="uv pip compile requirements.in -o requirements.txt"
 alias piup="uv pip install --upgrade pip"
 alias vpi="venva && piup && pirr"
 alias vpci="venva && piup && pc && pirr"
+alias pyt="pytest"
 
 # eza
 alias l="eza -l"
@@ -269,9 +269,6 @@ fpath+=~/.zfunc
 
 # put go installed binaries on path
 export PATH=$PATH:$(go env GOPATH)/bin
-
-# set private env vars
-source ~/.env
 
 # pnpm
 export PNPM_HOME="/Users/winnie/Library/pnpm"
