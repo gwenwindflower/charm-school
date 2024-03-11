@@ -50,12 +50,7 @@ My kitty configuration is found in the `kitty` directory of this repo. It's one 
 
 ### Oh My Zsh
 
-Oh My Zsh! or `oh-my-zsh` is a framework for zsh. What this means essentially is it provides some extra functionality out-of-the-box and an easier means of adding plugins and customizing your shell. Some engineers complain that it's a little 'heavy', particularly those that obsess over shell performance, but that's not really my bag, and I find it easy to use. I don't do a ton with it, the biggest thing is the list of plugins you'll find in my `zshrc`:
-
-```shell
-
-plugins=(alias-finder git colored-man-pages sudo python pip brew jsontools web-search)
-```
+Oh My Zsh! or `oh-my-zsh` is a framework for zsh. What this means essentially is it provides some extra functionality out-of-the-box and an easier means of adding plugins and customizing your shell. Some engineers complain that it's a little 'heavy', particularly those that obsess over shell performance, but that's not really my bag, and I find it easy to use. I don't do a ton with it, the biggest thing is the list of plugins you'll find in my [`zshrc` file](https://github.com/gwenwindflower/charm-school/blob/58d7d692c7a8440984e65f239668c139365bf284/zshrc#L98C1-L99C1).
 
 These add some extra commands and functionality for tools I use a lot like python, brew, and git. I also use the `alias-finder` plugin to help me remember all of the stuff it adds, a lot of which are aliases to save you some typing.
 

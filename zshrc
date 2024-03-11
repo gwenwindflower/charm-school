@@ -95,7 +95,7 @@ zstyle ':omz:plugins:nvm' silent-autoload yes
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add more plugins wisely, as too many plugins slow down shell startup
-plugins=(aliases alias-finder git colored-man-pages nvm sudo 1password python golang pip brew jsontools web-search)
+plugins=(aliases git colored-man-pages nvm sudo 1password python golang pip brew jsontools web-search)
 # you can get custom web search plugins with the following config
 ZSH_WEB_SEARCH_ENGINES=(perplexity "https://www.perplexity.ai/search?q=")
 
@@ -144,11 +144,9 @@ function ff() {
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias rr="z ~/dev/charm-school/ && vi zshrc"
-alias ss="exec $SHELL"
+alias ss="z ~/dev/charm-school/ && vi zshrc"
+alias rr="exec $SHELL"
 alias oh="cd ~/.oh-my-zsh && vi"
-alias bri="brew update && brew upgrade && brew install"
-alias s="z"
 
 # git tools
 alias gdt="git dft"
@@ -169,7 +167,10 @@ alias dmv="dbt parse && mf validate-configs"
 alias dn="sunbeam xn"
 
 # media and misc
-alias c="clear"
+alias af="als"
+alias x="clear"
+alias bri="brew update && brew upgrade && brew install"
+alias s="z"
 alias cat="bat"
 alias cc="cookiecutter"
 alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
@@ -200,6 +201,9 @@ alias vpi="venva && piup && pirr"
 alias vpci="venva && piup && pc && pirr"
 alias pyt="pytest"
 
+# go
+alias gorm="go run main.go"
+alias gord="go run ."
 # eza
 alias l="eza -l"
 alias ls="eza"
