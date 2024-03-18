@@ -1,6 +1,6 @@
 # ✨💄 Welcome, girly! 💅🏻✨
 
-![Charm School](https://github.com/gwenwindflower/charm-school/assets/91998347/e1ba0c00-5a9d-4913-bed5-210a09d6b9bc)
+<img src="https://github.com/gwenwindflower/charm-school/assets/91998347/2fcf9f7b-9f00-43e4-ac94-e8dc8439f896" alt="Charm School banner" width=500px />
 
 > Charm School is in early development, I still need to find time to write the detailed documentation for all the sections below. If you're interested in this project, please star it and check back later. I'm hoping to have full documentation of this project by the end of 2024.
 
