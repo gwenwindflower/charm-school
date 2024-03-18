@@ -30,6 +30,25 @@ return {
     "IndianBoy42/tree-sitter-just",
   },
   {
+    "cameron-wags/rainbow_csv.nvim",
+    config = true,
+    ft = {
+      "csv",
+      "tsv",
+      "csv_semicolon",
+      "csv_whitespace",
+      "csv_pipe",
+      "rfc_csv",
+      "rfc_semicolon",
+    },
+    cmd = {
+      "RainbowDelim",
+      "RainbowDelimSimple",
+      "RainbowDelimQuoted",
+      "RainbowMultiDelim",
+    },
+  },
+  {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
@@ -89,12 +108,6 @@ return {
     opts = {
       format = {
         timeout_ms = 1000,
-      },
-      formatters = {
-        sqlfluff = {
-          -- use Jinja templating for speed
-          args = { "fix", "--force", "--templater", "jinja", "-" },
-        },
       },
       formatters_by_ft = {
         ["javascript"] = { { "prettierd", "prettier" } },

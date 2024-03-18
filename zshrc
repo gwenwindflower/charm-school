@@ -1,6 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
+# CodeWhisperer pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 #                                             WELCOME TO
 #          ,,                                                                 ,,                           ,,
 #        `7MM                                                               `7MM                         `7MM
@@ -132,6 +131,11 @@ function ff() {
 	rm -f -- "$tmp"
 }
 
+function llf() {
+	local file_name=$1
+	mods -m gemma "How would you improve the code in this file." <$file_name | glow
+}
+
 #         ___
 #        /\_ \    __
 #    __  \//\ \  /\_\     __      ____     __    ____
@@ -186,11 +190,13 @@ alias yt="youtube"
 alias ytdl="youtube-dl"
 alias gdl="gallery-dl"
 alias ppl="web_search perplexity"
+alias t="task"
 
 # python
 alias python="python3"
 alias venv="uv venv .venv"
 alias va="source .venv/bin/activate"
+alias da="deactivate"
 alias venva="venv && va"
 alias pi="uv pip"
 alias pir="uv pip install -r"
@@ -204,6 +210,8 @@ alias pyt="pytest"
 # go
 alias gorm="go run main.go"
 alias gord="go run ."
+alias gotv="go test -v"
+
 # eza
 alias l="eza -l"
 alias ls="eza"
@@ -237,7 +245,7 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 # Add cargo to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# The next line updates PATH for Postgres.app CLI
+# Add Postgres.app CLI to PATH
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # crazy haskell stuff for tidalcycles
@@ -299,5 +307,5 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 . "$HOME/.cargo/env"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# CodeWhisperer post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
