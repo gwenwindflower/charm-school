@@ -7,8 +7,20 @@ vim.keymap.set("n", "∆", "<cmd>m +1<cr>", { noremap = true, silent = true, des
 vim.keymap.set("n", "˚", "<cmd>m -2<cr>", { noremap = true, silent = true, desc = "Move line up one line" })
 vim.keymap.set(
   "v",
-  "<Leader>cx",
-  "<cmd>ModsExplain<cr>",
-  { noremap = true, silent = true, desc = "Explain code via mods" }
+  "<Leader>me",
+  "<cmd>'<,'>ModsExplain<cr>",
+  { noremap = true, silent = false, desc = "Mods - explain code" }
+)
+vim.keymap.set(
+  "v",
+  "<Leader>mr",
+  "<cmd>'<,'>ModsRefactor<cr>",
+  { noremap = true, silent = false, desc = "Mods - suggest refactor" }
+)
+vim.keymap.set(
+  "v",
+  "<Leader>mw",
+  "<cmd>'<,'>Mods",
+  { noremap = true, silent = false, desc = "Mods - open query selection" }
 )
 vim.keymap.set("n", "<Leader>md", ":delmark ", { noremap = true, silent = true, desc = "Delete mark" })

@@ -131,9 +131,13 @@ function ff() {
 	rm -f -- "$tmp"
 }
 
-function llf() {
+function mc() {
 	local file_name=$1
-	mods -m gemma "How would you improve the code in this file." <$file_name | glow
+	mods -m gemma "How would you improve the code in this file?" <$file_name | glow
+}
+
+function mp() {
+	mods -m gemma "Can you explain this code?" <<<"$(pbpaste)" | glow
 }
 
 #         ___
@@ -148,15 +152,19 @@ function llf() {
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias ss="z ~/dev/charm-school/ && vi zshrc"
+alias ss="z ~/dev/charm-school/ && nvim zshrc"
+alias oo="z ~/.oh-my-zsh/ && nvim"
 alias rr="exec $SHELL"
-alias oh="cd ~/.oh-my-zsh && vi"
+alias e="clear"
+alias er="clear && exec $SHELL"
+alias s="z"
 
 # git tools
 alias gdt="git dft"
 alias gz="lazygit"
 alias gho="gh repo view -w"
 alias ghd="gh dash"
+alias gdc="gd --cached"
 
 # dbt and data
 alias dbtp="vi ~/.dbt/profiles.yml"
@@ -172,9 +180,7 @@ alias dn="sunbeam xn"
 
 # media and misc
 alias af="als"
-alias x="clear"
 alias bri="brew update && brew upgrade && brew install"
-alias s="z"
 alias cat="bat"
 alias cc="cookiecutter"
 alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
@@ -193,6 +199,7 @@ alias ppl="web_search perplexity"
 alias t="task"
 
 # python
+alias p="python3"
 alias python="python3"
 alias venv="uv venv .venv"
 alias va="source .venv/bin/activate"
@@ -202,6 +209,8 @@ alias pi="uv pip"
 alias pir="uv pip install -r"
 alias pirr="uv pip install -r requirements.txt"
 alias pc="uv pip compile requirements.in -o requirements.txt"
+alias psy="uv pip sync requirements.txt"
+alias pcy="pc && pirr && psy"
 alias piup="uv pip install --upgrade pip"
 alias vpi="venva && piup && pirr"
 alias vpci="venva && piup && pc && pirr"
@@ -221,10 +230,12 @@ alias lla="eza -la"
 alias lg="eza -laG --git"
 
 # frontend
-alias nrd="pnpm dev"
-alias nrb="pnpm build"
 alias ni="pnpm i"
 alias nu="pnpm up"
+alias nd="pnpm dev"
+alias nb="pnpm build"
+alias bi="bun install"
+alias bd="bun dev"
 
 #  __                   ___
 # /\ \__               /\_ \    __
@@ -309,3 +320,7 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion

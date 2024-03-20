@@ -16,6 +16,46 @@ return {
     },
   },
   {
+    "folke/noice.nvim",
+    opts = {
+      lsp = {
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
+        },
+      },
+      views = {
+        vsplit = {
+          enter = true,
+          size = "50%",
+          buf_options = {
+            filetype = "markdown",
+          },
+        },
+      },
+      routes = {
+        {
+          filter = {
+            event = "msg_show",
+            any = {
+              { find = "%d+L, %d+B" },
+              { find = "; after #%d+" },
+              { find = "; before #%d+" },
+            },
+          },
+          view = "mini",
+        },
+        { view = "vsplit", filter = { event = "msg_show", kind = "", min_height = 20 } },
+      },
+      presets = {
+        bottom_search = true,
+        command_palette = true,
+        inc_rename = true,
+      },
+    },
+  },
+  {
     "SmiteshP/nvim-navbuddy",
     dependencies = {
       "SmiteshP/nvim-navic",
@@ -46,6 +86,13 @@ return {
       "RainbowDelimSimple",
       "RainbowDelimQuoted",
       "RainbowMultiDelim",
+    },
+  },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    opts = {
+      render = "background",
+      enable_tailwind = true,
     },
   },
   {
@@ -213,13 +260,6 @@ return {
               return vim.api.nvim_win_get_config(win).relative == ""
             end,
           },
-          {
-            ft = "noice",
-            size = { height = 0.4 },
-            filter = function(_, win)
-              return vim.api.nvim_win_get_config(win).relative == ""
-            end,
-          },
           "Trouble",
           {
             ft = "trouble",
@@ -248,6 +288,13 @@ return {
               return not vim.b[buf].lazyterm_cmd
             end,
           },
+          -- {
+          --   ft = "noice",
+          --   size = { width = 0.4 },
+          --   filter = function(_, win)
+          --     return vim.api.nvim_win_get_config(win).relative == ""
+          --   end,
+          -- },
         },
         keys = {
           -- increase width
@@ -378,6 +425,19 @@ return {
     },
   },
   {
+    {
+      "CopilotC-Nvim/CopilotChat.nvim",
+      branch = "canary",
+      dependencies = {
+        { "zbirenbaum/copilot.lua" },
+        { "nvim-lua/plenary.nvim" },
+      },
+      opts = {
+        debug = true,
+      },
+    },
+  },
+  {
     "NoahTheDuke/vim-just",
     ft = { "just" },
   },
@@ -408,14 +468,6 @@ return {
     opts = {},
     keys = {
       { "<Leader>mz", "<cmd>ZenMode<CR>", desc = "Toggle ZenMode" },
-    },
-  },
-  {
-    "folke/noice.nvim",
-    opts = {
-      presets = {
-        bottom_search = false,
-      },
     },
   },
   {
