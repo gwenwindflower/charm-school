@@ -67,9 +67,6 @@ return {
     },
   },
   {
-    "IndianBoy42/tree-sitter-just",
-  },
-  {
     "cameron-wags/rainbow_csv.nvim",
     config = true,
     ft = {

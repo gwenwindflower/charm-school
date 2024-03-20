@@ -15,14 +15,6 @@
 # Module that lets you profile your shell and find slow processes
 zmodload zsh/zprof
 
-# function to time zsh startup
-timezsh() {
-	shell=${1-$SHELL}
-	for i in $(seq 1 10); do
-		/usr/bin/time $shell -i -c exit
-	done
-}
-
 #  __  __     __     _ __   ____
 # /\ \/\ \  /'__`\  /\`'__\/',__\
 # \ \ \_/ |/\ \L\.\_\ \ \//\__, `\
@@ -112,9 +104,8 @@ autoload -U zmv
 #   \ \_\  \ \____/\ \_\ \_\ \____\\ \__\\ \_\ \____/\ \_\ \_\/\____/
 #    \/_/   \/___/  \/_/\/_/\/____/ \/__/ \/_/\/___/  \/_/\/_/\/___/
 
-# make a subdirectory in a python package project
-# these often require an __init__.py file to be recognized as a package
-function pydir() {
+# function to make a directory in a python package project with __init__.py
+function pd() {
 	mkdir $1 && touch $1/__init__.py
 }
 
@@ -131,13 +122,28 @@ function ff() {
 	rm -f -- "$tmp"
 }
 
+# function to get code suggestions from Gemma
 function mc() {
 	local file_name=$1
 	mods -m gemma "How would you improve the code in this file?" <$file_name | glow
 }
 
+# function to get a code explanation from Gemma
 function mp() {
 	mods -m gemma "Can you explain this code?" <<<"$(pbpaste)" | glow
+}
+
+# function to copy a enviornment variable to the clipboard
+function cpev() {
+	printenv $1 | pbcopy
+}
+
+# function to time zsh startup
+timezsh() {
+	shell=${1-$SHELL}
+	for i in $(seq 1 10); do
+		/usr/bin/time $shell -i -c exit
+	done
 }
 
 #         ___
@@ -181,6 +187,7 @@ alias dn="sunbeam xn"
 # media and misc
 alias af="als"
 alias bri="brew update && brew upgrade && brew install"
+alias bu="brew update && brew upgrade"
 alias cat="bat"
 alias cc="cookiecutter"
 alias kb="cd ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/gwenwindflower && vi"
@@ -318,9 +325,9 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 . "$HOME/.cargo/env"
 
-# CodeWhisperer post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# CodeWhisperer post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
