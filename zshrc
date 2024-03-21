@@ -134,7 +134,7 @@ function mp() {
 }
 
 # function to copy a enviornment variable to the clipboard
-function cpev() {
+function cpenv() {
 	printenv $1 | pbcopy
 }
 
