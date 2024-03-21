@@ -171,6 +171,7 @@ alias gz="lazygit"
 alias gho="gh repo view -w"
 alias ghd="gh dash"
 alias gdc="gd --cached"
+alias gcmm="meteor"
 
 # dbt and data
 alias dbtp="vi ~/.dbt/profiles.yml"
