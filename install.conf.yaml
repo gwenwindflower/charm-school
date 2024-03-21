@@ -16,9 +16,11 @@
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
     ~/.env: env
+    ~/.meteor.json: meteor.json
     ~/.config/starship.toml: starship.toml
     ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
     ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
+    ~/scripts/gh_copilot.sh: scripts/gh_copilot.sh
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/karabiner: karabiner

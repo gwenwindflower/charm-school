@@ -112,6 +112,9 @@ function pd() {
 # functions for wrapping dbt codegen
 source ~/scripts/dbt_scaffolding.sh
 
+# functions for wrapping gh CLI copilot commands
+source ~/scripts/gh_copilot.sh
+
 # open yazi and exit to directory navigated to
 function ff() {
 	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
@@ -223,6 +226,7 @@ alias piup="uv pip install --upgrade pip"
 alias vpi="venva && piup && pirr"
 alias vpci="venva && piup && pc && pirr"
 alias pyt="pytest"
+alias pd="uv pip install -e ."
 
 # go
 alias gorm="go run main.go"

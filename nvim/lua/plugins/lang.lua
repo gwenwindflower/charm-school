@@ -72,6 +72,17 @@ return {
       { "<leader>ck", "<cmd>VenvSelectCached<CR>", desc = "Select Cached Venv" },
     },
   },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      format = {
+        timeout_ms = 1000,
+      },
+      formatters_by_ft = {
+        ["python"] = { "ruff_format" },
+      },
+    },
+  },
   -- TypeScript
   {
     "prisma/vim-prisma",
