@@ -103,6 +103,7 @@ return {
         "ruff-lsp",
         "marksman",
         "mdx-analyzer",
+        "astro-language-server",
         "svelte-language-server",
         "prisma-language-server",
         "typescript-language-server",

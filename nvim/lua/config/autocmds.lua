@@ -17,6 +17,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("zsh"),
+  pattern = { ".zshrc", ".zshenv", ".zsh", ".zprofile" },
+  callback = function()
+    vim.set_filetype("zsh")
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   group = augroup("go"),
   pattern = { "go" },
   callback = function()

@@ -2,6 +2,7 @@
     link:
       force: true
       create: true
+      glob: true
     shell:
       quiet: true
       stdout: true
@@ -13,20 +14,21 @@
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
-    ~/.env: env
     ~/.meteor.json: meteor.json
     ~/.config/starship.toml: starship.toml
-    ~/.oh-my-zsh/completions/_dbt: oh-my-zsh/completions/_dbt
-    ~/scripts/dbt_scaffolding.sh: scripts/dbt_scaffolding.sh
-    ~/scripts/gh_copilot.sh: scripts/gh_copilot.sh
+    ~/scripts: scripts
+    ~/.env: env
+    ~/.zshenv: zshenv.zsh
+    ~/.zprofile: zprofile.zsh
+    ~/.zshrc: zshrc.zsh
+    ~/.zlogin: zlogin.zsh
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/karabiner: karabiner
     ~/.config/yazi: yazi
     ~/.config/atuin/config.toml: atuin.toml
-
+    ~/.oh-my-zsh/completions: oh-my-zsh/completions
+#
 - shell:
     - command: if [[ -n "${CODESPACES}" ]] || [[ -n "${GITPOD_WORKSPACE_ID}" ]]; then export IN_DEV_CONTAINER=true; fi
       description: Checking if in a dev container...
@@ -36,7 +38,7 @@
       description: Checking Homebrew install...
     - command: if [ -z "${ZSH+x}" ] && ! command -v omz &> /dev/null; then echo "Installing oh-my-zsh..."; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; else echo "Already installed oh-my-zsh"; fi
       description: Checking oh-my-zsh install...
-    - command: source ~/.zshrc; if ! command -v nvm &> /dev/null; then echo "Installing zsh-nvm..." && git clone git@github.com:lukechilds/zsh-nvm.git $ZSH_CUSTOM/plugins/zsh-nvm; else echo "Already installed zsh-nvm."; fi
+    - command: source ~/.zshrc; if ! command -v nvm &> /dev/null; then echo "Installing nvm.." && sh -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh)"; else echo "Already installed nvm."; fi
       description: Checking zsh-nvm install...
     - command: if [[ ${IN_DEV_CONTAINER} ]]; then echo "Installing bundle from Brewfile-dev-container..." && brew bundle install --file Brewfile-dev-container; else echo "Installing bundle from Brewfile-fresh-mac" && brew bundle install --file Brewfile-fresh-mac; fi
       description: Checking Brewfile install...
