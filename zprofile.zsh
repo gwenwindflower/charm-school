@@ -83,27 +83,13 @@ check_path "/Applications/SnowSQL.app/Contents/MacOS"
 # Postgres.app
 check_path "/Applications/Postgres.app/Contents/Versions/latest/bin:"
 
-# GCloud (it sets the PATH so we don't do it explicity)
-if [[ -f "/Users/winnie/google-cloud-sdk/path.zsh.inc" ]]; then source "/Users/winnie/google-cloud-sdk/path.zsh.inc"; fi
-dedupe_path() export GRAVEYARD=$HOME/.Trash # Set rm-improved (`rip`) graveyard to MacOS Trash
+# GCloud (it sets the PATH with these setup scripts so we don't do it explicity)
+if [[ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 
-#   __     __
-# /\ \__ /\ \
-# \ \ ,_\\ \ \___       __     ___ ___       __     ____
-#  \ \ \/ \ \  _ `\   /'__`\ /' __` __`\   /'__`\  /',__\
-#   \ \ \_ \ \ \ \ \ /\  __/ /\ \/\ \/\ \ /\  __/ /\__, `\
-#    \ \__\ \ \_\ \_\\ \____\\ \_\ \_\ \_\\ \____\\/\____/
-#     \/__/  \/_/\/_/ \/____/ \/_/\/_/\/_/ \/____/ \/___/
-# Theming for tools
-# Color theme for `bat` which I always forget to use
-# so I alias it to `cat` in the aliases section
-export BAT_THEME="Catppuccin-frappe"
+# dedupe PATH in case some sneaky duplicates have crept in
+dedupe_path
 
-# Color theme for `fzf` also Catppuccin Frappe
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#f4b8e4	 \
---color=fg:#c6d0f5,header:#f4b8e4	,info:#ca9ee6,pointer:#f2d5cf \
---color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#f4b8e4	"
+export GRAVEYARD=$HOME/.Trash # Set rm-improved (`rip`) graveyard to MacOS Trash
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zprofile.post.zsh"

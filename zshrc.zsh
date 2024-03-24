@@ -40,7 +40,19 @@ autoload -U zmv
 #
 
 # OMZ plugins
-plugins=(aliases bun git gh colored-man-pages nvm sudo python golang pip brew jsontools)
+plugins=(
+	aliases
+	brew
+	bun
+	colored-man-pages
+	gh
+	git
+	golang
+	nvm
+	pip
+	python
+	sudo
+)
 
 # Lazy load nvm
 zstyle ':omz:plugins:nvm' lazy yes
@@ -74,7 +86,14 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 FPATH="${ZSH_COMP}:${FPATH}"
 # Initialize completions
 autoload -Uz compinit && compinit
-
+# clean up stale zcompdump files
+zcompdump_clean() {
+	local dump="${HOME}/.zcompdump"
+	[[ "$dump" -nt "$dump.zwc" ]] || rm -f "$dump.zwc"
+}
+zcompdump_clean
+# Initialize zcompdump
+compinit -d "${HOME}/.zcompdump"
 #  __                    ___
 # /\ \__                /\_ \
 # \ \ ,_\    ___     ___\//\ \      ____
@@ -92,6 +111,24 @@ eval "$(starship init zsh)"
 
 # Zoxide, a Rust replacement for z, which is a replacement for cd
 eval "$(zoxide init zsh)"
+
+#   __     __
+# /\ \__ /\ \
+# \ \ ,_\\ \ \___       __     ___ ___       __     ____
+#  \ \ \/ \ \  _ `\   /'__`\ /' __` __`\   /'__`\  /',__\
+#   \ \ \_ \ \ \ \ \ /\  __/ /\ \/\ \/\ \ /\  __/ /\__, `\
+#    \ \__\ \ \_\ \_\\ \____\\ \_\ \_\ \_\\ \____\\/\____/
+#     \/__/  \/_/\/_/ \/____/ \/_/\/_/\/_/ \/____/ \/___/
+# Theming for tools
+# Color theme for `bat` which I always forget to use
+# so I alias it to `cat` in the aliases section
+export BAT_THEME="Catppuccin-frappe"
+
+# Color theme for `fzf` also Catppuccin Frappe
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#f4b8e4 \
+--color=fg:#c6d0f5,header:#f4b8e4,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#f4b8e4"
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"

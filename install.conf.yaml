@@ -1,3 +1,15 @@
+# Dotbot is a powerful and flexible tool for managing dotfiles, a kind of middle path
+# between chez moi which is really robust, and nothing, which is nothing.
+# Dotbot allows you to easily symlink your dotfiles from a central
+# repository to their respective locations on your filesystem. It reads a
+# configuration file (this one!) that specifies which
+# files and directories should be symlinked and where they should be linked to.
+# Dotbot supports advanced features like file templating, shell command
+# execution, and conditional linking based on the operating system or other
+# factors. It simplifies the process of setting up and maintaining a consistent
+# development environment across multiple machines by keeping your dotfiles
+# organized and easily deployable.
+
 - defaults:
     link:
       force: true
