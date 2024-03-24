@@ -1,4 +1,16 @@
-source "$HOME/.cargo/env"
+# *•.¸♡ *•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡ extra special zsh config ♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*
+# The `.zshenv` file is a configuration file for the Z shell (Zsh) that is
+# always sourced, regardless of whether the shell is interactive or not. It is
+# the first configuration file that Zsh reads when starting up. The `.zshenv`
+# file is typically used to set environment variables that should be available
+# to all scripts and programs run by the shell, not just interactive sessions.
+# This includes setting the `PATH`, `EDITOR`, `PAGER`, and other global
+# environment variables. The `.zshenv` file is sourced before any other Zsh
+# configuration files, so it can be used to set variables that may be needed by
+# those files. It should be kept minimal and only contain essential environment
+# setup.
+# *•.¸♡ *•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡ extra special zsh config ♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*
+
 # Import personal aliases and functions
 source "$HOME/.env"
 source "$HOME/scripts/gh_copilot.sh"

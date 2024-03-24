@@ -12,6 +12,15 @@
 #  YMbmd'.JMML  JMML.`Moo9^Yo..JMML.   .JMML  JMML  JMML.    M9mmmP'  YMbmd'.JMML  JMML.`Ybmd9'   `Ybmd9'.JMML.
 
 # *•.¸♡ *•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡ extra special zsh config ♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*
+# The `.zshrc` file is a configuration file for the Z shell (Zsh) that is
+# sourced for each new interactive shell session. It is used to define aliases,
+# functions, options, and other interactive shell behavior. The `.zshrc` file
+# is where you typically customize your shell prompt, set up command line
+# completions, define key bindings, and add other interactive features to your
+# shell. It is executed every time you start a new interactive shell session,
+# such as opening a new terminal window or running `zsh` from the command line.
+# The `.zshrc` file is the main configuration file for interactive Zsh usage.
+# *•.¸♡ *•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡*•.¸♡ extra special zsh config ♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*♡¸.•*
 
 # Toolfor profiling zsh startup
 zmodload zsh/zprof
@@ -19,7 +28,7 @@ zmodload zsh/zprof
 # load z move
 autoload -U zmv
 
-___
+#        ___
 #       /\_ \                     __
 #  _____\//\ \    __  __     __  /\_\     ___      ____
 # /\ '__`\\ \ \  /\ \/\ \  /'_ `\\/\ \  /' _ `\   /',__\
@@ -29,14 +38,6 @@ ___
 #    \ \_\                   /\____/
 #     \/_/                   \_/__/
 #
-# Starship prompt
-eval "$(starship init zsh)"
-
-# Atuin magical shell history
-eval "$(atuin init zsh)"
-
-# Zoxide, a Rust replacement for z, which is a replacement for cd
-eval "$(zoxide init zsh)"
 
 # OMZ plugins
 plugins=(aliases bun git gh colored-man-pages nvm sudo python golang pip brew jsontools)
@@ -73,6 +74,24 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 FPATH="${ZSH_COMP}:${FPATH}"
 # Initialize completions
 autoload -Uz compinit && compinit
+
+#  __                    ___
+# /\ \__                /\_ \
+# \ \ ,_\    ___     ___\//\ \      ____
+#  \ \ \/   / __`\  / __`\\ \ \    /',__\
+#   \ \ \_ /\ \L\ \/\ \L\ \\_\ \_ /\__, `\
+#    \ \__\\ \____/\ \____//\____\\/\____/
+#     \/__/ \/___/  \/___/ \/____/ \/___/
+#
+
+# Atuin magical shell history
+eval "$(atuin init zsh)"
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# Zoxide, a Rust replacement for z, which is a replacement for cd
+eval "$(zoxide init zsh)"
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"

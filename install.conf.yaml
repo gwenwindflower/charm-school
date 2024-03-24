@@ -21,7 +21,6 @@
     ~/.zshenv: zshenv.zsh
     ~/.zprofile: zprofile.zsh
     ~/.zshrc: zshrc.zsh
-    ~/.zlogin: zlogin.zsh
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/karabiner: karabiner
