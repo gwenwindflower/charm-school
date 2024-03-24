@@ -67,7 +67,7 @@ brew "tree"
 brew "unar"
 brew "uv"
 brew "wget"
-brew "yazi" --HEAD
+brew "yazi", args: ["HEAD"]
 brew "yq"
 brew "yt-dlp"
 brew "zoxide"

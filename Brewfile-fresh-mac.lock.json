@@ -2636,6 +2636,11 @@
               "sha256": "1090777f639528ca1db841e46de98b39c5542f2648caeef4a7beff2965c99b14"
             }
           }
+        },
+        "options": {
+          "args": [
+            "HEAD"
+          ]
         }
       },
       "zoxide": {
