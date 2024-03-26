@@ -39,11 +39,3 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.opt_local.filetype = "toml"
   end,
 })
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  group = augroup("config_file_types"),
-  pattern = { "justfile" },
-  callback = function()
-    vim.opt_local.filetype = "make"
-  end,
-})

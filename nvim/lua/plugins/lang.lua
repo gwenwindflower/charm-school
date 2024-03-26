@@ -1,6 +1,15 @@
 return {
   -- Shell
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, {
+        "shfmt",
+      })
+    end,
+  },
+  {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
@@ -12,6 +21,16 @@ return {
   },
 
   -- Lua and Fennel
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, {
+        "stylua",
+        "lua-language-server",
+      })
+    end,
+  },
   {
     "stevearc/conform.nvim",
     opts = {
@@ -56,7 +75,17 @@ return {
     end,
   },
   -- Python
-  -- LSP Handled by LazyVim Extras Python
+  -- Most config handled by LazyVim Extras Python
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, {
+        "ruff-lsp",
+        "ruff",
+      })
+    end,
+  },
   {
     "linux-cultist/venv-selector.nvim",
     opts = function(_, opts)
@@ -79,7 +108,7 @@ return {
         timeout_ms = 1000,
       },
       formatters_by_ft = {
-        ["python"] = { "ruff_format" },
+        ["python"] = { "ruff_fix", "ruff_format" },
       },
     },
   },
@@ -100,9 +129,6 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
       vim.list_extend(opts.ensure_installed, {
-        "ruff-lsp",
-        "marksman",
-        "mdx-analyzer",
         "astro-language-server",
         "svelte-language-server",
         "prisma-language-server",
@@ -110,9 +136,6 @@ return {
         "emmet-ls",
         "json-lsp",
         "yaml-language-server",
-        "black",
-        "isort",
-        "sqlfluff",
         "shfmt",
         "stylua",
         "lua-language-server",
@@ -139,4 +162,5 @@ return {
       },
     },
   },
+  -- Go is handled by LazyVim Extras Go
 }
